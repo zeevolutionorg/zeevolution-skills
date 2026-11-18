@@ -1,6 +1,6 @@
 # 🌱 Career management
 
-Managing a career — your own, or the people you lead.
+Managing a career — your own, or the people you lead. The **first category** of zeevolution-skills; more are coming ([all categories](../../README.md#️-categories)).
 
 ## 📑 Contents
 

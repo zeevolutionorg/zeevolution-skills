@@ -2,6 +2,9 @@
 
 Install **zeevolution-skills** in your agent, then run `/setup-zeevolution-skills` once.
 
+> [!NOTE]
+> **One install brings every category.** Today that's 🌱 career management; new categories arrive with updates, no new install needed.
+
 > [!IMPORTANT]
 > **Pick one install per machine.** Cursor also loads skills from `~/.claude/skills/`, so installing the same skills twice shows every skill twice.
 
@@ -90,9 +93,9 @@ python3 -m pip install -r requirements.txt   # openpyxl, python-docx, pyyaml
 
 ## ⚙️ After installing
 
-1. Run **`/setup-zeevolution-skills`** once (six quick questions, saved for next time).
-2. Run **`/career-hub-toolkit me`** or **`/career-hub-toolkit <name>`**.
-3. Open the **Career Hub** and book a **bi-weekly 1:1** with it in the invite.
+1. ⚙️ Run **`/setup-zeevolution-skills`** once — six quick questions, saved and reused by every category.
+2. 🗂️ Run a category's toolkit. Today: 🌱 **`/career-hub-toolkit me`** or **`/career-hub-toolkit <name>`**.
+3. 🗓️ Open the **Career Hub** and book a **bi-weekly 1:1** with it in the invite.
 
 ## 🛟 Troubleshooting
 

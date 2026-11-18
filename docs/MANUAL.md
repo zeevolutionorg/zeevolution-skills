@@ -1,6 +1,9 @@
-# ✋ Manual usage — no AI needed
+# ✋ Manual usage — 🌱 Career management
 
-Build a complete Career Hub by hand in Google Workspace or Microsoft 365.
+Build a complete Career Hub by hand in Google Workspace or Microsoft 365 — **no AI needed**.
+
+> [!NOTE]
+> This is the manual for the **career management** category. Each category ships its own Manual Kit and guide — see the [documentation map](README.md).
 
 | ⏱️ First hub | 🔁 Each next person | 🌎 Language |
 |---|---|---|

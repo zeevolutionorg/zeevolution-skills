@@ -1,6 +1,9 @@
-# ✋ Uso manual — sem IA
+# ✋ Uso manual — 🌱 Gestão de carreira
 
-Monte um Hub de Carreira completo à mão, no Google Workspace ou no Microsoft 365.
+Monte um Hub de Carreira completo à mão, no Google Workspace ou no Microsoft 365 — **sem IA**.
+
+> [!NOTE]
+> Este é o manual da categoria **gestão de carreira**. Cada categoria tem seu próprio Kit Manual e guia — veja o [mapa da documentação](README.md).
 
 | ⏱️ Primeiro hub | 🔁 Cada nova pessoa | 🌎 Idioma |
 |---|---|---|

@@ -1,5 +1,7 @@
 # 🚀 /career-hub-toolkit
 
+> 🌱 **Category: career management** · the entry skill of this category. [All categories →](../README.md)
+
 Builds a complete career hub for one person, in one command.
 
 ```text

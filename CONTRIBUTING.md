@@ -2,6 +2,9 @@
 
 Thanks for helping! These skills stay **small, composable and usable without AI**. Please read this page before opening a pull request.
 
+> [!TIP]
+> zeevolution-skills is a **library of categories**. 🌱 Career management is the first; new categories are welcome — see [🗂️ Adding a category](#️-adding-a-category).
+
 ## 📑 Contents
 
 - [📜 Ground rules](#-ground-rules)
