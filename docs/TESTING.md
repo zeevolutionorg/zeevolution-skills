@@ -33,6 +33,7 @@ Like `src/main` ↔ `src/test` in a Java service, `tests/` mirrors the files it 
 | `skills/foundations/cloud-workspace/scripts/build_sheet.py` | `tests/skills/foundations/cloud-workspace/scripts/test_build_sheet.py` |
 | `skills/foundations/cloud-workspace/scripts/make_bundle.py` | `tests/skills/foundations/cloud-workspace/scripts/test_make_bundle.py` |
 | `skills/<category>/<skill>/SKILL.md` (+ its `.md` files) | `tests/skills/<category>/<skill>/test_skill.py` |
+| `skills/software-engineering/create-adr/` · `service-handoff/` | `tests/skills/software-engineering/<skill>/test_skill.py` |
 | `skills/career-management/career-hub-toolkit/INTERVIEW.md` | `tests/skills/career-management/career-hub-toolkit/test_interview.py` |
 | `templates/career-management/*` | `tests/templates/career-management/test_documents.py`, `test_bundle.py`, `test_ladder_assessment_sheet.py` |
 | `.claude-plugin/`, `.cursor-plugin/` | `tests/plugin-manifests/test_manifests.py` |

@@ -7,9 +7,10 @@ Everything about **zeevolution-skills**, organized by category. Start with **Get
 - [🚦 Getting started](#-getting-started)
 - [🗂️ By category](#️-by-category)
   - [🌱 Career management](#-career-management)
+  - [🛠️ Software engineering](#️-software-engineering)
   - [🔭 Coming soon](#-coming-soon)
 - [🧱 Foundations](#-foundations)
-- [🛠️ Contributing and internals](#️-contributing-and-internals)
+- [🔧 Contributing and internals](#-contributing-and-internals)
 
 ---
 
@@ -23,7 +24,7 @@ Everything about **zeevolution-skills**, organized by category. Start with **Get
 
 ## 🗂️ By category
 
-Each category has its own toolkit skill, its own templates, and its own manual for use without AI.
+Each category has its own skills, its own templates, and a way to use them without AI.
 
 ### 🌱 Career management
 
@@ -36,9 +37,19 @@ Each category has its own toolkit skill, its own templates, and its own manual f
 | 🧩 [Skills in this category](../skills/career-management/README.md) | The skills and how they fit together |
 | 🗂️ [Templates](../templates/README.md) | The documents behind the skills |
 
+### 🛠️ Software engineering
+
+> ✅ **Available now** — recording technical decisions and handing services over.
+
+| Doc | For |
+|---|---|
+| 📘 [Software engineering guide](software-engineering/README.md) | What `/create-adr` and `/service-handoff` do and ask |
+| 🧩 [Skills in this category](../skills/software-engineering/README.md) | The skills and their files |
+| 🏛️ [ADR template](../skills/software-engineering/create-adr/template.md) · 🤝 [Handoff template](../skills/software-engineering/service-handoff/template.md) | Use them by hand |
+
 ### 🔭 Coming soon
 
-> ⏳ **More categories are on the way.** Each new one gets a section here with the same shape: toolkit guide, manual, skills, templates.
+> ⏳ **More categories are on the way.** Each new one gets a section here with the same shape: guide, skills, templates.
 
 Want to propose or build one? See [CONTRIBUTING → Adding a category](../CONTRIBUTING.md#️-adding-a-category).
 
@@ -52,7 +63,7 @@ Shared by every category — new categories get them for free.
 | 📊 [Sheet specs](../skills/foundations/cloud-workspace/SHEETS.md) | How spreadsheets are described and built |
 | 📋 [Manual adapter](../skills/foundations/cloud-workspace/MANUAL.md) | The copy-and-paste fallback |
 
-## 🛠️ Contributing and internals
+## 🔧 Contributing and internals
 
 | Doc | For |
 |---|---|

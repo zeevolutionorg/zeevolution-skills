@@ -63,7 +63,7 @@ A category groups skills for one aspect of a technologist's work. Add one only w
 
 | Step | Add |
 |---|---|
-| 1️⃣ | `skills/<category>/README.md` and its skills: one **`<something>-toolkit`** user-invoked skill that sets up the category's documents, then working skills on top |
+| 1️⃣ | `skills/<category>/README.md` and its skills. If the category sets up a whole set of documents, give it one **`<something>-toolkit`** user-invoked skill, with working skills on top; standalone skills are fine too (see `software-engineering`) |
 | 2️⃣ | A contract test per skill at `tests/skills/<category>/<skill>/test_skill.py`, and `tests/.../scripts/test_<name>.py` for any script |
 | 3️⃣ | `templates/<category>/<lang>/` if it produces documents (`en` and `pt-BR`), plus `*.sheet.yaml` / `*.strings.yaml` for spreadsheets, and `tests/templates/<category>/` |
 | 4️⃣ | Each skill folder in `.claude-plugin/plugin.json` → `skills` |

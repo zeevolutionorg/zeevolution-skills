@@ -38,7 +38,16 @@ def test_kit_keeps_placeholders_for_manual_use(dist):
 def test_one_skill_file_per_skill(dist):
     skills = sorted(p.stem for p in (dist / "skills").glob("*.skill"))
     assert skills == sorted(
-        ["career-hub-toolkit", "career-ladder", "cloud-workspace", "disciplines", "doc-templates", "setup-zeevolution-skills"]
+        [
+            "career-hub-toolkit",
+            "career-ladder",
+            "cloud-workspace",
+            "create-adr",
+            "disciplines",
+            "doc-templates",
+            "service-handoff",
+            "setup-zeevolution-skills",
+        ]
     )
 
 
@@ -55,7 +64,7 @@ def test_skill_files_are_self_contained(dist):
 
 
 def test_all_skills_zip(dist):
-    assert len(zipfile.ZipFile(dist / "zeevolution-skills-all-skills.zip").namelist()) == 6
+    assert len(zipfile.ZipFile(dist / "zeevolution-skills-all-skills.zip").namelist()) == 8
 
 
 def test_file_names_come_from_bundle():

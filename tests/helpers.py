@@ -60,7 +60,8 @@ def relative_links(md_path: Path):
     text = re.sub(r"```.*?```", "", text, flags=re.S)  # ignore code blocks
     text = re.sub(r"`[^`\n]*`", "", text)  # and inline code
     links = re.findall(r"\]\(([^)\s]+)\)", text)
-    return [l for l in links if not l.startswith(("http", "#", "mailto:", "{{", "<"))]
+    links = [l for l in links if not l.startswith(("http", "#", "mailto:", "{{", "<"))]
+    return [l for l in links if "<" not in l and "NNN" not in l]  # template placeholders, not real links
 
 
 def assert_skill_contract(path: Path, user_invoked: bool):

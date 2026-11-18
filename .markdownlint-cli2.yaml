@@ -10,5 +10,6 @@ config:
   MD060: false
 ignores:
   - "skills/**/assets/**"
+  - "skills/**/template.md"     # templates meant to be copied verbatim
   - "templates/*/**"
   - "evals/*/**"

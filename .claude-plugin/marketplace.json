@@ -9,9 +9,17 @@
     {
       "name": "zeevolution-skills",
       "source": "./",
-      "description": "Skills for Technologists: small, composable agent skills for engineers, data scientists, designers and product managers. First up: career management (/career-hub-toolkit).",
+      "description": "Skills for Technologists: small, composable agent skills for engineers, data scientists, designers and product managers. Categories: career management and software engineering.",
       "category": "productivity",
-      "keywords": ["skills", "career-management", "career", "one-on-one", "technologists"]
+      "keywords": [
+        "adr",
+        "career",
+        "career-management",
+        "one-on-one",
+        "skills",
+        "software-engineering",
+        "technologists"
+      ]
     }
   ]
 }

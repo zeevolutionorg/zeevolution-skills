@@ -11,7 +11,8 @@ The shared language for skills, templates and docs. Use these words — don't in
 - [🌱 Growth vocabulary](#-growth-vocabulary)
 - [🪜 Career ladder](#-career-ladder)
 - [🔌 Delivery](#-delivery)
-- [🛠️ Technical terms](#️-technical-terms)
+- [🛠️ Software engineering](#️-software-engineering)
+- [🔧 Technical terms](#-technical-terms)
 
 ---
 
@@ -81,7 +82,16 @@ The shared language for skills, templates and docs. Use these words — don't in
 | **Manual fallback** | Filled-in Markdown documents + a HOW-TO-PASTE guide, when there's no connector, filesystem or Python. |
 | **Manual Kit** | Release zip with Markdown, Word and spreadsheet templates for use without AI. |
 
-## 🛠️ Technical terms
+## 🛠️ Software engineering
+
+| Term | Meaning |
+|---|---|
+| **ADR (Architecture Decision Record)** | A short document that records one technical decision: its context, the alternatives considered, the decision and its consequences. |
+| **Supersede** | Replace an older ADR with a new one; the old one stays, marked "Superseded by". |
+| **Service handoff** | Transferring ownership of a service to another team (or a fresh agent session), with the context and checklists they need. |
+| **Incoming / outgoing owner** | The team receiving a service / the team handing it over. |
+
+## 🔧 Technical terms
 
 | Term | Meaning |
 |---|---|

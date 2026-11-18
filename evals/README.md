@@ -13,12 +13,14 @@ End-to-end checks of how an agent **behaves** with the skills — the part unit 
 
 ## ❓ What they check
 
-| Case | Checks that `/career-hub-toolkit`… | Tags |
+| Case | Checks that the skill… | Tags |
 |---|---|---|
 | `career-hub-self-manual-en` | builds a self-mode hub as Markdown + paste guide and reports the bi-weekly rhythm | smoke |
 | `career-hub-lead-files-ptbr` | builds a lead-mode hub as `.docx` / `.xlsx` in Portuguese, without the optional docs | — |
 | `career-hub-asks-before-creating` | asks for missing information and creates nothing | smoke |
 | `career-hub-no-connector-fallback` | says there's no Google tool and falls back instead of pretending | smoke |
+| `create-adr-asks-first` | `create-adr` asks for the input mode and folder before writing | smoke |
+| `service-handoff-interviews-first` | `/service-handoff` interviews the engineer before writing | — |
 
 ## 📁 Format
 

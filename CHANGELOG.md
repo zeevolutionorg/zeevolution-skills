@@ -23,6 +23,7 @@ First release.
 - `career-management/career-hub-toolkit` — one command to build a career hub (self mode and lead mode; English and Brazilian Portuguese; Google Workspace, Microsoft 365 or files).
 - `career-management/career-ladder` — map a company career ladder or use the generic one.
 - `foundations/setup-zeevolution-skills`, `foundations/cloud-workspace`, `foundations/doc-templates`, `foundations/disciplines`.
+- **New category — software engineering:** `software-engineering/create-adr` (Architecture Decision Records: compress a spec + plan, from merged PRs, interview, or supersede) and `software-engineering/service-handoff` (service-ownership handoff with interview, repo evaluation, observability baseline and checklists).
 
 ### 🔌 Added — delivery and quality
 

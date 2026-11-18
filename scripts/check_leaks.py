@@ -55,6 +55,8 @@ ALLOWED_DOMAINS = {
     "example.org",
     "www.aihero.dev",
     "img.shields.io",
+    "localhost",
+    "adr.github.io",
     "jvns.ca",
     "www.ccl.org",
     "ccl.org",

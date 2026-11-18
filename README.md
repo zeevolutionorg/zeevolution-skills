@@ -21,7 +21,7 @@
 </div>
 
 > [!TIP]
-> **A growing library, organized by category.** Each category packages one area of a technologist's work into skills you can run with an agent — or copy by hand. **🌱 Career management** is the first category, available now. **More categories are on the way.**
+> **A growing library, organized by category.** Each category packages one area of a technologist's work into skills you can run with an agent — or copy by hand. Two categories are available now — **🌱 Career management** and **🛠️ Software engineering**. **More categories are on the way.**
 
 ---
 
@@ -34,6 +34,7 @@
 - [🔌 No connector? Still works](#-no-connector-still-works)
 - [🗂️ Categories](#️-categories)
   - [🌱 Career management](#-career-management)
+  - [🛠️ Software engineering](#️-software-engineering)
   - [🔭 Coming soon](#-coming-soon)
   - [🧱 Foundations](#-foundations)
 - [✋ Without AI](#-without-ai)
@@ -48,6 +49,7 @@
 ```text
 zeevolution-skills
 ├── 🌱 career-management     ← available now
+├── 🛠️ software-engineering  ← available now
 ├── 🔭 …next category        ← coming soon
 ├── 🔭 …and more             ← coming soon
 └── 🧱 foundations           ← shared by every category: setup, documents, sheets, languages, disciplines
@@ -56,10 +58,11 @@ zeevolution-skills
 | Category | What it covers | Status |
 |---|---|---|
 | 🌱 **[Career management](#-career-management)** | Managing a career — your own, or the people you lead | ✅ **Available** (v0.1) |
+| 🛠️ **[Software engineering](#️-software-engineering)** | Everyday engineering practices: recording decisions, handing services over | ✅ **Available** (v0.1) |
 | 🔭 **[More categories](#-coming-soon)** | Other aspects of a technologist's work | ⏳ **Coming soon** |
 | 🧱 **[Foundations](#-foundations)** | Shared building blocks every category uses | ✅ Available |
 
-Every category follows the same pattern: **one `*-toolkit` skill** that sets up its documents in one command, then **working skills** on top — all built on the same foundations.
+Every category groups skills for one area of work, all built on the same foundations. When a category sets up a whole set of documents, it has **one `*-toolkit` skill** that does it in one command, with **working skills** on top.
 
 ## ✨ What every skill gives you
 
@@ -76,7 +79,9 @@ Every category follows the same pattern: **one `*-toolkit` skill** that sets up 
 
 1. 📦 **Install** in your agent — see [📦 Install](#-install).
 2. ⚙️ **Set up once** — run **`/setup-zeevolution-skills`**: your name, discipline, where documents go and language. Every category reuses these answers.
-3. 🗂️ **Pick a category and run its toolkit** — today that's **🌱 career management**: `/career-hub-toolkit me` for your own career, or `/career-hub-toolkit Ana Souza, Data Scientist L3` for someone you lead.
+3. 🗂️ **Pick a category and run a skill:**
+   - 🌱 **Career management** — `/career-hub-toolkit me` for your own career, or `/career-hub-toolkit Ana Souza, Data Scientist L3` for someone you lead.
+   - 🛠️ **Software engineering** — `/create-adr` to record a technical decision, or `/service-handoff` to hand a service over to another team.
 
 ## 📦 Install
 
@@ -133,17 +138,28 @@ Every skill that creates documents ends with something you can use, in this orde
 
 📘 **Docs:** [what the toolkit creates and asks](docs/career-management/career-hub-toolkit.md) · ✋ [manual guide](docs/MANUAL.md) · [guia em português](docs/MANUAL.pt-BR.md)
 
+### 🛠️ Software engineering
+
+> ✅ **Available now** · everyday engineering practices that are easy to skip and expensive to miss
+
+| Skill | Type | What it does |
+|---|---|---|
+| 🏛️ [create-adr](skills/software-engineering/create-adr/SKILL.md) | 🤖 automatic — or type `/create-adr` | Writes an **Architecture Decision Record** — the *why* behind a technical decision — from a shipped spec + plan, merged PRs, an interview, or by superseding an older one |
+| 🤝 [service-handoff](skills/software-engineering/service-handoff/SKILL.md) | ⌨️ you run it | Builds a **service-ownership handoff**: stakeholders, recent changes, open PRs, observability baseline, and checklists for the incoming team |
+
+📘 **Docs:** [software engineering guide](docs/software-engineering/README.md)
+
 ### 🔭 Coming soon
 
 > ⏳ **More categories are on the way.**
 
-Career management is the first of several categories. New ones are added when a practice proves worth packaging — each with its own `*-toolkit` skill, its own templates and a Manual Kit, built on the same foundations.
+Career management and software engineering are the first of several categories. New ones are added when a practice proves worth packaging — each with its own skills and templates, usable with or without AI, built on the same foundations.
 
 | | |
 |---|---|
 | 👀 **Follow along** | Watch the repository's releases and the [CHANGELOG](CHANGELOG.md) |
 | 💬 **Suggest one** | Open an issue with the **Idea** template: tell us the practice you repeat and how you do it today |
-| 🛠️ **Build one** | [CONTRIBUTING → Adding a category](CONTRIBUTING.md#️-adding-a-category) |
+| 🔧 **Build one** | [CONTRIBUTING → Adding a category](CONTRIBUTING.md#️-adding-a-category) |
 
 ### 🧱 Foundations
 
@@ -163,6 +179,7 @@ Every category ships a **Manual Kit** per language in each release: its template
 | Category | Kit | First time | Guides |
 |---|---|---|---|
 | 🌱 Career management | `career-management-kit-en.zip` · `career-management-kit-pt-BR.zip` | ⏱️ 20–30 min (≈10 min per next person) | [English](docs/MANUAL.md) · [Português](docs/MANUAL.pt-BR.md) |
+| 🛠️ Software engineering | The ADR and handoff templates are plain Markdown in the repo | ⏱️ minutes | [Guide](docs/software-engineering/README.md) |
 | 🔭 Next categories | ⏳ coming soon | — | — |
 
 ## ✅ Quality
@@ -173,7 +190,7 @@ Every proposed change is checked automatically before it's accepted. This is cal
 |---|---|
 | 📝 The text and code follow the same style | Documents and skills stay consistent and readable |
 | 🌎 English and Portuguese versions have the same sections | No language gets left behind |
-| 🧪 About 390 automated tests pass — from single functions to building 32 complete career hubs | The toolkit keeps working after every change |
+| 🧪 About 420 automated tests pass — from single functions to building 32 complete career hubs | The toolkit keeps working after every change |
 | 📊 The spreadsheet's formulas still calculate the right results | Scores, gaps and readiness are correct |
 | 🕵️ Nothing points to a real company or person, and no passwords leaked | Safe to share |
 | 🎯 *(on request)* An AI assistant still uses the skills the right way | The skills keep behaving as described |
@@ -188,9 +205,10 @@ New categories go through the same checks. ➡️ Details for contributors: [doc
 |---|---|
 | 🚦 **Getting started** | 📦 [Install](docs/INSTALL.md) · 📖 [Glossary](GLOSSARY.md) |
 | 🌱 **Career management** | 🚀 [career-hub-toolkit](docs/career-management/career-hub-toolkit.md) · ✋ [Manual](docs/MANUAL.md) · [pt-BR](docs/MANUAL.pt-BR.md) |
+| 🛠️ **Software engineering** | 🏛️ [create-adr & 🤝 service-handoff guide](docs/software-engineering/README.md) |
 | 🔭 **Next categories** | ⏳ Coming soon |
 | 🧱 **Foundations** | 🧩 [Foundations docs](docs/foundations/README.md) |
-| 🛠️ **Contributing & internals** | 🤝 [Contributing](CONTRIBUTING.md) · 🧪 [Testing](docs/TESTING.md) · 🏛️ [Decisions](docs/adr/README.md) · 🎯 [Evals](evals/README.md) · 📝 [Changelog](CHANGELOG.md) · 🙏 [Credits](CREDITS.md) |
+| 🔧 **Contributing & internals** | 🤝 [Contributing](CONTRIBUTING.md) · 🧪 [Testing](docs/TESTING.md) · 🏛️ [Decisions](docs/adr/README.md) · 🎯 [Evals](evals/README.md) · 📝 [Changelog](CHANGELOG.md) · 🙏 [Credits](CREDITS.md) |
 
 ## ⚖️ License
 
