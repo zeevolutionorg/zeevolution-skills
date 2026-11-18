@@ -57,4 +57,5 @@ Use a **personal** Google account and a **personal** Microsoft account. Never a 
 - [ ] `gh repo edit zeevolution/zeevolution-skills --visibility public --accept-visibility-change-consequences`
 - [ ] `git tag v0.1.0 && git push --tags` → the release workflow publishes the Manual Kits and `.skill` files.
 - [ ] Create one real hub in your own workspace.
+- [ ] Uncomment the **CI badge** at the top of `README.md` (it only works once the repo is public and CI has run).
 - [ ] Later (not v0.1): submit to the Cursor Marketplace once the repo is stable.

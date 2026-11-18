@@ -27,7 +27,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SKIP_DIRS = {".git", "node_modules", "__pycache__", ".out"}
-TEXT_EXT = {".md", ".yaml", ".yml", ".json", ".py", ".sh", ".txt", ".html", ".csv", ".toml", ".cfg", ""}
+TEXT_EXT = {".svg", ".md", ".yaml", ".yml", ".json", ".py", ".sh", ".txt", ".html", ".csv", ".toml", ".cfg", ""}
 OFFICE_EXT = {".docx", ".xlsx", ".pptx"}
 ALLOWED_DOMAINS = {
     "github.com",

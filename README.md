@@ -1,16 +1,18 @@
 <div align="center">
 
-# 🧰 Skills for Technologists
+# <img src="assets/logo.svg" alt="zeevolution-skills logo: a Z drawn as a rising staircase between code brackets" width="56" align="center"> Skills for Technologists
 
 **zeevolution-skills** · small, composable agent skills for engineers, data scientists, designers and product managers
 
 *Built from my experience leading and growing technologists.*
 
+[![License: MIT](assets/badges/license-mit.svg)](LICENSE)
+[![Claude skills](assets/badges/claude.svg)](docs/INSTALL.md#-claude-code)
+[![Cursor skills](assets/badges/cursor.svg)](docs/INSTALL.md#-cursor)
+[![Docs: EN and pt-BR](assets/badges/docs-languages.svg)](docs/MANUAL.md)
+<!-- Add once the repo is public:
 [![CI](https://github.com/zeevolution/zeevolution-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/zeevolution/zeevolution-skills/actions/workflows/ci.yml)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-![Claude](https://img.shields.io/badge/Claude-skills-D97757)
-![Cursor](https://img.shields.io/badge/Cursor-skills-111111)
-![Languages](https://img.shields.io/badge/docs-EN%20%7C%20pt--BR-2ea44f)
+-->
 
 </div>
 
