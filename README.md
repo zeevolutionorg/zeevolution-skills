@@ -1,6 +1,10 @@
 <div align="center">
 
-# <img src="assets/logo.svg" alt="zeevolution-skills logo: a Z drawn as a rising staircase between code brackets" width="56" align="center"> Skills for Technologists
+<p align="center">
+  <img src="assets/logo.svg" alt="zeevolution-skills logo: a Z drawn as a rising staircase between code brackets" width="112" height="112">
+</p>
+
+<h1 align="center">Skills for Technologists</h1>
 
 **zeevolution-skills** · small, composable agent skills for engineers, data scientists, designers and product managers
 
