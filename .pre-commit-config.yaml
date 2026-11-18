@@ -1,0 +1,49 @@
+# Same checks as CI's first stages, before every commit:  pre-commit install
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.6.9
+    hooks:
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.35.1
+    hooks:
+      - id: yamllint
+        args: [-c, .yamllint.yml]
+  - repo: https://github.com/DavidAnson/markdownlint-cli2
+    rev: v0.14.0
+    hooks:
+      - id: markdownlint-cli2
+        files: ^(README|CONTRIBUTING|GLOSSARY|CREDITS|CHANGELOG|AGENTS)\.md$|^docs/|^skills/(?!.*/assets/)
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.21.2
+    hooks:
+      - id: gitleaks
+  - repo: local
+    hooks:
+      - id: sync-skill-assets
+        name: bundled copies in sync
+        entry: python3 scripts/sync_skill_assets.py --check
+        language: system
+        pass_filenames: false
+      - id: validate-skills
+        name: skills and manifests valid
+        entry: python3 scripts/validate_skills.py
+        language: system
+        pass_filenames: false
+      - id: parity
+        name: EN / pt-BR parity
+        entry: python3 scripts/check_parity.py
+        language: system
+        pass_filenames: false
+      - id: leak-check
+        name: leak check (uses ~/.config/zeevolution/denylist.txt)
+        entry: python3 scripts/check_leaks.py
+        language: system
+        pass_filenames: false
+      - id: fast-tests
+        name: unit + contract tests
+        entry: python3 -m pytest -q -m "unit or contract"
+        language: system
+        pass_filenames: false

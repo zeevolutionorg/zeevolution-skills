@@ -182,10 +182,11 @@ sheets:
         - {col: C, f: "=IFERROR(MATCH({sheet:assessment}!F{r+11},Scale4,0),\"\")", style: computed_c}
         - {col: D, f: "={sheet:assessment}!H{r+11}", style: computed_c}
     cond_formats:
-      - {range: "B16:D16", rules: [
-          {equals: "[[ready_ready]]", fill: "CFE2FF", font: "084298"},
-          {equals: "[[ready_close]]", fill: "D1E7DD", font: "0F5132"},
-          {equals: "[[ready_building]]", fill: "FFF3CD", font: "664D03"}]}
+      - range: "B16:D16"
+        rules:
+          - {equals: "[[ready_ready]]", fill: "CFE2FF", font: "084298"}
+          - {equals: "[[ready_close]]", fill: "D1E7DD", font: "0F5132"}
+          - {equals: "[[ready_building]]", fill: "FFF3CD", font: "664D03"}
       - {range: "D4:D9", rules: [{equals: "[[flag_talk]]", fill: "F8D7DA", font: "842029"}]}
     charts:
       - {type: bar, title: "[[sum_chart_title]]", data: "B3:C9", cats: "A4:A9", anchor: F3, width: 17, height: 8, y_min: 0, y_max: 4}

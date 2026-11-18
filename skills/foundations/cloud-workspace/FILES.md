@@ -6,6 +6,7 @@ The universal fallback and the default in Cursor or Claude Code when no Drive / 
 
 - A filesystem the agent can write to.
 - `python3` with `openpyxl`, `python-docx` and `pyyaml`. If missing: `pip install openpyxl python-docx pyyaml` (add `--break-system-packages` on systems that require it).
+- **No filesystem, no Python, or the install fails?** Don't stop: use the **Manual** adapter ([MANUAL.md](MANUAL.md)) and give the user filled-in Markdown to paste.
 
 ## Steps
 

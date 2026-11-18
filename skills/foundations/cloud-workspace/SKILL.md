@@ -1,6 +1,6 @@
 ---
 name: cloud-workspace
-description: Create folders, documents and spreadsheets in the user's workspace (Google Workspace, Microsoft 365, or local .docx/.xlsx files) from zeevolution-skills templates, and link them together. Use whenever a zeevolution skill needs to write documents or sheets for the user.
+description: Create folders, documents and spreadsheets in the user's workspace (Google Workspace, Microsoft 365, local .docx/.xlsx files, or filled-in Markdown to copy and paste when no connector is available) from zeevolution-skills templates, and link them together. Use whenever a zeevolution skill needs to write documents or sheets for the user.
 ---
 
 # Cloud workspace
@@ -16,8 +16,17 @@ Use the platform saved by `setup-zeevolution-skills` (or the one the user named)
 | Google Workspace | [GOOGLE.md](GOOGLE.md) | A Google Drive tool that can create files (Claude connector or an MCP server in Claude Code / Cursor) |
 | Microsoft 365 | [MICROSOFT.md](MICROSOFT.md) | A OneDrive / SharePoint tool that can create files |
 | Files | [FILES.md](FILES.md) | A filesystem and `python3` with `openpyxl`, `python-docx`, `pyyaml` |
+| Manual (copy & paste) | [MANUAL.md](MANUAL.md) | Nothing. Works in every agent, even with no connector, no filesystem and no Python |
 
-If the chosen platform's tool is missing or can't write, **say so in one line and fall back to Files**. Never pretend a file was created.
+### Fallback order
+
+Always end with something the user can use. Go down this list until one works, and **say in one line why you moved down**:
+
+1. **Connector / MCP** for the chosen platform (Google or Microsoft) that can write.
+2. **Files** — real `.docx` / `.xlsx`, if the agent can write files and run Python.
+3. **Manual** — filled-in Markdown files (or Markdown in the chat, if there's no filesystem) plus a step-by-step paste guide for Google Docs or Word.
+
+The user can also ask for **Manual** directly ("just give me the files to paste"). Never pretend a file was created.
 
 ## Rendering (same for every adapter)
 
@@ -27,10 +36,16 @@ Templates are Markdown with `{{placeholders}}` (rules in the **doc-templates** s
 # document → .docx (also .html or .md)
 python3 scripts/render_doc.py --in TEMPLATE.md --out OUT.docx --context context.json
 
+# whole bundle (Files or Manual adapter): every document, links, hub last
+python3 scripts/make_bundle.py --bundle BUNDLE.yaml --templates TEMPLATES_DIR --lang en \
+  --mode lead --format files|manual --context context.json --out OUT_DIR
+
 # sheet spec → formatted .xlsx
 python3 scripts/build_sheet.py --spec SPEC.sheet.yaml --strings STRINGS.yaml \
   --ladder LADDER.yaml --context context.json --out OUT.xlsx
 ```
+
+No Python? The **Manual** adapter fills placeholders by plain text replacement, which the agent can do itself.
 
 Paths are relative to this skill's folder (in Claude Code: `${CLAUDE_SKILL_DIR}/scripts/…`). Skills that bundle their own copy of these scripts (e.g. career-hub-toolkit) use their copy.
 

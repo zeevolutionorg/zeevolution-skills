@@ -1,0 +1,25 @@
+# Career-management bundle: which documents exist, in which order, for which mode.
+# Read by skills/foundations/cloud-workspace/scripts/make_bundle.py and scripts/build.py.
+folder_title:
+  en: "Career Hub — {{person_name}}"
+  pt-BR: "Hub de Carreira — {{person_name}}"
+documents:
+  - {id: "00", key: hub, kind: doc, template: 00-career-hub.md, hub: true, modes: [self, lead],
+     title: {en: "🚀 Career Hub", pt-BR: "🚀 Hub de Carreira"}}
+  - {id: "01", key: one_on_one, kind: doc, template: 01-one-on-one-notes.md, modes: [self, lead],
+     title: {en: "🎶 1:1 Notes", pt-BR: "🎶 Notas de 1:1"}}
+  - {id: "02", key: growth_plan, kind: doc, template: 02-growth-plan.md, modes: [self, lead],
+     title: {en: "🌱 Growth Plan", pt-BR: "🌱 PDI"}}
+  - {id: "03", key: brag, kind: doc, template: 03-brag-document.md, modes: [self, lead],
+     title: {en: "😎 Brag Document", pt-BR: "😎 Brag Document"}}
+  - {id: "04", key: focus_plan, kind: doc, template: 04-focus-plan.md, modes: [self, lead],
+     title: {en: "🧭 Focus Plan", pt-BR: "🧭 Plano de Foco"}}
+  - {id: "05", key: ladder, kind: sheet, spec: 05-ladder-assessment.sheet.yaml, strings: 05-ladder-assessment.strings.yaml,
+     text_fallback: 05-ladder-assessment.md, modes: [self, lead],
+     title: {en: "🪜 Ladder Assessment", pt-BR: "🪜 Avaliação de Trilha"}}
+  - {id: "06", key: review, kind: doc, template: 06-performance-review.md, modes: [lead],
+     title: {en: "📝 Performance Review", pt-BR: "📝 Avaliação de Desempenho"}}
+  - {id: "07", key: evidence, kind: doc, template: 07-evidence-doc.md, modes: [lead], optional: true,
+     title: {en: "🔎 Evidence Doc", pt-BR: "🔎 Documento de Evidências"}}
+  - {id: "08", key: onboarding, kind: doc, template: 08-onboarding-plan.md, modes: [lead], optional: true,
+     title: {en: "🛬 Onboarding Plan", pt-BR: "🛬 Plano de Onboarding"}}

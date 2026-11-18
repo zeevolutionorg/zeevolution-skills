@@ -5,6 +5,6 @@ cd "$(dirname "$0")/.."
 python3 scripts/sync_skill_assets.py
 python3 scripts/validate_skills.py
 python3 scripts/check_parity.py
-python3 scripts/dry_run.py
-python3 scripts/build.py
-python3 scripts/check_leaks.py
+python3 -m pytest -q
+python3 scripts/build.py --out dist
+python3 scripts/check_leaks.py . dist

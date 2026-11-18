@@ -50,6 +50,10 @@ python3 -m pip install -r requirements.txt   # openpyxl, python-docx, pyyaml
 
 The files open in Word and Excel, and convert to Google Docs / Sheets when uploaded to Drive (**Settings › Convert uploads**, or right-click › **Open with**).
 
+## Manual fallback — no requirements
+
+If the agent has no connector, can't write files or can't run Python, the skills give you **filled-in Markdown documents** (as files, or one code block per document in the chat) and a **HOW-TO-PASTE** guide for Google Docs, Word, Notion and Confluence. You can also ask for this directly: "just give me the documents to paste".
+
 ## Without AI
 
 No install needed: download a Manual Kit from the Releases page and follow [MANUAL.md](MANUAL.md).

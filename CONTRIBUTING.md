@@ -13,9 +13,11 @@ Thanks for helping. These skills stay **small, composable and usable without AI*
 ## Local checks
 
 ```bash
-python3 -m pip install -r requirements.txt
-scripts/build.sh            # sync assets, validate skills, parity, dry run, build dist/, leak check
+make install   # dev dependencies + pre-commit hooks
+make check     # the same stages CI runs: lint, consistency, tests, e2e, sheets, leak check
 ```
+
+Tests mirror the repository layout (`scripts/x.py` → `tests/scripts/test_x.py`). See [docs/TESTING.md](docs/TESTING.md) for the test levels, the CI/CD sequence and the tools.
 
 For the leak check to cover employer terms locally, keep a denylist at `~/.config/zeevolution/denylist.txt` (one term per line). It never goes into the repo.
 
@@ -23,7 +25,7 @@ For the leak check to cover employer terms locally, keep a denylist at `~/.confi
 
 A category groups skills for one aspect of a technologist's work. Add one only when a practice is repeated often enough to be worth packaging.
 
-1. `skills/<category>/README.md` and its skills: one **`<something>-toolkit`** user-invoked skill that sets up the category's documents, then working skills on top.
+1. `skills/<category>/README.md` and its skills, each with a contract test at `tests/skills/<category>/<skill>/test_skill.py` (and `tests/.../scripts/test_<name>.py` for any script): one **`<something>-toolkit`** user-invoked skill that sets up the category's documents, then working skills on top.
 2. `templates/<category>/<lang>/` if it produces documents (`en` and `pt-BR`), plus `*.sheet.yaml` / `*.strings.yaml` for spreadsheets.
 3. Add each skill folder to `.claude-plugin/plugin.json` → `skills`.
 4. A row in the README "Reference" section, and a page under `docs/<category>/`.

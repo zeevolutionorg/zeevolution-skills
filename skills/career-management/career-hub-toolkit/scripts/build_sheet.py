@@ -9,6 +9,7 @@ The spec format is documented at the top of the spec files and in
 skills/foundations/cloud-workspace/SHEETS.md. Requires: openpyxl, pyyaml.
 The output opens in Excel and converts to Google Sheets on upload.
 """
+
 import argparse
 import json
 import re
@@ -54,19 +55,18 @@ class Tokens:
     def resolve(self, text, i=None, r=None):
         if text is None or not isinstance(text, str):
             return text
-        out = re.sub(r"\[\[q:([a-zA-Z0-9_]+)\]\]",
-                     lambda m: '"' + self._str(m.group(1)).replace('"', '""') + '"', text)
+        out = re.sub(r"\[\[q:([a-zA-Z0-9_]+)\]\]", lambda m: '"' + self._str(m.group(1)).replace('"', '""') + '"', text)
         out = re.sub(r"\[\[([a-zA-Z0-9_]+)\]\]", lambda m: self._str(m.group(1)), out)
-        out = re.sub(r"\{sheet:([a-z_]+)\}",
-                     lambda m: "'" + self.sheet_names[m.group(1)].replace("'", "''") + "'", out)
-        out = re.sub(r"\{\{([a-zA-Z0-9_]+)\}\}",
-                     lambda m: str(self.context.get(m.group(1), "") or ""), out)
+        out = re.sub(r"\{sheet:([a-z_]+)\}", lambda m: "'" + self.sheet_names[m.group(1)].replace("'", "''") + "'", out)
+        out = re.sub(r"\{\{([a-zA-Z0-9_]+)\}\}", lambda m: str(self.context.get(m.group(1), "") or ""), out)
         if i is not None:
+
             def arith(m):
                 expr = m.group(1).replace("i", str(i)).replace("r", str(r))
                 if not re.fullmatch(r"[0-9+\-* ]+", expr):
                     return m.group(0)
                 return str(eval(expr))  # noqa: S307 - digits and + - * only
+
             out = re.sub(r"\{([ir][0-9+\-* ]*)\}", arith, out)
         return out
 
@@ -76,13 +76,17 @@ def make_style(defn):
     font = defn.get("font", {})
     align = defn.get("align", {})
     return {
-        "font": Font(bold=font.get("bold", False), italic=font.get("italic", False),
-                     size=font.get("size", 10), color=font.get("color", "111827"),
-                     underline="single" if font.get("underline") else None, name="Arial"),
+        "font": Font(
+            bold=font.get("bold", False),
+            italic=font.get("italic", False),
+            size=font.get("size", 10),
+            color=font.get("color", "111827"),
+            underline="single" if font.get("underline") else None,
+            name="Arial",
+        ),
         "fill": PatternFill("solid", fgColor=defn["fill"]) if defn.get("fill") else None,
         "border": Border(left=THIN, right=THIN, top=THIN, bottom=THIN) if defn.get("border") else None,
-        "alignment": Alignment(horizontal=align.get("h"), vertical=align.get("v"),
-                               wrap_text=align.get("wrap", False)),
+        "alignment": Alignment(horizontal=align.get("h"), vertical=align.get("v"), wrap_text=align.get("wrap", False)),
         "number_format": defn.get("number_format"),
         "locked": defn.get("locked", True),
     }
@@ -223,11 +227,11 @@ class Builder:
                 font = Font(color=rule["font"], bold=True) if rule.get("font") else None
                 if "equals" in rule:
                     lit = '"' + self.tok.resolve(rule["equals"]).replace('"', '""') + '"'
-                    ws.conditional_formatting.add(
-                        rng, CellIsRule(operator="equal", formula=[lit], fill=fill, font=font))
+                    ws.conditional_formatting.add(rng, CellIsRule(operator="equal", formula=[lit], fill=fill, font=font))
                 elif "formula" in rule:
                     ws.conditional_formatting.add(
-                        rng, FormulaRule(formula=[self.tok.resolve(rule["formula"])], fill=fill, font=font))
+                        rng, FormulaRule(formula=[self.tok.resolve(rule["formula"])], fill=fill, font=font)
+                    )
             _ = first
 
     def write_charts(self, ws, charts):

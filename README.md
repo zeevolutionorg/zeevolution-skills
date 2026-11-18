@@ -18,7 +18,11 @@ They work in **Claude** and **Cursor** (and other agents that read `SKILL.md`), 
 | **Other agents** | `npx skills@latest add zeevolution/zeevolution-skills -a <agent>` | Agent-specific | Agent-specific |
 | **No AI** | Download a Manual Kit from [Releases](https://github.com/zeevolution/zeevolution-skills/releases) and follow [docs/MANUAL.md](docs/MANUAL.md) | — | — |
 
-**Files fallback:** when no Drive/OneDrive tool is available, the skill creates real `.docx` / `.xlsx` files (needs `python3` with `openpyxl`, `python-docx`, `pyyaml`). They open in Word and Excel and convert to Google Docs / Sheets on upload.
+**No connector? Still works.** The skills always end with something usable, in this order:
+
+1. **Connector / MCP server** (Google or Microsoft) → documents created directly in your workspace.
+2. **Files fallback** → real `.docx` / `.xlsx` files, when the agent can write files and run Python (`openpyxl`, `python-docx`, `pyyaml`). They open in Word and Excel and convert to Google Docs / Sheets on upload.
+3. **Manual fallback** → filled-in **Markdown documents** plus a **HOW-TO-PASTE** guide, as files or straight in the chat, for you to paste into Google Docs ("Paste from Markdown"), Word, Notion or Confluence. Needs nothing at all.
 
 **Pick one install per machine.** Cursor also reads `~/.claude/skills/`; installing the same skills twice shows every skill twice.
 
@@ -81,6 +85,10 @@ More categories will come as real, repeated practices prove worth packaging. See
 ## Without AI
 
 Every release ships a **Manual Kit** per language (`career-management-kit-en.zip`, `career-management-kit-pt-BR.zip`) with the templates as Markdown and Word files, the Ladder Assessment spreadsheet, and a one-page START-HERE. Creating a hub by hand takes about 20–30 minutes, and about 10 minutes per person once you keep a master copy. Step-by-step guides for Google and Microsoft: [docs/MANUAL.md](docs/MANUAL.md) · [Português](docs/MANUAL.pt-BR.md).
+
+## Quality
+
+Every pull request runs lint, consistency checks, ~390 unit/contract/e2e tests (mirroring the repo layout), real spreadsheet formula recalculation, a leak check and secret scan — and, on demand, behavioral evals of the skills. See [docs/TESTING.md](docs/TESTING.md).
 
 ## License
 

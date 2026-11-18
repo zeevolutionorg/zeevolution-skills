@@ -12,6 +12,11 @@ Everything below needs a human with personal accounts. Automated checks (`script
 - [ ] `git remote set-url origin git@github-zeevolution:zeevolution/zeevolution-skills.git` and `git push -u origin main`.
 - [ ] GitHub settings: topics (`agent-skills`, `claude`, `claude-code`, `cursor`, `career-management`, `technologists`); protect `main` (PR required, `ci` must pass, no force-push); Actions secret **`LEAK_DENYLIST`** with the denylist contents; account email privacy on ("Keep my email private" + "Block command line pushes that expose my email").
 - [ ] Local denylist at `~/.config/zeevolution/denylist.txt` (same contents as the secret).
+- [ ] Branch protection on `main`: require the CI checks `lint`, `consistency`, `tests`, `e2e`, `sheets`, `security`.
+- [ ] Create the PR label **`run-evals`** (opt-in behavioral evals).
+- [ ] Secret **`ANTHROPIC_API_KEY`** for evals — a key from your personal Anthropic account, with a spend limit. Optional: without it, skip the `evals` stage.
+- [ ] `make install` locally (pre-commit hooks).
+- [ ] Before the first PR: run `claude plugin eval . --tag smoke --runs 1` once locally and check the grader format against the official "Test plugins with evals" page for your Claude Code version.
 
 ## 2. Verify on real platforms (personal accounts, fictional personas only)
 

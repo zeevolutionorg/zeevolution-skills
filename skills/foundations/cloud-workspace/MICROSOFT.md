@@ -19,7 +19,7 @@ Many Microsoft 365 integrations are read-only. **Check that an upload or create 
 
 ## Fallback: Files + upload steps for the user
 
-When there's no write-capable tool:
+When there's no write-capable tool (and if the agent can't write files or run Python either, use the **Manual** adapter, [MANUAL.md](MANUAL.md), instead):
 
 1. Build the bundle with the Files adapter.
 2. Tell the user, in their language:

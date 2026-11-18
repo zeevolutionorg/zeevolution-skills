@@ -12,6 +12,7 @@ checkbox lists (2-space nesting), pipe tables, > callouts, and --- rules.
 Callouts are styled by their first emoji: ℹ️ info, 💡 how-to, ✍️ example, 🗓️ rhythm, ⚠️ banner.
 Requires python-docx for .docx output. The .docx opens in Word and converts to Google Docs on upload.
 """
+
 import argparse
 import html
 import json
@@ -35,6 +36,7 @@ def fill(text, context, keep_missing):
         if key in context and context[key] not in (None, ""):
             return str(context[key])
         return m.group(0) if keep_missing else ""
+
     return PLACEHOLDER.sub(sub, text)
 
 
@@ -88,8 +90,9 @@ def parse_blocks(lines):
             continue
         if re.match(r"^\s*([-*]|\d+\.)\s+", line):
             items = []
-            while i < n and (re.match(r"^\s*([-*]|\d+\.)\s+", lines[i]) or
-                             (lines[i].startswith("  ") and lines[i].strip() and items)):
+            while i < n and (
+                re.match(r"^\s*([-*]|\d+\.)\s+", lines[i]) or (lines[i].startswith("  ") and lines[i].strip() and items)
+            ):
                 raw = lines[i].rstrip("\n")
                 lm = re.match(r"^(\s*)([-*]|\d+\.)\s+(.*)$", raw)
                 if lm:
@@ -115,7 +118,7 @@ def inline_tokens(text):
     pos = 0
     for m in INLINE.finditer(text):
         if m.start() > pos:
-            yield "t", text[pos:m.start()]
+            yield "t", text[pos : m.start()]
         tok = m.group(0)
         if tok.startswith("**"):
             yield "b", tok[2:-2]
@@ -123,7 +126,7 @@ def inline_tokens(text):
             yield "c", tok[1:-1]
         elif tok.startswith("["):
             lm = re.match(r"\[([^\]]*)\]\(([^)]*)\)", tok)
-            yield "a", (lm.group(1), lm.group(2))
+            yield "a", (lm.group(1), lm.group(2).strip().strip("<>"))
         else:
             yield "i", tok[1:-1]
         pos = m.end()
@@ -168,17 +171,28 @@ def to_html(blocks):
         elif kind == "quote":
             bg, bar = CALLOUT_COLORS.get(next((e for e in CALLOUT_COLORS if val and val[0].startswith(e)), None), DEFAULT_CALLOUT)
             body = "".join(f"<p style='margin:4px 0'>{inl(checkbox(l))}</p>" for l in val if l.strip())
-            parts.append(f"<table style='width:100%;border-collapse:collapse;margin:8px 0'><tr><td style='background:#{bg};border-left:4px solid #{bar};padding:8px'>{body}</td></tr></table>")
+            parts.append(
+                f"<table style='width:100%;border-collapse:collapse;margin:8px 0'><tr><td style='background:#{bg};border-left:4px solid #{bar};padding:8px'>{body}</td></tr></table>"
+            )
         elif kind == "table":
             has_head, trs = val
             rows = "".join(
-                "<tr>" + "".join(f"<{'th' if (r == 0 and has_head) else 'td'} style='border:1px solid #D1D5DB;padding:4px 6px'>{inl(c)}</{'th' if (r == 0 and has_head) else 'td'}>" for c in row) + "</tr>"
-                for r, row in enumerate(trs))
+                "<tr>"
+                + "".join(
+                    f"<{'th' if (r == 0 and has_head) else 'td'} style='border:1px solid #D1D5DB;padding:4px 6px'>{inl(c)}</{'th' if (r == 0 and has_head) else 'td'}>"
+                    for c in row
+                )
+                + "</tr>"
+                for r, row in enumerate(trs)
+            )
             parts.append(f"<table style='border-collapse:collapse;margin:8px 0'>{rows}</table>")
         elif kind == "list":
             tag = "ol" if val and val[0][1] else "ul"
-            parts.append(f"<{tag}>" + "".join(
-                f"<li style='margin-left:{lvl * 20}px'>{inl(checkbox(t))}</li>" for lvl, _, t in val) + f"</{tag}>")
+            parts.append(
+                f"<{tag}>"
+                + "".join(f"<li style='margin-left:{lvl * 20}px'>{inl(checkbox(t))}</li>" for lvl, _, t in val)
+                + f"</{tag}>"
+            )
     parts.append("</body></html>")
     return "\n".join(parts)
 
@@ -228,7 +242,9 @@ def to_docx(blocks, out_path, title):
 
     def add_hyperlink(par, url, text, bold=False):
         part = par.part
-        r_id = part.relate_to(url, "http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink", is_external=True)
+        r_id = part.relate_to(
+            url, "http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink", is_external=True
+        )
         link = OxmlElement("w:hyperlink")
         link.set(qn("r:id"), r_id)
         run = OxmlElement("w:r")
@@ -322,7 +338,7 @@ def to_docx(blocks, out_path, title):
                 for ci in range(cols):
                     cell = table.rows[ri].cells[ci]
                     text = row[ci] if ci < len(row) else ""
-                    head = (ri == 0 and has_head)
+                    head = ri == 0 and has_head
                     add_inline(cell.paragraphs[0], text, bold=head)
                     if head:
                         shade(cell, "F3F4F6")
@@ -350,8 +366,9 @@ def main(argv=None):
     ap.add_argument("--in", dest="src", required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--context")
-    ap.add_argument("--keep-missing", action="store_true",
-                    help="keep {{placeholders}} that have no value (used for the manual kit)")
+    ap.add_argument(
+        "--keep-missing", action="store_true", help="keep {{placeholders}} that have no value (used for the manual kit)"
+    )
     args = ap.parse_args(argv)
     context = {}
     if args.context:

@@ -8,6 +8,7 @@
 
   python3 scripts/validate_skills.py
 """
+
 import json
 import re
 import sys
@@ -52,16 +53,18 @@ def main():
         if name in seen:
             errors.append(f"{rel}: duplicate skill name '{name}' (also {seen[name]})")
         seen[name] = rel
-    claude = json.loads((ROOT / ".claude-plugin" / "plugin.json").read_text())
-    cursor = json.loads((ROOT / ".cursor-plugin" / "plugin.json").read_text())
+    claude = json.loads((ROOT / ".claude-plugin" / "plugin.json").read_text(encoding="utf-8"))
+    cursor = json.loads((ROOT / ".cursor-plugin" / "plugin.json").read_text(encoding="utf-8"))
     listed = set(claude.get("skills", []))
     if listed != set(skill_dirs):
-        errors.append(f"plugin.json skills mismatch: missing {sorted(set(skill_dirs) - listed)}, extra {sorted(listed - set(skill_dirs))}")
+        errors.append(
+            f"plugin.json skills mismatch: missing {sorted(set(skill_dirs) - listed)}, extra {sorted(listed - set(skill_dirs))}"
+        )
     for key in ("name", "version"):
         if claude.get(key) != cursor.get(key):
             errors.append(f"manifest {key} differs: claude={claude.get(key)} cursor={cursor.get(key)}")
     for mp in (ROOT / ".claude-plugin" / "marketplace.json", ROOT / ".cursor-plugin" / "marketplace.json"):
-        data = json.loads(mp.read_text())
+        data = json.loads(mp.read_text(encoding="utf-8"))
         if not any(p.get("name") == claude["name"] for p in data.get("plugins", [])):
             errors.append(f"{mp.relative_to(ROOT)}: plugin '{claude['name']}' not listed")
     if errors:

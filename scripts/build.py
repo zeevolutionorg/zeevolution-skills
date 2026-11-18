@@ -9,6 +9,7 @@ Requires: python-docx, openpyxl, pyyaml. START-HERE.pdf needs LibreOffice (`soff
 
   python3 scripts/build.py [--out DIR]
 """
+
 import json
 import shutil
 import subprocess
@@ -17,20 +18,22 @@ import tempfile
 import zipfile
 from pathlib import Path
 
+import yaml
+
 ROOT = Path(__file__).resolve().parent.parent
 DIST = ROOT / "dist"
 TPL = ROOT / "templates" / "career-management"
 SCRIPTS = ROOT / "skills" / "foundations" / "cloud-workspace" / "scripts"
 LANGS = ["en", "pt-BR"]
 FALLBACK = {"en": "text fallback", "pt-BR": "versão em texto"}
-FILE_NAMES = {
-    "en": {"00": "🚀 Career Hub", "01": "🎶 1:1 Notes", "02": "🌱 Growth Plan", "03": "😎 Brag Document",
-           "04": "🧭 Focus Plan", "05": "🪜 Ladder Assessment", "06": "📝 Performance Review",
-           "07": "🔎 Evidence Doc", "08": "🛬 Onboarding Plan"},
-    "pt-BR": {"00": "🚀 Hub de Carreira", "01": "🎶 Notas de 1:1", "02": "🌱 PDI", "03": "😎 Brag Document",
-              "04": "🧭 Plano de Foco", "05": "🪜 Avaliação de Trilha", "06": "📝 Avaliação de Desempenho",
-              "07": "🔎 Documento de Evidências", "08": "🛬 Plano de Onboarding"},
-}
+
+
+def _file_names():
+    bundle = yaml.safe_load((TPL / "bundle.yaml").read_text(encoding="utf-8"))
+    return {lang: {d["id"]: d["title"][lang] for d in bundle["documents"]} for lang in LANGS}
+
+
+FILE_NAMES = _file_names()
 
 
 def run(*args):
@@ -59,10 +62,17 @@ def build_kit(lang):
             continue
         shutil.copyfile(md, kit / "markdown" / f"{stem}.md")
         run(SCRIPTS / "render_doc.py", "--in", md, "--out", kit / "word" / f"{stem}.docx", "--keep-missing")
-    run(SCRIPTS / "build_sheet.py", "--spec", TPL / "05-ladder-assessment.sheet.yaml",
-        "--strings", TPL / lang / "05-ladder-assessment.strings.yaml",
-        "--ladder", TPL / lang / "generic-ladder.yaml",
-        "--out", kit / "sheets" / f"05 - {names['05']}.xlsx")
+    run(
+        SCRIPTS / "build_sheet.py",
+        "--spec",
+        TPL / "05-ladder-assessment.sheet.yaml",
+        "--strings",
+        TPL / lang / "05-ladder-assessment.strings.yaml",
+        "--ladder",
+        TPL / lang / "generic-ladder.yaml",
+        "--out",
+        kit / "sheets" / f"05 - {names['05']}.xlsx",
+    )
     start = ROOT / "docs" / f"START-HERE.{lang}.md"
     if start.exists():
         with tempfile.TemporaryDirectory() as tmp:
@@ -70,8 +80,12 @@ def build_kit(lang):
             run(SCRIPTS / "render_doc.py", "--in", start, "--out", docx, "--keep-missing")
             soffice = shutil.which("soffice") or shutil.which("libreoffice")
             if soffice:
-                subprocess.run([soffice, "--headless", "--convert-to", "pdf", "--outdir", tmp, str(docx)],
-                               check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+                subprocess.run(
+                    [soffice, "--headless", "--convert-to", "pdf", "--outdir", tmp, str(docx)],
+                    check=True,
+                    stdout=subprocess.DEVNULL,
+                    stderr=subprocess.DEVNULL,
+                )
                 shutil.copyfile(Path(tmp) / "START-HERE.pdf", kit / "START-HERE.pdf")
             else:
                 print("WARNING: LibreOffice not found; START-HERE.docx shipped instead of PDF")
@@ -83,7 +97,7 @@ def build_kit(lang):
 def build_skills():
     out = DIST / "skills"
     out.mkdir(parents=True)
-    plugin = json.loads((ROOT / ".claude-plugin" / "plugin.json").read_text())
+    plugin = json.loads((ROOT / ".claude-plugin" / "plugin.json").read_text(encoding="utf-8"))
     files = []
     for rel in plugin["skills"]:
         src = ROOT / rel
@@ -99,6 +113,7 @@ def build_skills():
 def main():
     global DIST
     import argparse
+
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", help="output folder (default: dist/)")
     args = ap.parse_args()

@@ -15,6 +15,7 @@ Before asking, check the session's tools:
 - **Google:** any Google Drive / Docs / Sheets tool (connector or MCP server) that can create files.
 - **Microsoft:** any OneDrive / SharePoint / Word / Excel tool that can create files.
 - **Files:** a filesystem plus Python (`python3` with `openpyxl`, `python-docx`, `pyyaml`). If those packages are missing, install them (`pip install openpyxl python-docx pyyaml`).
+- **Manual:** always available — filled-in Markdown the user copies and pastes into Google Docs or Word.
 
 Use the result as the default for question S3. Never claim a platform works if its tool isn't there.
 
@@ -26,7 +27,7 @@ Ask in the user's language (English or Brazilian Portuguese). Use the agent's qu
 |---|---|---|---|
 | S1 | "What's your name, as it should appear in the documents?" | Free text | — (required) |
 | S2 | "What's your discipline?" | Engineering · Data Science · Design · Product Management · Other (type it) | Engineering |
-| S3 | "Where should documents be created?" | Google Workspace (Docs/Sheets/Drive) · Microsoft 365 (Word/Excel/OneDrive) · Files I upload myself (.docx/.xlsx) | Detected in step 1; Files if nothing else |
+| S3 | "Where should documents be created?" | Google Workspace (Docs/Sheets/Drive) · Microsoft 365 (Word/Excel/OneDrive) · Files I upload myself (.docx/.xlsx) · Markdown I copy and paste myself | Detected in step 1; Files if the agent can write files and run Python, otherwise Markdown |
 | S4 | "In which folder should new documents go? Paste a folder link or name, or leave empty to create 'zeevolution-skills' at the root." | Free text / link | Create `zeevolution-skills/` |
 | S5 | "Which language should documents use?" | English · Português (Brasil) | Language of the conversation |
 | S6 | "Does your company have a career ladder you'd like to reuse by default? (You can still change it per person.)" | Yes, I'll share it now · Not now · We don't have one | Not now |
@@ -43,7 +44,7 @@ Save this object (JSON):
 {
   "user_name": "…",
   "discipline": "Engineering",
-  "platform": "google | microsoft | files",
+  "platform": "google | microsoft | files | manual",
   "root_folder": "link or name",
   "lang": "en | pt-BR",
   "default_ladder": null,

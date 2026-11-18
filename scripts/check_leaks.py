@@ -17,6 +17,7 @@ Also fails on:
 
   python3 scripts/check_leaks.py [--denylist FILE] [PATHS...]   (default: repo root + dist/)
 """
+
 import argparse
 import os
 import re
@@ -29,15 +30,49 @@ SKIP_DIRS = {".git", "node_modules", "__pycache__", ".out"}
 TEXT_EXT = {".md", ".yaml", ".yml", ".json", ".py", ".sh", ".txt", ".html", ".csv", ".toml", ".cfg", ""}
 OFFICE_EXT = {".docx", ".xlsx", ".pptx"}
 ALLOWED_DOMAINS = {
-    "github.com", "raw.githubusercontent.com", "docs.github.com", "users.noreply.github.com",
-    "claude.ai", "claude.com", "docs.claude.com", "support.claude.com", "anthropic.com", "www.anthropic.com",
-    "code.claude.com", "cursor.com", "www.cursor.com", "cursor.directory", "agentskills.io", "agent-plugins.org",
-    "skills.sh", "support.google.com", "workspace.google.com", "support.microsoft.com", "learn.microsoft.com",
-    "example.com", "example.org", "www.aihero.dev",
-    "jvns.ca", "www.ccl.org", "ccl.org", "www.oreilly.com", "oreilly.com", "lethain.com", "hbr.org",
-    "openpyxl.readthedocs.io", "python-docx.readthedocs.io", "pyyaml.org", "opensource.org", "keepachangelog.com",
-    "semver.org", "www.python.org", "python.org",
-    "schemas.openxmlformats.org", "schemas.microsoft.com", "purl.org", "www.w3.org",
+    "github.com",
+    "raw.githubusercontent.com",
+    "docs.github.com",
+    "users.noreply.github.com",
+    "claude.ai",
+    "claude.com",
+    "docs.claude.com",
+    "support.claude.com",
+    "anthropic.com",
+    "www.anthropic.com",
+    "code.claude.com",
+    "cursor.com",
+    "www.cursor.com",
+    "cursor.directory",
+    "agentskills.io",
+    "agent-plugins.org",
+    "skills.sh",
+    "support.google.com",
+    "workspace.google.com",
+    "support.microsoft.com",
+    "learn.microsoft.com",
+    "example.com",
+    "example.org",
+    "www.aihero.dev",
+    "jvns.ca",
+    "www.ccl.org",
+    "ccl.org",
+    "www.oreilly.com",
+    "oreilly.com",
+    "lethain.com",
+    "hbr.org",
+    "openpyxl.readthedocs.io",
+    "python-docx.readthedocs.io",
+    "pyyaml.org",
+    "opensource.org",
+    "keepachangelog.com",
+    "semver.org",
+    "www.python.org",
+    "python.org",
+    "schemas.openxmlformats.org",
+    "schemas.microsoft.com",
+    "purl.org",
+    "www.w3.org",
 }
 URL = re.compile(r"https?://([a-zA-Z0-9.\-]+)")
 EMAIL = re.compile(r"[a-zA-Z0-9._%+\-]+@([a-zA-Z0-9.\-]+\.[a-zA-Z]{2,})")
@@ -122,8 +157,9 @@ def main():
             for part, text in office_texts(f):
                 xml_text = re.sub(r"<[^>]+>", " ", text)
                 is_rels = part.endswith(".rels")
-                check_text(f"{rel}:{part}", text if is_rels else xml_text, deny, problems,
-                           check_urls=is_rels and "hyperlink" in text)
+                check_text(
+                    f"{rel}:{part}", text if is_rels else xml_text, deny, problems, check_urls=is_rels and "hyperlink" in text
+                )
                 if part == "docProps/core.xml":
                     for tag in ("dc:creator", "cp:lastModifiedBy"):
                         m = re.search(rf"<{tag}>(.*?)</{tag}>", text)
@@ -142,6 +178,7 @@ def main():
         elif ext in {".png", ".jpg", ".jpeg"}:
             try:
                 from PIL import Image
+
                 img = Image.open(f)
                 if img.getexif():
                     problems.append(f"{rel}: image has EXIF metadata (strip it)")

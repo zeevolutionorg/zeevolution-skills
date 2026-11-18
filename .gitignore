@@ -5,3 +5,10 @@ __pycache__/
 .DS_Store
 .leak-denylist*
 denylist.txt
+
+evals/results/
+.coverage
+coverage.xml
+htmlcov/
+.pytest_cache/
+.ruff_cache/

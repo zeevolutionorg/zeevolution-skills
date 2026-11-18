@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
-"""Dry run of /career-hub-toolkit with the Files adapter, for 4 fictional personas x 2 modes x 2 languages.
+"""End-to-end dry run of /career-hub-toolkit with the Files and Manual adapters.
 
-Does what the skill tells the agent to do (render every document, build the sheet, fill the hub last),
-then checks the results: every file exists, no {{placeholder}} is left, the sheet opens and its
-Assessment tab shows the person's name.
+4 fictional personas x 2 modes (self, lead) x 2 languages x 2 formats (files, manual) = 32 hubs,
+built with the bundled copy of make_bundle.py exactly as the skill tells the agent to.
+Checks: expected files exist, no {{placeholder}} left, the person's name is in every document,
+the hub links to every other document, the spreadsheet opens with the person in the header,
+and the manual paste guide lists every document.
 
   python3 scripts/dry_run.py [--out DIR]   # default: <system temp>/zeevolution-skills-dry-run
 """
+
 import argparse
-import json
 import re
 import shutil
-import subprocess
 import sys
 import tempfile
 import zipfile
@@ -23,100 +24,133 @@ ROOT = Path(__file__).resolve().parent.parent
 SKILL = ROOT / "skills" / "career-management" / "career-hub-toolkit"
 TPL = SKILL / "assets" / "templates"
 OUT = Path(tempfile.gettempdir()) / "zeevolution-skills-dry-run"
-sys.path.insert(0, str(ROOT / "scripts"))
-from build import FILE_NAMES  # noqa: E402
+sys.path.insert(0, str(SKILL / "scripts"))
+import make_bundle  # noqa: E402  (the copy the skill ships)
 
 PERSONAS = [  # fictional
-    {"person_name": "Ana Souza", "role": "Data Scientist", "discipline": "Data Science", "level": "Contributing", "next_level": "Owning"},
-    {"person_name": "Bruno Costa", "role": "Backend Engineer", "discipline": "Engineering", "level": "Owning", "next_level": "Leading"},
-    {"person_name": "Carla Mendes", "role": "Product Designer", "discipline": "Design", "level": "Learning", "next_level": "Contributing"},
-    {"person_name": "Diego Alves", "role": "Product Manager", "discipline": "Product Management", "level": "Leading", "next_level": "Shaping"},
+    {
+        "person_name": "Ana Souza",
+        "role": "Data Scientist",
+        "discipline": "Data Science",
+        "level": "Contributing",
+        "next_level": "Owning",
+    },
+    {
+        "person_name": "Bruno Costa",
+        "role": "Backend Engineer",
+        "discipline": "Engineering",
+        "level": "Owning",
+        "next_level": "Leading",
+    },
+    {
+        "person_name": "Carla Mendes",
+        "role": "Product Designer",
+        "discipline": "Design",
+        "level": "Learning",
+        "next_level": "Contributing",
+    },
+    {
+        "person_name": "Diego Alves",
+        "role": "Product Manager",
+        "discipline": "Product Management",
+        "level": "Leading",
+        "next_level": "Shaping",
+    },
 ]
-DOCS = {"self": ["01", "02", "03", "04"], "lead": ["01", "02", "03", "04", "06", "07", "08"]}
-LINK_KEYS = {"00": "hub", "01": "one_on_one", "02": "growth_plan", "03": "brag", "04": "focus_plan",
-             "05": "ladder", "06": "review", "07": "evidence", "08": "onboarding"}
 GENERIC = {"en": "Generic ladder", "pt-BR": "Trilha genérica"}
+EXPECTED_DOCS = {"self": 6, "lead": 9}  # lead includes the two optional docs in this run
 
 
-def docx_text(path):
-    with zipfile.ZipFile(path) as z:
-        xml = z.read("word/document.xml").decode("utf-8")
-    return re.sub(r"<[^>]+>", "", xml)
+def text_of(path):
+    if path.suffix == ".docx":
+        with zipfile.ZipFile(path) as z:
+            return re.sub(r"<[^>]+>", "", z.read("word/document.xml").decode("utf-8"))
+    return path.read_text(encoding="utf-8")
 
 
-def render(src, out, ctx_path):
-    subprocess.run([sys.executable, str(SKILL / "scripts" / "render_doc.py"), "--in", str(src), "--out", str(out),
-                    "--context", str(ctx_path)], check=True, stdout=subprocess.DEVNULL)
+def context(persona, mode, lang):
+    return dict(
+        persona,
+        leader_name="Morgan Lee" if mode == "lead" else "Sam Rivera",
+        start_date="2026-11-18",
+        created_date="2026-11-18",
+        next_meeting_date="2026-12-02",
+        cycle="2027 H1" if lang == "en" else "2027 S1",
+        ladder_source=GENERIC[lang],
+        ladder_source_label=GENERIC[lang],
+        lang=lang,
+    )
 
 
-def one(persona, mode, lang):
-    names = FILE_NAMES[lang]
-    folder = OUT / lang / mode / persona["person_name"].replace(" ", "_")
-    folder.mkdir(parents=True)
-    ctx = dict(persona, leader_name="Morgan Lee" if mode == "lead" else "Sam Rivera",
-               start_date="2026-11-18", created_date="2026-11-18", next_meeting_date="2026-12-02",
-               cycle="2027 H1" if lang == "en" else "2027 S1", ladder_source=GENERIC[lang],
-               ladder_source_label=GENERIC[lang], lang=lang)
-    if mode == "self":
-        ctx["leader_name"] = "Sam Rivera"  # the user's own manager
-    for num, key in LINK_KEYS.items():
-        wanted = num in ("00", "05") or num in DOCS[mode]
-        ext = "xlsx" if num == "05" else "docx"
-        ctx[f"doc_link_{key}"] = f"{num} - {names[num]}.{ext}" if wanted else ""
-    tmp = tempfile.NamedTemporaryFile("w", suffix=".json", delete=False, encoding="utf-8")
-    json.dump(ctx, tmp, ensure_ascii=False)
-    tmp.close()
-    ctx_path = Path(tmp.name)  # outside the output folder: personal data isn't left next to the documents
+def run_one(persona, mode, lang, fmt, out_root):
+    folder = out_root / fmt / lang / mode / persona["person_name"].replace(" ", "_")
+    include = ["evidence", "onboarding"] if mode == "lead" else []
+    created = make_bundle.make(
+        TPL / "bundle.yaml",
+        TPL,
+        lang,
+        mode,
+        fmt,
+        context(persona, mode, lang),
+        folder,
+        include,
+        SKILL / "assets" / f"generic-ladder.{lang}.yaml",
+        SKILL / "assets" / f"paste-guide.{lang}.md",
+    )
     problems = []
-    for num in DOCS[mode]:
-        src = next(TPL.joinpath(lang).glob(f"{num}-*.md"))
-        out = folder / f"{num} - {names[num]}.docx"
-        render(src, out, ctx_path)
-    subprocess.run([sys.executable, str(SKILL / "scripts" / "build_sheet.py"),
-                    "--spec", str(TPL / "05-ladder-assessment.sheet.yaml"),
-                    "--strings", str(TPL / lang / "05-ladder-assessment.strings.yaml"),
-                    "--ladder", str(SKILL / "assets" / f"generic-ladder.{lang}.yaml"),
-                    "--context", str(ctx_path), "--out", str(folder / f"05 - {names['05']}.xlsx")],
-                   check=True, stdout=subprocess.DEVNULL)
-    render(next(TPL.joinpath(lang).glob("00-*.md")), folder / f"00 - {names['00']}.docx", ctx_path)  # hub last
-    ctx_path.unlink()  # personal data: don't keep the context
-    for f in folder.glob("*.docx"):
-        text = docx_text(f)
-        if "{{" in text:
-            problems.append(f"{f.name}: leftover placeholder {re.findall(r'{{[a-z_]+}}', text)[:3]}")
-        if persona["person_name"] not in text:
-            problems.append(f"{f.name}: person name missing")
-    wb = load_workbook(folder / f"05 - {names['05']}.xlsx")
-    ws = wb.worksheets[1]
-    if ws["C5"].value != persona["person_name"]:
-        problems.append("xlsx: person name not in Assessment!C5")
-    expected = 1 + len(DOCS[mode]) + 1
-    count = len(list(folder.iterdir()))
-    if count != expected:
-        problems.append(f"expected {expected} files, found {count}")
-    return folder, problems
+    docs = [p for p in created if p.name != "HOW-TO-PASTE.md"]
+    if len(docs) != EXPECTED_DOCS[mode]:
+        problems.append(f"expected {EXPECTED_DOCS[mode]} documents, got {len(docs)}")
+    for p in created:
+        if p.suffix == ".xlsx":
+            ws = load_workbook(p).worksheets[1]
+            if ws["C5"].value != persona["person_name"]:
+                problems.append(f"{p.name}: person not in Assessment!C5")
+            continue
+        text = text_of(p)
+        left = re.findall(r"\{\{[a-z_]+\}\}", text)
+        if left:
+            problems.append(f"{p.name}: leftover {left[:3]}")
+        if p.name != "HOW-TO-PASTE.md" and persona["person_name"] not in text:
+            problems.append(f"{p.name}: person name missing")
+    hub = next(p for p in created if p.name.startswith("00 - "))
+    hub_text = (
+        hub.read_text(encoding="utf-8")
+        if hub.suffix == ".md"
+        else zipfile.ZipFile(hub).read("word/_rels/document.xml.rels").decode() + text_of(hub)
+    )
+    for p in docs:
+        if p is not hub and p.name not in hub_text:
+            problems.append(f"hub does not link {p.name}")
+    if fmt == "manual":
+        guide = folder / "HOW-TO-PASTE.md"
+        if not guide.exists():
+            problems.append("HOW-TO-PASTE.md missing")
+        else:
+            g = guide.read_text(encoding="utf-8")
+            problems += [f"paste guide misses {p.name}" for p in docs if p.name not in g]
+    return problems
 
 
 def main():
-    global OUT
     ap = argparse.ArgumentParser()
     ap.add_argument("--out")
     args = ap.parse_args()
-    if args.out:
-        OUT = Path(args.out)
-    if OUT.exists():
-        shutil.rmtree(OUT)
+    out_root = Path(args.out) if args.out else OUT
+    if out_root.exists():
+        shutil.rmtree(out_root)
     failures = 0
-    for lang in ("en", "pt-BR"):
-        for mode in ("self", "lead"):
-            for persona in PERSONAS:
-                folder, problems = one(persona, mode, lang)
-                status = "ok" if not problems else "FAIL: " + "; ".join(problems)
-                failures += bool(problems)
-                print(f"[{lang:5}] {mode:4} {persona['person_name']:13} {persona['discipline']:18} {status}")
+    for fmt in ("files", "manual"):
+        for lang in ("en", "pt-BR"):
+            for mode in ("self", "lead"):
+                for persona in PERSONAS:
+                    problems = run_one(persona, mode, lang, fmt, out_root)
+                    failures += bool(problems)
+                    status = "ok" if not problems else "FAIL: " + "; ".join(problems)
+                    print(f"[{fmt:6}] [{lang:5}] {mode:4} {persona['person_name']:13} {status}")
     if failures:
         sys.exit(1)
-    print(f"dry run ok -> {OUT}")
+    print(f"dry run ok -> {out_root}")
 
 
 if __name__ == "__main__":

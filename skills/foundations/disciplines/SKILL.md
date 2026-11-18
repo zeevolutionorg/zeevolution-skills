@@ -20,18 +20,22 @@ The structure of every zeevolution document is the same for every discipline. On
 Use these to swap a template example for the person's discipline.
 
 **Engineering**
+
 - Brag: "Moved the search service to the new cache layer: p95 latency down from 420 ms to 180 ms, no incidents during rollout."
 - Rule: "Half a day, not two: when stuck for half a day, bring two options to the team."
 
 **Data Science**
+
 - Brag: "Rebuilt the demand forecast; operations now plans with it every week."
 - Rule: "One decision memo a month that a PM acts on."
 
 **Design**
+
 - Brag: "Ran two critique sessions for new hires; both now present their own flows in design review."
 - Rule: "Every critique ends with a decision in at most two rounds."
 
 **Product Management**
+
 - Brag: "Wrote the checkout problem brief; reused by two other squads."
 - Rule: "Every risk in the weekly update has an owner, a date and a decision."
 

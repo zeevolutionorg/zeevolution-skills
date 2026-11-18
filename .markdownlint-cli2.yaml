@@ -1,0 +1,14 @@
+# Prose-first docs: long lines, inline HTML-free, emoji headings and repeated headings are fine.
+config:
+  default: true
+  MD013: false        # line length
+  MD024: {siblings_only: true}
+  MD033: false        # inline HTML
+  MD036: false        # emphasis used as heading (bold labels in docs)
+  MD041: false        # first line heading (SKILL.md starts with frontmatter)
+  MD028: false        # separate callouts are separate blockquotes on purpose
+  MD060: false
+ignores:
+  - "skills/**/assets/**"
+  - "templates/**"
+  - "evals/**"

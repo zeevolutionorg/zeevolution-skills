@@ -6,6 +6,7 @@ and the multiset of {{placeholders}}. YAML strings files must have the same keys
 
   python3 scripts/check_parity.py
 """
+
 import re
 import sys
 from collections import Counter
@@ -56,12 +57,14 @@ def main():
                         if a[key] != b[key]:
                             errors.append(f"{rel}: {key} differ\n    {BASE}: {a[key]}\n    {other.name}: {b[key]}")
                 elif src.suffix in (".yaml", ".yml"):
+
                     def keys(d, p=""):
                         if isinstance(d, dict):
                             return set().union(*[keys(v, f"{p}.{k}") for k, v in d.items()], {p})
                         if isinstance(d, list):
                             return set().union(*[keys(v, f"{p}[{i}]") for i, v in enumerate(d)], {p})
                         return {p}
+
                     ka = keys(yaml.safe_load(src.read_text(encoding="utf-8")))
                     kb = keys(yaml.safe_load(twin.read_text(encoding="utf-8")))
                     if ka != kb:

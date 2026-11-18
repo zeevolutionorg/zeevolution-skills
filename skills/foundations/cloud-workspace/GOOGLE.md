@@ -18,6 +18,10 @@ Tool names differ between connectors. Look for operations like *create file*, *c
 5. **Links:** collect each file's `webViewLink` (or the equivalent "open" URL) and follow the linking order in [SKILL.md](SKILL.md).
 6. **Hub last:** update the reserved hub doc's content with all links. If updating isn't possible, create the hub now and delete the empty placeholder (only if the tool can delete; otherwise tell the user).
 
+## When there's no Google tool
+
+Say so in one line and go down the fallback order in [SKILL.md](SKILL.md): **Files** (`.docx`/`.xlsx` to upload to Drive) if the agent can write files and run Python, otherwise **Manual** ([MANUAL.md](MANUAL.md)): filled-in Markdown plus the "Paste from Markdown" guide.
+
 ## Checks before reporting success
 
 - Every file was actually created (you have an id or link for each).

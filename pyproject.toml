@@ -1,0 +1,31 @@
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["tests"]
+addopts = "--import-mode=importlib -ra --strict-markers"
+markers = [
+  "unit: fast, isolated tests of one script or function",
+  "contract: checks that skills, templates and manifests keep their promised shape",
+  "e2e: runs a whole flow (dry run, build) end to end",
+  "libreoffice: needs LibreOffice (soffice) to recalculate spreadsheet formulas",
+]
+
+[tool.coverage.run]
+source = ["scripts", "skills/foundations/cloud-workspace/scripts"]
+omit = ["tests/*"]
+
+[tool.coverage.report]
+fail_under = 80
+show_missing = true
+skip_covered = true
+
+[tool.ruff]
+line-length = 130
+target-version = "py310"
+extend-exclude = ["skills/career-management/career-hub-toolkit/scripts"]  # generated copies
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+ignore = ["E501", "B905", "UP015", "E741"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["B011"]
