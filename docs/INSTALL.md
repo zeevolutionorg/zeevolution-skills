@@ -1,59 +1,105 @@
-# Installation
+# 📦 Installation
 
-Pick **one** install per machine. Then run `/setup-zeevolution-skills` once.
+Install **zeevolution-skills** in your agent, then run `/setup-zeevolution-skills` once.
 
-## Claude Code
+> [!IMPORTANT]
+> **Pick one install per machine.** Cursor also loads skills from `~/.claude/skills/`, so installing the same skills twice shows every skill twice.
+
+## 📑 Contents
+
+- [🗺️ Which install is for me?](#️-which-install-is-for-me)
+- [🟠 Claude Code](#-claude-code)
+- [🟠 Claude app, Desktop and Cowork](#-claude-app-desktop-and-cowork)
+- [⚫ Cursor](#-cursor)
+- [🧩 Other agents](#-other-agents)
+- [🔌 Creating documents: connectors and fallbacks](#-creating-documents-connectors-and-fallbacks)
+- [⚙️ After installing](#️-after-installing)
+- [🛟 Troubleshooting](#-troubleshooting)
+
+---
+
+## 🗺️ Which install is for me?
+
+| You use | Go to | Updates |
+|---|---|---|
+| Claude in the terminal | [🟠 Claude Code](#-claude-code) | Automatic via the marketplace |
+| Claude in the browser, desktop app or Cowork | [🟠 Claude app](#-claude-app-desktop-and-cowork) | Re-upload new `.skill` files |
+| Cursor (IDE, Agent window, CLI) | [⚫ Cursor](#-cursor) | Automatic with GitHub import |
+| Codex, Copilot, Windsurf, OpenCode… | [🧩 Other agents](#-other-agents) | `npx skills update` |
+| No AI at all | [✋ MANUAL.md](MANUAL.md) | Download the new Manual Kit |
+
+## 🟠 Claude Code
 
 ```text
 /plugin marketplace add zeevolution/zeevolution-skills
 /plugin install zeevolution-skills@zeevolution
 ```
 
-The plugin includes every skill. Update with `/plugin marketplace update zeevolution`.
+- ✅ The plugin includes every skill.
+- 🔄 Update with `/plugin marketplace update zeevolution`.
 
-**To create documents in Google:** configure a Google Drive MCP server in Claude Code. **In Microsoft 365:** a OneDrive/SharePoint MCP server that can upload files. Without either, the skills use the **Files fallback** (below).
+## 🟠 Claude app, Desktop and Cowork
 
-## Claude app, Claude Desktop, Cowork
+1. ⬇️ Download the `.skill` files from the latest [Release](https://github.com/zeevolution/zeevolution-skills/releases) — or `zeevolution-skills-all-skills.zip`, which contains all of them.
+2. ⬆️ In the app's settings, open **Skills** (under Capabilities) and upload each `.skill` file.
+3. 🔌 Enable the **Google Drive** connector to create documents in Google. For Microsoft 365, enable a connector that can **write** to OneDrive or SharePoint.
 
-1. Download the `.skill` files from the latest [Release](https://github.com/zeevolution/zeevolution-skills/releases) (or `zeevolution-skills-all-skills.zip`, which contains all of them).
-2. In the app's settings, open **Skills** (under Capabilities) and upload each `.skill` file. `career-hub-toolkit.skill` works on its own; adding all six gives the agent the shared rules too.
-3. Enable the **Google Drive** connector to create documents in Google. For Microsoft 365, enable a connector that can **write** to OneDrive/SharePoint; read-only connectors fall back to files.
+> [!TIP]
+> `career-hub-toolkit.skill` works on its own. Adding all six gives the agent the shared rules too.
 
-## Cursor
+## ⚫ Cursor
 
-Cursor reads the same `SKILL.md` files.
+Cursor reads the same `SKILL.md` files. Choose one option:
 
-- **Option A — GitHub import:** open **Customize**, choose **From GitHub Repository**, enter `zeevolution/zeevolution-skills`, then **Install** (user or project scope). The repo ships `.cursor-plugin/marketplace.json` for this.
-- **Option B — command line:** `npx skills@latest add zeevolution/zeevolution-skills -a cursor`
-- **Option C — manual:** copy the `skills/` folder into `~/.cursor/skills/` (all projects) or `.cursor/skills/` (one project). Category folders are fine; Cursor finds every `SKILL.md`.
-- **Teams:** an admin can import the repo as a team marketplace (Dashboard → Plugins & MCPs) and set the plugin to Default Off or Default On.
+| Option | How | Best for |
+|---|---|---|
+| **A · GitHub import** | **Customize** → **From GitHub Repository** → `zeevolution/zeevolution-skills` → **Install** (user or project scope) | Most people — updates automatically |
+| **B · Command line** | `npx skills@latest add zeevolution/zeevolution-skills -a cursor` | Editable copies in your project |
+| **C · Manual** | Copy `skills/` into `~/.cursor/skills/` (all projects) or `.cursor/skills/` (one project) | Offline or locked-down machines |
+| **D · Team** | An admin imports the repo as a team marketplace (**Dashboard → Plugins & MCPs**) and sets it to *Default Off* or *Default On* | Teams and Enterprise plans |
 
-Run a skill by typing `/` in Agent chat and picking it. User-invoked skills (`/setup-zeevolution-skills`, `/career-hub-toolkit`) only run when you type them.
+- ⌨️ Run a skill by typing `/` in Agent chat and picking it.
+- 🔒 User-invoked skills (`/setup-zeevolution-skills`, `/career-hub-toolkit`) only run when you type them.
 
-**To create documents:** add a Google Drive or Microsoft 365 MCP server in Cursor's MCP settings; otherwise the Files fallback is used (Cursor runs the scripts locally).
-
-**Duplicates:** Cursor also loads skills from `~/.claude/skills/`. If you copied these skills there for Claude Code, don't install them for Cursor too.
-
-## Other agents
+## 🧩 Other agents
 
 ```bash
 npx skills@latest add zeevolution/zeevolution-skills -a <agent>
 ```
 
-## Files fallback — requirements
+## 🔌 Creating documents: connectors and fallbacks
 
-When no Drive / OneDrive tool can write, skills create real `.docx` and `.xlsx` files locally. Needs:
+The skills always end with something usable, in this order:
+
+| # | Path | Needs | Result |
+|---|---|---|---|
+| 1 | 🔗 **Connector / MCP** | A Google Drive or Microsoft 365 tool that can **write** (connector in the Claude app; MCP server in Claude Code or Cursor) | Documents created in your workspace |
+| 2 | 📁 **Files** | A filesystem + Python with `openpyxl`, `python-docx`, `pyyaml` | `.docx` / `.xlsx` that open in Word and Excel and convert to Google Docs / Sheets on upload |
+| 3 | 📋 **Manual** | Nothing | Filled-in Markdown documents + a **HOW-TO-PASTE** guide, as files or one code block per document in the chat |
+
+**📁 Files requirements**
 
 ```bash
 python3 -m pip install -r requirements.txt   # openpyxl, python-docx, pyyaml
 ```
 
-The files open in Word and Excel, and convert to Google Docs / Sheets when uploaded to Drive (**Settings › Convert uploads**, or right-click › **Open with**).
+> [!NOTE]
+> On Google Drive, turn on **Settings › Convert uploads** (or right-click › **Open with**) so uploaded files become Google Docs and Sheets.
 
-## Manual fallback — no requirements
+**📋 Manual on purpose:** you can always ask for it — *"just give me the documents to paste"*.
 
-If the agent has no connector, can't write files or can't run Python, the skills give you **filled-in Markdown documents** (as files, or one code block per document in the chat) and a **HOW-TO-PASTE** guide for Google Docs, Word, Notion and Confluence. You can also ask for this directly: "just give me the documents to paste".
+## ⚙️ After installing
 
-## Without AI
+1. Run **`/setup-zeevolution-skills`** once (six quick questions, saved for next time).
+2. Run **`/career-hub-toolkit me`** or **`/career-hub-toolkit <name>`**.
+3. Open the **Career Hub** and book a **bi-weekly 1:1** with it in the invite.
 
-No install needed: download a Manual Kit from the Releases page and follow [MANUAL.md](MANUAL.md).
+## 🛟 Troubleshooting
+
+| Symptom | Fix |
+|---|---|
+| 👯 Every skill appears twice | You installed twice (e.g. Claude Code copy in `~/.claude/skills/` + Cursor plugin). Remove one. |
+| 🚫 "No Google Drive tool" | Enable the connector (Claude app) or add a Google Drive MCP server (Claude Code / Cursor). Meanwhile the skill falls back to Files or Manual. |
+| 📖 Microsoft connector is read-only | Expected for many connectors in v0.1: the Files fallback gives you `.docx` / `.xlsx` to upload. |
+| 🐍 `ModuleNotFoundError: openpyxl` | `python3 -m pip install -r requirements.txt`, or let the skill use the Manual fallback. |
+| ⌨️ `/career-hub-toolkit` doesn't appear | Restart the agent after installing; in Cursor check **Customize → Skills**. |

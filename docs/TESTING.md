@@ -1,8 +1,23 @@
-# Testing and CI/CD
+# 🧪 Testing and CI/CD
 
 Every change to a skill, template or script is checked automatically on the pull request. Locally, `make check` runs the same stages in the same order.
 
-## 1. Where tests live: a mirror of the repo
+## 📑 Contents
+
+- [🪞 Where tests live: a mirror of the repo](#-where-tests-live-a-mirror-of-the-repo)
+- [🎚️ Test levels (pytest markers)](#️-test-levels-pytest-markers)
+- [🚦 The CI/CD sequence](#-the-cicd-sequence)
+  - [🔀 On every pull request (.github/workflows/ci.yml)](#-on-every-pull-request-githubworkflowsciyml)
+  - [🌙 Nightly (.github/workflows/nightly.yml)](#-nightly-githubworkflowsnightlyyml)
+  - [🏷️ On a release tag v* (.github/workflows/release.yml)](#️-on-a-release-tag-v-githubworkflowsreleaseyml)
+  - [🪝 Before every commit (.pre-commit-config.yaml)](#-before-every-commit-pre-commit-configyaml)
+  - [📅 Weekly (.github/dependabot.yml)](#-weekly-githubdependabotyml)
+- [🧰 Tools — what each one is for](#-tools--what-each-one-is-for)
+- [✍️ Writing a new test](#️-writing-a-new-test)
+
+---
+
+## 🪞 Where tests live: a mirror of the repo
 
 Like `src/main` ↔ `src/test` in a Java service, `tests/` mirrors the files it tests. Find a file, and its test is at the same path under `tests/`:
 
@@ -27,7 +42,7 @@ Like `src/main` ↔ `src/test` in a Java service, `tests/` mirrors the files it 
 
 Shared helpers: `tests/helpers.py` (paths, `load_script`, `assert_skill_contract`). Fixtures: `tests/conftest.py`.
 
-## 2. Test levels (pytest markers)
+## 🎚️ Test levels (pytest markers)
 
 Every test declares exactly what kind it is — a test without a marker is rejected at collection time.
 
@@ -46,9 +61,9 @@ make sheets             # spreadsheet formulas (needs LibreOffice)
 make check              # everything CI runs, in order
 ```
 
-## 3. The CI/CD sequence
+## 🚦 The CI/CD sequence
 
-### On every pull request (`.github/workflows/ci.yml`)
+### 🔀 On every pull request (`.github/workflows/ci.yml`)
 
 Stages run in order and stop at the first failure, cheapest first:
 
@@ -69,26 +84,26 @@ lint ──► consistency ──► tests (Linux, macOS, Windows) ──┬─�
 
 Add the **`run-evals`** label to a PR that changes how a skill behaves (`skills/**/SKILL.md`, `INTERVIEW.md`, adapters). Evals call a real model, so they cost money and need the `ANTHROPIC_API_KEY` secret.
 
-### Nightly (`.github/workflows/nightly.yml`)
+### 🌙 Nightly (`.github/workflows/nightly.yml`)
 
 - **lychee** — external links in README, docs and skills still work.
 - **Full eval suite** — every case, 3 runs each, threshold 0.8.
 
-### On a release tag `v*` (`.github/workflows/release.yml`)
+### 🏷️ On a release tag `v*` (`.github/workflows/release.yml`)
 
 1. Re-runs the whole CI gate (`ci.yml` as a reusable workflow).
 2. Checks the tag matches the version in both plugin manifests.
 3. Builds `dist/`, leak-checks the built files, publishes the GitHub Release (Manual Kits + `.skill` files).
 
-### Before every commit (`.pre-commit-config.yaml`)
+### 🪝 Before every commit (`.pre-commit-config.yaml`)
 
 ruff, yamllint, markdownlint, gitleaks, the consistency scripts, the local leak check and the fast tests. Install once with `make install`.
 
-### Weekly (`.github/dependabot.yml`)
+### 📅 Weekly (`.github/dependabot.yml`)
 
 Grouped updates for Python packages and GitHub Actions.
 
-## 4. Tools — what each one is for
+## 🧰 Tools — what each one is for
 
 | Tool | Where | Validates | Why this one |
 |---|---|---|---|
@@ -113,9 +128,9 @@ Grouped updates for Python packages and GitHub Actions.
 - **typos** spell checker, configured with a Portuguese word list, once the docs settle.
 - **Renovate** instead of Dependabot if you want auto-merge for safe updates.
 
-## 5. Writing a new test
+## ✍️ Writing a new test
 
-1. Put it at the mirrored path (see §1). `tests/test_repo_layout.py` tells you if you got it wrong.
+1. Put it at the mirrored path (see [🪞 Where tests live](#-where-tests-live-a-mirror-of-the-repo)). `tests/test_repo_layout.py` tells you if you got it wrong.
 2. Mark the module: `pytestmark = pytest.mark.unit` (or `contract`, `e2e`).
 3. Use fictional people only — the leak check scans `tests/` too.
 4. For failure cases, copy what you need of the repo to `tmp_path` and point the script's `ROOT` at it with `monkeypatch` (see `tests/scripts/test_check_parity.py`).

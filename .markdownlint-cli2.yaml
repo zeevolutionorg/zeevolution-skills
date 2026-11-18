@@ -10,5 +10,5 @@ config:
   MD060: false
 ignores:
   - "skills/**/assets/**"
-  - "templates/**"
-  - "evals/**"
+  - "templates/*/**"
+  - "evals/*/**"

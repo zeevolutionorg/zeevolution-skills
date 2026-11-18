@@ -1,8 +1,20 @@
-# Release checklist — v0.1.0
+# 🚀 Release checklist — v0.1.0
 
-Everything below needs a human with personal accounts. Automated checks (`scripts/build.sh`) must already pass.
+Everything below needs a human with **personal** accounts. Tick the boxes in order.
 
-## 1. Personal identity and repo (once)
+> [!IMPORTANT]
+> Automated checks must already pass: run `make check` first. Use **personal** Google and Microsoft accounts and **fictional** people only — never a work workspace.
+
+## 📑 Contents
+
+- [🔐 Step 1 — Personal identity and repo (once)](#-step-1--personal-identity-and-repo-once)
+- [🔌 Step 2 — Verify on real platforms](#-step-2--verify-on-real-platforms)
+- [✋ Step 3 — Manual path test (no AI)](#-step-3--manual-path-test-no-ai)
+- [🎉 Step 4 — Launch](#-step-4--launch)
+
+---
+
+## 🔐 Step 1 — Personal identity and repo (once)
 
 - [ ] `gh auth login` with the **zeevolution** account; `gh auth status` shows it as active.
 - [ ] Personal SSH key + `~/.ssh/config` host alias `github-zeevolution`.
@@ -18,7 +30,7 @@ Everything below needs a human with personal accounts. Automated checks (`script
 - [ ] `make install` locally (pre-commit hooks).
 - [ ] Before the first PR: run `claude plugin eval . --tag smoke --runs 1` once locally and check the grader format against the official "Test plugins with evals" page for your Claude Code version.
 
-## 2. Verify on real platforms (personal accounts, fictional personas only)
+## 🔌 Step 2 — Verify on real platforms
 
 Use a **personal** Google account and a **personal** Microsoft account. Never a work workspace.
 
@@ -30,14 +42,14 @@ Use a **personal** Google account and a **personal** Microsoft account. Never a 
 - [ ] Run `/career-hub-toolkit me` and `/career-hub-toolkit <fictional name>` from Claude app, Claude Code and Cursor; Hub created with working links in under 2 minutes; re-run asks question F2 and doesn't overwrite.
 - [ ] Install paths: Claude Code `/plugin marketplace add` + `/plugin install`; Claude app `.skill` upload; Cursor GitHub import; `npx skills add … -a cursor`. Update `docs/INSTALL.md` if any command or menu changed.
 
-## 3. Manual path test (no AI)
+## ✋ Step 3 — Manual path test (no AI)
 
 - [ ] Someone who didn't write the guide follows `docs/MANUAL.md` on Google, timed (target ≤ 30 min).
 - [ ] Same on Microsoft 365.
 - [ ] Master copy path (target ≤ 10 min per person).
 - [ ] Screenshots for MANUAL.md: personal accounts, fictional data, EXIF stripped; `scripts/check_leaks.py` passes on them.
 
-## 4. Launch
+## 🎉 Step 4 — Launch
 
 - [ ] Read every template once, end to end, in both languages.
 - [ ] `scripts/build.sh` green; CI green on `main`.

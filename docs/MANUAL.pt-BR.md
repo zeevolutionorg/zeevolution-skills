@@ -1,70 +1,120 @@
-# Uso manual — sem IA
+# ✋ Uso manual — sem IA
 
-Monte um Hub de Carreira completo à mão em **cerca de 20–30 minutos**, no Google Workspace ou no Microsoft 365. Com uma cópia-mestre, cada nova pessoa leva **cerca de 10 minutos**.
+Monte um Hub de Carreira completo à mão, no Google Workspace ou no Microsoft 365.
 
-[English](MANUAL.md)
+| ⏱️ Primeiro hub | 🔁 Cada nova pessoa | 🌎 Idioma |
+|---|---|---|
+| cerca de 20–30 minutos | cerca de 10 minutos com uma cópia-mestre | Português · [English](MANUAL.md) |
 
-## 1. Baixe o Kit Manual
+## 📑 Índice
+
+- [📥 Baixe o Kit Manual](#-baixe-o-kit-manual)
+- [🧾 Escolha seus documentos](#-escolha-seus-documentos)
+- [🟦 Caminho A — Google Workspace](#-caminho-a--google-workspace)
+- [🟪 Caminho B — Microsoft 365](#-caminho-b--microsoft-365)
+- [🧩 Caminho C — Notion, Confluence, Obsidian](#-caminho-c--notion-confluence-obsidian)
+- [♻️ Cópia-mestre reutilizável](#️-cópia-mestre-reutilizável)
+- [🔄 Mantendo suas cópias atualizadas](#-mantendo-suas-cópias-atualizadas)
+- [🗓️ Depois que o hub existe](#️-depois-que-o-hub-existe)
+
+---
+
+## 📥 Baixe o Kit Manual
 
 Na [Release](https://github.com/zeevolution/zeevolution-skills/releases) mais recente, baixe `career-management-kit-pt-BR.zip` e descompacte.
 
 | Pasta | O que tem | Para quê |
 |---|---|---|
-| `markdown/` | Os templates em texto `.md` | Google Docs (colar ou importar), Notion, Confluence, Obsidian |
-| `word/` | Os mesmos templates em `.docx` | Word / OneDrive / SharePoint, ou upload no Google Drive |
-| `sheets/` | `05 - 🪜 Avaliação de Trilha.xlsx`, a planilha pronta | Excel ou Google Planilhas. **Nunca recrie a partir do texto.** |
-| `START-HERE.pdf` | Uma página com estes passos | Todo mundo |
+| 📝 `markdown/` | Os templates em texto `.md` | Google Docs (colar ou importar), Notion, Confluence, Obsidian |
+| 📄 `word/` | Os mesmos templates em `.docx` | Word / OneDrive / SharePoint, ou upload no Google Drive |
+| 📊 `sheets/` | `05 - 🪜 Avaliação de Trilha.xlsx`, a planilha pronta | Excel ou Google Planilhas — **nunca recrie a partir do texto** |
+| 🚀 `START-HERE.pdf` | Uma página com estes passos | Todo mundo |
 
-**Quais documentos copiar**
+## 🧾 Escolha seus documentos
 
-- **Sua própria carreira (modo pessoal):** 00 Hub de Carreira, 01 Notas de 1:1, 02 PDI **e** 04 Plano de Foco (copie os dois; escolha um depois), 03 Brag Document, 05 Avaliação de Trilha.
-- **Alguém que você lidera (modo líder):** de 00 a 06. Inclua o **07 Documento de Evidências** só se um nível estiver em risco, e o **08 Plano de Onboarding** só para quem está chegando no time.
+| Modo | Copie estes |
+|---|---|
+| 👤 **Sua própria carreira** | 00 Hub de Carreira · 01 Notas de 1:1 · 02 PDI **e** 04 Plano de Foco · 03 Brag Document · 05 Avaliação de Trilha |
+| 🧑‍🤝‍🧑 **Alguém que você lidera** | 00 a 06 · mais o **07 Documento de Evidências** só se um nível estiver em risco · mais o **08 Plano de Onboarding** só para quem está chegando |
 
-> O **PDI** e o **Plano de Foco** são alternativos: vocês vão usar um, não os dois. Os dois começam com um aviso explicando isso; escolham juntos no primeiro 1:1 ou Check de Carreira.
+> [!NOTE]
+> O **PDI** e o **Plano de Foco** são alternativos: vocês vão usar um, não os dois. Os dois começam com um aviso explicando isso — escolham juntos no primeiro 1:1 ou Check de Carreira.
 
-## 2. Caminho 1 — Google Workspace (Docs, Planilhas, Drive)
+---
 
-1. **Crie a pasta.** No Google Drive: **Novo › Nova pasta** → `Hub de Carreira — <Nome da pessoa>`. No modo líder, compartilhe só com a pessoa.
-2. **Crie os documentos.** Escolha um jeito:
-   - **Upload (mais rápido):** arraste todos os arquivos de `word/` para a pasta. Clique com o botão direito em cada um › **Abrir com › Documentos Google**, depois **Arquivo › Salvar como Documentos Google**, e apague o original. Dica: ative **Configurações › Converter uploads** no Drive e todo upload vira Documento Google automaticamente.
-   - **Copiar e colar:** em qualquer Documento Google, ative **Ferramentas › Preferências › Ativar Markdown** (uma vez). Crie um documento em branco, abra o `.md` num editor de texto (ou no GitHub, botão **Raw**), copie tudo e, no documento, clique com o botão direito › **Colar do Markdown**. Renomeie o documento como o arquivo.
-3. **Crie a Avaliação de Trilha.** Suba `sheets/05 - 🪜 Avaliação de Trilha.xlsx` e clique com o botão direito › **Abrir com › Planilhas Google** (ou deixe o Converter uploads fazer isso). Listas suspensas, fórmulas e cores vêm junto. Preencha **só as células amarelas**.
-4. **Substitua os campos.** Em cada documento: **Editar › Localizar e substituir** (Ctrl/Cmd + Shift + H). Substitua: `{{person_name}}`, `{{leader_name}}`, `{{role}}`, `{{discipline}}`, `{{level}}`, `{{next_level}}`, `{{start_date}}`, `{{next_meeting_date}}`, `{{cycle}}`, `{{ladder_source}}`. No fim, procure `{{` para garantir que não sobrou nada (os `{{doc_link_…}}` são tratados no próximo passo).
-5. **Ligue tudo pelo Hub.** Abra cada documento, **Compartilhar › Copiar link**, e coloque o link na linha dele na tabela de documentos do Hub (selecione o nome › Inserir link). Em cada documento, aponte o link **← Voltar ao Hub de Carreira** para o Hub.
-6. **Escolha a trilha de carreira.** Tem a da empresa? Cole na aba **🪜 Trilha** da planilha (níveis na coluna A, pilares na linha 4) e marque **Trilha de carreira** como *Trilha da empresa* na aba Avaliação. Não tem? Mantenha a trilha genérica; o aviso lembra de revisar no próximo Check de Carreira.
-7. **Marque o quinzenal.** No Google Agenda, crie um 1:1 recorrente **a cada 2 semanas** com o link do Hub na descrição, como recomenda o bloco no topo do Hub.
+## 🟦 Caminho A — Google Workspace
 
-## 3. Caminho 2 — Microsoft 365 (Word, Excel, OneDrive / SharePoint)
+| Passo | Faça assim |
+|---|---|
+| 📁 **1. Pasta** | No Google Drive: **Novo › Nova pasta** → `Hub de Carreira — <Nome da pessoa>`. No modo líder, compartilhe só com a pessoa. |
+| 📄 **2. Documentos** | Escolha **upload** ou **colar** (abaixo). |
+| 📊 **3. Planilha** | Suba `sheets/05 - 🪜 Avaliação de Trilha.xlsx` → botão direito › **Abrir com › Planilhas Google**. Preencha **só as células amarelas**. |
+| ✏️ **4. Campos** | Em cada documento: **Editar › Localizar e substituir** (Ctrl/Cmd + Shift + H). |
+| 🔗 **5. Links** | **Compartilhar › Copiar link** em cada documento → cole na linha dele na tabela do Hub. Aponte cada **← Voltar ao Hub de Carreira** para o Hub. |
+| 🪜 **6. Trilha** | Cole a trilha da sua empresa na aba **🪜 Trilha**, ou mantenha a genérica. |
+| 🗓️ **7. Ritmo** | No Google Agenda, um 1:1 recorrente **a cada 2 semanas** com o link do Hub na descrição. |
 
-1. **Crie a pasta.** No OneDrive ou SharePoint: **+ Adicionar novo › Pasta** → `Hub de Carreira — <Nome da pessoa>`. No modo líder, compartilhe só com a pessoa.
-2. **Crie os documentos.** Suba todos os arquivos de `word/` (arrastar e soltar, ou **Carregar › Arquivos**). Eles abrem direto no Word para a web ou desktop; não precisa converter. Use os `.docx`, não os `.md`: o suporte a Markdown no Word ainda é parcial.
-3. **Crie a Avaliação de Trilha.** Suba `sheets/05 - 🪜 Avaliação de Trilha.xlsx`. Abre no Excel com tudo funcionando. Preencha **só as células amarelas**.
-4. **Substitua os campos.** Em cada documento: **Página Inicial › Substituir** (Ctrl + H, ou Cmd + Shift + H no Mac). Mesma lista do passo 4 do Google; depois procure `{{`.
-5. **Ligue tudo pelo Hub.** No OneDrive, selecione cada arquivo › **Copiar link** e coloque na linha dele na tabela do Hub. Aponte o **← Voltar ao Hub de Carreira** de cada documento para o Hub.
-6. **Escolha a trilha de carreira.** Igual ao passo 6 do Google, na aba **🪜 Trilha** do Excel.
-7. **Marque o quinzenal.** No Outlook, crie um 1:1 recorrente **a cada 2 semanas** com o link do Hub no corpo.
+**📄 Passo 2 — dois jeitos de criar os documentos**
 
-## 4. Caminho 3 — Outras ferramentas (Notion, Confluence, Obsidian, arquivos)
+- ⬆️ **Upload (mais rápido):** arraste todos os arquivos de `word/` para a pasta → botão direito em cada um › **Abrir com › Documentos Google** → **Arquivo › Salvar como Documentos Google** → apague o original.
+  > [!TIP]
+  > Ative **Configurações › Converter uploads** no Drive e todo upload vira Documento Google automaticamente.
+- 📋 **Copiar e colar:** ative **Ferramentas › Preferências › Ativar Markdown** uma vez → crie um documento em branco → copie o `.md` inteiro (num editor de texto, ou no GitHub com **Raw**) → botão direito › **Colar do Markdown** → renomeie como o arquivo.
 
-Importe ou cole os `.md` direto; a maioria dessas ferramentas lê Markdown. Deixe o `.xlsx` num drive compartilhado com link no Hub. Os passos 4–7 são iguais.
+**✏️ Passo 4 — campos para substituir**
 
-## 5. Cópia-mestre reutilizável
+`{{person_name}}` · `{{leader_name}}` · `{{role}}` · `{{discipline}}` · `{{level}}` · `{{next_level}}` · `{{start_date}}` · `{{next_meeting_date}}` · `{{cycle}}` · `{{ladder_source}}`
 
-1. Siga o Caminho 1 ou 2 uma vez **sem** substituir os campos. Nomeie a pasta `Hub de Carreira — MODELO`.
-2. Para cada nova pessoa: **Google:** botão direito em cada arquivo › **Fazer uma cópia** na nova pasta. **Microsoft:** selecione os arquivos › **Copiar para** › a nova pasta.
-3. Depois faça só os passos 4–7 — cerca de 10 minutos por pessoa.
+No fim, procure `{{` para garantir que não sobrou nada — os `{{doc_link_…}}` são tratados no passo 5.
 
-## 6. Mantendo suas cópias atualizadas
+**🪜 Passo 6 — trilha da sua empresa:** níveis na coluna A, pilares na linha 4; depois marque **Trilha de carreira** como *Trilha da empresa* na aba Avaliação. A trilha genérica mostra um aviso lembrando de revisar no próximo Check de Carreira.
+
+---
+
+## 🟪 Caminho B — Microsoft 365
+
+| Passo | Faça assim |
+|---|---|
+| 📁 **1. Pasta** | No OneDrive ou SharePoint: **+ Adicionar novo › Pasta** → `Hub de Carreira — <Nome da pessoa>`. No modo líder, compartilhe só com a pessoa. |
+| 📄 **2. Documentos** | Suba todos os arquivos de `word/` (arrastar e soltar, ou **Carregar › Arquivos**). Abrem direto no Word. |
+| 📊 **3. Planilha** | Suba `sheets/05 - 🪜 Avaliação de Trilha.xlsx`. Abre no Excel com tudo funcionando. Preencha **só as células amarelas**. |
+| ✏️ **4. Campos** | **Página Inicial › Substituir** (Ctrl + H, ou Cmd + Shift + H no Mac) — mesma lista do Caminho A; depois procure `{{`. |
+| 🔗 **5. Links** | Selecione cada arquivo › **Copiar link** → cole na linha dele no Hub. Aponte cada **← Voltar ao Hub de Carreira** para o Hub. |
+| 🪜 **6. Trilha** | Igual ao Caminho A, na aba **🪜 Trilha** do Excel. |
+| 🗓️ **7. Ritmo** | No Outlook, um 1:1 recorrente **a cada 2 semanas** com o link do Hub no corpo. |
+
+> [!WARNING]
+> Use os `.docx`, não os `.md`: o suporte a Markdown no Word ainda é parcial.
+
+---
+
+## 🧩 Caminho C — Notion, Confluence, Obsidian
+
+- 📋 Importe ou cole os `.md` direto — essas ferramentas leem Markdown.
+- 📊 Deixe o `.xlsx` num drive compartilhado com link no Hub.
+- ✏️ Os passos 4–7 (campos, links, trilha, ritmo) são iguais.
+
+## ♻️ Cópia-mestre reutilizável
+
+1. 🏗️ Siga o Caminho A ou B uma vez **sem** substituir os campos. Nomeie a pasta `Hub de Carreira — MODELO`.
+2. 📑 Para cada nova pessoa: **Google** → botão direito em cada arquivo › **Fazer uma cópia**; **Microsoft** → selecione os arquivos › **Copiar para** a nova pasta.
+3. ✏️ Depois faça só os passos 4–7 — cerca de **10 minutos** por pessoa.
+
+## 🔄 Mantendo suas cópias atualizadas
 
 Os templates melhoram com o tempo. O [CHANGELOG.md](../CHANGELOG.md) lista, por release, quais documentos mudaram e como, para você atualizar sua cópia-mestre à mão. Hubs já em uso nunca são afetados.
 
-## 7. Depois que o hub existe
+## 🗓️ Depois que o hub existe
 
 O **Hub de Carreira** é a página central. A cada duas semanas:
 
-1. Abra o Hub e percorra a tabela de status.
-2. Faça o 1:1 nas Notas de 1:1 (reflexão → feedback → ações).
-3. Atualize um documento de desenvolvimento (o plano escolhido, o Brag ou a Avaliação de Trilha).
-4. Atualize status e datas de "última revisão" no Hub.
+1. 🚀 Abram o Hub e percorram a tabela de status.
+2. 🎶 Façam o 1:1 nas Notas de 1:1 (reflexão → feedback → ações).
+3. 🌱 Atualizem um documento de desenvolvimento (o plano escolhido, o Brag ou a Avaliação de Trilha).
+4. ✅ Atualizem status e datas de "última revisão" no Hub.
 
-Uma vez por trimestre, o primeiro quinzenal é o **Check de Carreira**. Uma vez por ciclo, revisem juntos a Avaliação de Trilha e a Avaliação de Desempenho.
+| Frequência | Ritual |
+|---|---|
+| 🔁 A cada 2 semanas | 1:1 quinzenal |
+| 🧭 Uma vez por trimestre | O primeiro quinzenal é o **Check de Carreira** |
+| 📝 Uma vez por ciclo | Revisar juntos a Avaliação de Trilha e a Avaliação de Desempenho |

@@ -1,45 +1,88 @@
-# Contributing
+# 🤝 Contributing
 
-Thanks for helping. These skills stay **small, composable and usable without AI**. Before opening a PR, read this page.
+Thanks for helping! These skills stay **small, composable and usable without AI**. Please read this page before opening a pull request.
 
-## Ground rules
+## 📑 Contents
 
-1. **No employer traces.** Examples use fictional people, companies and products only. No internal tool names, performance-system names, level/band schemes, org units or company values. The leak check (`scripts/check_leaks.py`) runs on every PR.
-2. **Every template works by hand.** If a step needs an agent, it isn't a template.
-3. **Every section has a tip.** ℹ️ what it is, 💡 how to use, ✍️ a practical example (see `skills/foundations/doc-templates/SKILL.md`).
-4. **English and Brazilian Portuguese stay in sync.** Same headings, tables, callouts and placeholders (`scripts/check_parity.py`).
-5. **Foundations are built once.** Platform code, tip rules, discipline vocabulary and user defaults live in `skills/foundations/`. A category never re-implements them.
+- [📜 Ground rules](#-ground-rules)
+- [🔁 Your workflow](#-your-workflow)
+- [🧪 Local checks](#-local-checks)
+- [🧱 Skill format](#-skill-format)
+- [🗂️ Adding a category](#️-adding-a-category)
+- [🏷️ Versioning](#️-versioning)
+- [✅ Pull request checklist](#-pull-request-checklist)
 
-## Local checks
+---
+
+## 📜 Ground rules
+
+| # | Rule | Enforced by |
+|---|---|---|
+| 1 | 🕵️ **No employer traces.** Fictional people, companies and products only. No internal tool names, performance-system names, level/band schemes, org units or company values. | `scripts/check_leaks.py` on every PR |
+| 2 | ✋ **Every template works by hand.** If a step needs an agent, it isn't a template. | Review + Manual Kit build |
+| 3 | 💡 **Every section has a tip:** ℹ️ what it is, 💡 how to use, ✍️ a practical example ([doc-templates](skills/foundations/doc-templates/SKILL.md)). | `tests/templates/…/test_documents.py` |
+| 4 | 🌎 **English and Brazilian Portuguese stay in sync:** same headings, tables, callouts and placeholders. | `scripts/check_parity.py` |
+| 5 | 🧱 **Foundations are built once.** Platform code, tip rules, discipline vocabulary and user defaults live in `skills/foundations/`. A category never re-implements them. | Review |
+
+## 🔁 Your workflow
+
+1. 🌿 Branch from `main`.
+2. ✏️ Change the **sources**: `templates/` and `skills/foundations/cloud-workspace/scripts/`. Never edit the bundled copies under `skills/career-management/*/assets` or `*/scripts` by hand.
+3. 🔄 Run `python3 scripts/sync_skill_assets.py` to refresh the bundled copies.
+4. 🧪 Add or update the test at the **mirrored path** under `tests/`.
+5. ✅ Run `make check`.
+6. 📬 Open the PR. Changing how a skill *behaves*? Add the **`run-evals`** label.
+
+## 🧪 Local checks
 
 ```bash
 make install   # dev dependencies + pre-commit hooks
 make check     # the same stages CI runs: lint, consistency, tests, e2e, sheets, leak check
 ```
 
-Tests mirror the repository layout (`scripts/x.py` → `tests/scripts/test_x.py`). See [docs/TESTING.md](docs/TESTING.md) for the test levels, the CI/CD sequence and the tools.
+> [!TIP]
+> Tests mirror the repository layout (`scripts/x.py` → `tests/scripts/test_x.py`). See [docs/TESTING.md](docs/TESTING.md) for test levels, the CI/CD sequence and the tools.
 
-For the leak check to cover employer terms locally, keep a denylist at `~/.config/zeevolution/denylist.txt` (one term per line). It never goes into the repo.
+> [!NOTE]
+> For the leak check to cover employer terms locally, keep a denylist at `~/.config/zeevolution/denylist.txt` (one term per line). It never goes into the repo.
 
-## Adding a category
+## 🧱 Skill format
+
+- 📁 Folder name = `name` in the `SKILL.md` frontmatter (lowercase, hyphens). Names are unique across categories.
+- 📝 `description` says what the skill does **and when to use it**.
+- ⌨️ User-invoked skills set `disable-model-invocation: true`.
+- ✂️ Keep `SKILL.md` focused; move detail to sibling `.md` files the skill links to.
+- 🧪 Every skill has `tests/skills/<category>/<skill>/test_skill.py`.
+
+## 🗂️ Adding a category
 
 A category groups skills for one aspect of a technologist's work. Add one only when a practice is repeated often enough to be worth packaging.
 
-1. `skills/<category>/README.md` and its skills, each with a contract test at `tests/skills/<category>/<skill>/test_skill.py` (and `tests/.../scripts/test_<name>.py` for any script): one **`<something>-toolkit`** user-invoked skill that sets up the category's documents, then working skills on top.
-2. `templates/<category>/<lang>/` if it produces documents (`en` and `pt-BR`), plus `*.sheet.yaml` / `*.strings.yaml` for spreadsheets.
-3. Add each skill folder to `.claude-plugin/plugin.json` → `skills`.
-4. A row in the README "Reference" section, and a page under `docs/<category>/`.
-5. If the skills bundle templates, extend `scripts/sync_skill_assets.py`.
+| Step | Add |
+|---|---|
+| 1️⃣ | `skills/<category>/README.md` and its skills: one **`<something>-toolkit`** user-invoked skill that sets up the category's documents, then working skills on top |
+| 2️⃣ | A contract test per skill at `tests/skills/<category>/<skill>/test_skill.py`, and `tests/.../scripts/test_<name>.py` for any script |
+| 3️⃣ | `templates/<category>/<lang>/` if it produces documents (`en` and `pt-BR`), plus `*.sheet.yaml` / `*.strings.yaml` for spreadsheets, and `tests/templates/<category>/` |
+| 4️⃣ | Each skill folder in `.claude-plugin/plugin.json` → `skills` |
+| 5️⃣ | A row in the README "Skills reference" and a page under `docs/<category>/` |
+| 6️⃣ | If the skills bundle templates, extend `scripts/sync_skill_assets.py` |
 
-Use `cloud-workspace` to create files, `doc-templates` for placeholders and tips, `disciplines` for wording. Never write a new platform adapter inside a category.
+> [!IMPORTANT]
+> Use `cloud-workspace` to create files, `doc-templates` for placeholders and tips, `disciplines` for wording. Never write a new platform adapter inside a category.
 
-## Skill format
+## 🏷️ Versioning
 
-- Folder name = `name` in the `SKILL.md` frontmatter (lowercase, hyphens). Names are unique across categories.
-- `description` says what the skill does **and when to use it**.
-- User-invoked skills set `disable-model-invocation: true`.
-- Keep `SKILL.md` focused; move detail to sibling `.md` files the skill links to.
+- 🔢 Bump the version in **both** `.claude-plugin/plugin.json` and `.cursor-plugin/plugin.json` — `scripts/validate_skills.py` checks they match, and the release workflow checks they match the tag.
+- 📝 Add a CHANGELOG entry that says, **per document**, what changed — manual users rely on it.
 
-## Versioning
+## ✅ Pull request checklist
 
-Bump the version in **both** `.claude-plugin/plugin.json` and `.cursor-plugin/plugin.json` (`scripts/validate_skills.py` checks they match) and add a CHANGELOG entry that says, per document, what changed — manual users rely on it.
+The [PR template](.github/pull_request_template.md) asks for:
+
+- [ ] `make check` passes locally
+- [ ] English and Portuguese templates changed together
+- [ ] New script → new test at the mirrored path
+- [ ] New skill → contract test + entry in `.claude-plugin/plugin.json`
+- [ ] Document changed → CHANGELOG entry per document
+- [ ] Behavior changed → `evals/` updated + `run-evals` label
+- [ ] Only fictional people, companies and products

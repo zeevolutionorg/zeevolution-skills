@@ -48,6 +48,8 @@ jobs:
             *.md
             docs/**/*.md
             skills/**/*.md
+            templates/*.md
+            evals/*.md
             !skills/**/assets/**
       - name: actionlint
         uses: raven-actions/actionlint@v2

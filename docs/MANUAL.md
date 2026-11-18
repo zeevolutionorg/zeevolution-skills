@@ -1,70 +1,120 @@
-# Manual usage — no AI needed
+# ✋ Manual usage — no AI needed
 
-Build a complete Career Hub by hand in **about 20–30 minutes**, in Google Workspace or Microsoft 365. Once you keep a master copy, each new person takes **about 10 minutes**.
+Build a complete Career Hub by hand in Google Workspace or Microsoft 365.
 
-[Português (Brasil)](MANUAL.pt-BR.md)
+| ⏱️ First hub | 🔁 Each next person | 🌎 Language |
+|---|---|---|
+| about 20–30 minutes | about 10 minutes with a master copy | English · [Português (Brasil)](MANUAL.pt-BR.md) |
 
-## 1. Download the Manual Kit
+## 📑 Contents
+
+- [📥 Download the Manual Kit](#-download-the-manual-kit)
+- [🧾 Choose your documents](#-choose-your-documents)
+- [🟦 Path A — Google Workspace](#-path-a--google-workspace)
+- [🟪 Path B — Microsoft 365](#-path-b--microsoft-365)
+- [🧩 Path C — Notion, Confluence, Obsidian](#-path-c--notion-confluence-obsidian)
+- [♻️ Make it reusable: a master copy](#️-make-it-reusable-a-master-copy)
+- [🔄 Keeping your copies up to date](#-keeping-your-copies-up-to-date)
+- [🗓️ After the hub exists](#️-after-the-hub-exists)
+
+---
+
+## 📥 Download the Manual Kit
 
 From the latest [Release](https://github.com/zeevolution/zeevolution-skills/releases), download `career-management-kit-en.zip` (or `-pt-BR`) and unzip it.
 
 | Folder | What's inside | Use it for |
 |---|---|---|
-| `markdown/` | The templates as `.md` text | Google Docs (paste or import), Notion, Confluence, Obsidian |
-| `word/` | The same templates as `.docx` | Word / OneDrive / SharePoint, or upload to Google Drive |
-| `sheets/` | `05 - 🪜 Ladder Assessment.xlsx`, the designed spreadsheet | Excel or Google Sheets. **Never re-create it from text.** |
-| `START-HERE.pdf` | One page with these steps | Everyone |
+| 📝 `markdown/` | The templates as `.md` text | Google Docs (paste or import), Notion, Confluence, Obsidian |
+| 📄 `word/` | The same templates as `.docx` | Word / OneDrive / SharePoint, or upload to Google Drive |
+| 📊 `sheets/` | `05 - 🪜 Ladder Assessment.xlsx`, the designed spreadsheet | Excel or Google Sheets — **never re-create it from text** |
+| 🚀 `START-HERE.pdf` | One page with these steps | Everyone |
 
-**Which documents to copy**
+## 🧾 Choose your documents
 
-- **Your own career (self mode):** 00 Career Hub, 01 1:1 Notes, 02 Growth Plan **and** 04 Focus Plan (copy both; choose one later), 03 Brag Document, 05 Ladder Assessment.
-- **Someone you lead (lead mode):** 00 to 06. Add **07 Evidence Doc** only if a level is at risk, and **08 Onboarding Plan** only for someone new to the team.
+| Mode | Copy these |
+|---|---|
+| 👤 **Your own career** | 00 Career Hub · 01 1:1 Notes · 02 Growth Plan **and** 04 Focus Plan · 03 Brag Document · 05 Ladder Assessment |
+| 🧑‍🤝‍🧑 **Someone you lead** | 00 to 06 · plus **07 Evidence Doc** only if a level is at risk · plus **08 Onboarding Plan** only for someone new |
 
-> The **Growth Plan** and the **Focus Plan** are alternatives: you'll use one, not both. Both start with a banner explaining this; choose together in the first 1:1 or Career Check.
+> [!NOTE]
+> The **Growth Plan** and the **Focus Plan** are alternatives: you'll use one, not both. Both start with a banner explaining this — choose together in the first 1:1 or Career Check.
 
-## 2. Path 1 — Google Workspace (Docs, Sheets, Drive)
+---
 
-1. **Create the folder.** In Google Drive: **New › New folder** → `Career Hub — <Person name>`. In lead mode, share it only with the person.
-2. **Create the documents.** Pick one way:
-   - **Upload (fastest):** drag every file from `word/` into the folder. Right-click each file › **Open with › Google Docs**, then **File › Save as Google Docs**, and delete the uploaded original. Tip: turn on Drive **Settings › Convert uploads** and every upload becomes a Google Doc automatically.
-   - **Copy and paste:** in any Google Doc, turn on **Tools › Preferences › Enable Markdown** (once). Create a blank document, open the `.md` file in a text editor (or on GitHub with the **Raw** button), copy everything, then right-click in the doc › **Paste from Markdown**. Rename the document to match the file name.
-3. **Create the Ladder Assessment.** Upload `sheets/05 - 🪜 Ladder Assessment.xlsx`, then right-click › **Open with › Google Sheets** (or let Convert uploads do it). Dropdowns, formulas and colors come along. Fill **only the yellow cells**.
-4. **Replace the placeholders.** In each document: **Edit › Find and replace** (Ctrl/Cmd + Shift + H). Replace each of: `{{person_name}}`, `{{leader_name}}`, `{{role}}`, `{{discipline}}`, `{{level}}`, `{{next_level}}`, `{{start_date}}`, `{{next_meeting_date}}`, `{{cycle}}`, `{{ladder_source}}`. Finish by searching `{{` to make sure nothing is left (the `{{doc_link_…}}` ones are handled in the next step).
-5. **Link everything from the Hub.** Open each document, **Share › Copy link**, and put the link on its row in the Career Hub's documents table (select the document name › Insert link). In every document, point the **← Back to Career Hub** link at the Hub.
-6. **Choose the career ladder.** Have your company's? Paste it into the spreadsheet's **🪜 Ladder** tab (levels down column A, pillars across row 4) and set **Career ladder** to *Company ladder* on the Assessment tab. Don't have one? Keep the generic ladder; the banner reminds you to revisit it at the next Career Check.
-7. **Book the bi-weekly.** In Google Calendar, create a recurring 1:1 **every 2 weeks** with the Hub link in the description, as the Hub's top block recommends.
+## 🟦 Path A — Google Workspace
 
-## 3. Path 2 — Microsoft 365 (Word, Excel, OneDrive / SharePoint)
+| Step | Do this |
+|---|---|
+| 📁 **1. Folder** | In Google Drive: **New › New folder** → `Career Hub — <Person name>`. In lead mode, share it only with the person. |
+| 📄 **2. Documents** | Pick **upload** or **paste** (below). |
+| 📊 **3. Spreadsheet** | Upload `sheets/05 - 🪜 Ladder Assessment.xlsx` → right-click › **Open with › Google Sheets**. Fill **only the yellow cells**. |
+| ✏️ **4. Placeholders** | In each doc: **Edit › Find and replace** (Ctrl/Cmd + Shift + H). |
+| 🔗 **5. Links** | **Share › Copy link** on each doc → paste on its row in the Hub's table. Point every **← Back to Career Hub** at the Hub. |
+| 🪜 **6. Ladder** | Paste your company's ladder in the **🪜 Ladder** tab, or keep the generic one. |
+| 🗓️ **7. Rhythm** | In Google Calendar, a recurring 1:1 **every 2 weeks** with the Hub link in the description. |
 
-1. **Create the folder.** In OneDrive or SharePoint: **+ Add new › Folder** → `Career Hub — <Person name>`. In lead mode, share it only with the person.
-2. **Create the documents.** Upload every file from `word/` (drag and drop, or **Upload › Files**). They open directly in Word for the web or desktop; nothing to convert. Use the `.docx` files, not the `.md` ones: Word's Markdown support is still partial.
-3. **Create the Ladder Assessment.** Upload `sheets/05 - 🪜 Ladder Assessment.xlsx`. It opens in Excel with everything working. Fill **only the yellow cells**.
-4. **Replace the placeholders.** In each document: **Home › Replace** (Ctrl + H, or Cmd + Shift + H on Mac). Same list as in Google step 4, then search `{{` to check nothing is left.
-5. **Link everything from the Hub.** In OneDrive, select each file › **Copy link**, then put it on its row in the Career Hub table. Point each document's **← Back to Career Hub** link at the Hub.
-6. **Choose the career ladder.** Same as Google step 6, in Excel's **🪜 Ladder** tab.
-7. **Book the bi-weekly.** In Outlook, create a recurring 1:1 **every 2 weeks** with the Hub link in the body.
+**📄 Step 2 — two ways to create the documents**
 
-## 4. Path 3 — Other tools (Notion, Confluence, Obsidian, plain files)
+- ⬆️ **Upload (fastest):** drag every file from `word/` into the folder → right-click each › **Open with › Google Docs** → **File › Save as Google Docs** → delete the uploaded original.
+  > [!TIP]
+  > Turn on Drive **Settings › Convert uploads** and every upload becomes a Google Doc automatically.
+- 📋 **Copy and paste:** turn on **Tools › Preferences › Enable Markdown** once → create a blank doc → copy a whole `.md` file (open it in a text editor, or on GitHub with **Raw**) → right-click › **Paste from Markdown** → rename the doc like the file.
 
-Import or paste the `.md` files directly; most of these tools read Markdown. Keep the `.xlsx` in a shared drive and link it from the Hub. Steps 4–7 (placeholders, links, ladder, bi-weekly) are the same.
+**✏️ Step 4 — placeholders to replace**
 
-## 5. Make it reusable: a master copy
+`{{person_name}}` · `{{leader_name}}` · `{{role}}` · `{{discipline}}` · `{{level}}` · `{{next_level}}` · `{{start_date}}` · `{{next_meeting_date}}` · `{{cycle}}` · `{{ladder_source}}`
 
-1. Follow Path 1 or 2 once **without** replacing the placeholders. Name the folder `Career Hub — TEMPLATE`.
-2. For each new person: **Google:** right-click each file › **Make a copy** into the new folder. **Microsoft:** select the files › **Copy to** › the new folder.
-3. Then do only steps 4–7 — about 10 minutes per person.
+Finish by searching `{{` to make sure nothing is left — the `{{doc_link_…}}` ones are handled in step 5.
 
-## 6. Keeping your copies up to date
+**🪜 Step 6 — your company's ladder:** levels down column A, pillars across row 4; then set **Career ladder** to *Company ladder* on the Assessment tab. The generic ladder shows a banner reminding you to revisit it at the next Career Check.
+
+---
+
+## 🟪 Path B — Microsoft 365
+
+| Step | Do this |
+|---|---|
+| 📁 **1. Folder** | In OneDrive or SharePoint: **+ Add new › Folder** → `Career Hub — <Person name>`. In lead mode, share it only with the person. |
+| 📄 **2. Documents** | Upload every file from `word/` (drag and drop, or **Upload › Files**). They open directly in Word. |
+| 📊 **3. Spreadsheet** | Upload `sheets/05 - 🪜 Ladder Assessment.xlsx`. It opens in Excel with everything working. Fill **only the yellow cells**. |
+| ✏️ **4. Placeholders** | **Home › Replace** (Ctrl + H, or Cmd + Shift + H on Mac) — same list as Path A, then search `{{`. |
+| 🔗 **5. Links** | Select each file › **Copy link** → paste on its row in the Hub. Point every **← Back to Career Hub** at the Hub. |
+| 🪜 **6. Ladder** | Same as Path A, in Excel's **🪜 Ladder** tab. |
+| 🗓️ **7. Rhythm** | In Outlook, a recurring 1:1 **every 2 weeks** with the Hub link in the body. |
+
+> [!WARNING]
+> Use the `.docx` files, not the `.md` ones: Word's Markdown support is still partial.
+
+---
+
+## 🧩 Path C — Notion, Confluence, Obsidian
+
+- 📋 Import or paste the `.md` files directly — these tools read Markdown.
+- 📊 Keep the `.xlsx` in a shared drive and link it from the Hub.
+- ✏️ Steps 4–7 (placeholders, links, ladder, rhythm) are the same.
+
+## ♻️ Make it reusable: a master copy
+
+1. 🏗️ Follow Path A or B once **without** replacing the placeholders. Name the folder `Career Hub — TEMPLATE`.
+2. 📑 For each new person: **Google** → right-click each file › **Make a copy**; **Microsoft** → select the files › **Copy to** the new folder.
+3. ✏️ Then do only steps 4–7 — about **10 minutes** per person.
+
+## 🔄 Keeping your copies up to date
 
 Templates improve over time. [CHANGELOG.md](../CHANGELOG.md) lists, for each release, which documents changed and how, so you can update your master copy by hand. Hubs already in use are never affected.
 
-## 7. After the hub exists
+## 🗓️ After the hub exists
 
 The **Career Hub** is the central page. Every two weeks:
 
-1. Open the Hub and walk the status table.
-2. Run the 1:1 in the 1:1 Notes (reflection → feedback → actions).
-3. Update one development document (the chosen plan, the Brag, or the Ladder Assessment).
-4. Update statuses and "last reviewed" dates in the Hub.
+1. 🚀 Open the Hub and walk the status table.
+2. 🎶 Run the 1:1 in the 1:1 Notes (reflection → feedback → actions).
+3. 🌱 Update one development document (the chosen plan, the Brag, or the Ladder Assessment).
+4. ✅ Update statuses and "last reviewed" dates in the Hub.
 
-Once a quarter, the first bi-weekly is the **Career Check**. Once a cycle, review the Ladder Assessment and the Performance Review together.
+| Cadence | Ritual |
+|---|---|
+| 🔁 Every 2 weeks | Bi-weekly 1:1 |
+| 🧭 Once a quarter | The first bi-weekly is the **Career Check** |
+| 📝 Once a cycle | Review the Ladder Assessment and the Performance Review together |
