@@ -65,12 +65,12 @@ Every category follows the same pattern: **one `*-toolkit` skill** that sets up 
 
 | | |
 |---|---|
-| 🤖 **Claude and Cursor** | Same skill files, two install paths, plus any agent that reads `SKILL.md` |
+| 🤖 **Claude and Cursor** | The same skills work in both — and in other AI assistants that support skills |
 | ✋ **Works without AI** | Every document ships as a template you can copy into Google Docs or Word |
 | 🔌 **Always delivers** | Connector → files → Markdown to paste: you always end with something usable |
 | 🧭 **Self-explanatory documents** | Every section says *what it is*, *how to use it*, and shows a practical *example* |
 | 🎨 **Any discipline** | Wording and examples for engineering, data science, design and product |
-| 🌎 **Two languages** | English and Brazilian Portuguese, kept structurally identical by CI |
+| 🌎 **Two languages** | English and Brazilian Portuguese, always with the same sections — an automatic check blocks any change that updates one language and forgets the other |
 
 ## 🚀 Quick start
 
@@ -97,6 +97,9 @@ Every category follows the same pattern: **one `*-toolkit` skill** that sets up 
 
 Every skill that creates documents ends with something you can use, in this order:
 
+> [!NOTE]
+> A **connector** (called an **MCP server** in Claude Code and Cursor) is a plug-in that lets the AI assistant work inside another app — for example, create a document in your Google Drive. Without one, the assistant can't reach your Drive, so the skill falls back to the next option.
+
 | # | Path | When | You get |
 |---|---|---|---|
 | 1 | 🔗 **Connector / MCP** | A Google or Microsoft tool that can write | Documents created directly in your workspace |
@@ -106,7 +109,7 @@ Every skill that creates documents ends with something you can use, in this orde
 ## 🗂️ Categories
 
 > [!NOTE]
-> **User-invoked** skills (⌨️) run only when you type them — they orchestrate. **Model-invoked** skills (🤖) can also be picked up by the agent when the task fits — they hold reusable rules.
+> Two kinds of skills: **⌨️ you run it** — starts only when you type its command, like `/career-hub-toolkit`; **🤖 automatic** — a helper the AI assistant uses by itself when it needs it. You never have to call those.
 
 ### 🌱 Career management
 
@@ -116,8 +119,8 @@ Every skill that creates documents ends with something you can use, in this orde
 
 | Skill | Type | What it does |
 |---|---|---|
-| 🚀 [career-hub-toolkit](skills/career-management/career-hub-toolkit/SKILL.md) | ⌨️ user | One command builds the Career Hub and every career document, in self or lead mode |
-| 🪜 [career-ladder](skills/career-management/career-ladder/SKILL.md) | 🤖 model | Maps a company career ladder into levels × pillars, or falls back to the generic ladder |
+| 🚀 [career-hub-toolkit](skills/career-management/career-hub-toolkit/SKILL.md) | ⌨️ you run it | One command builds the Career Hub and every career document, in self or lead mode |
+| 🪜 [career-ladder](skills/career-management/career-ladder/SKILL.md) | 🤖 automatic | Maps a company career ladder into levels × pillars, or falls back to the generic ladder |
 
 <details>
 <summary>💡 <b>Why this category exists</b></summary>
@@ -148,10 +151,10 @@ Career management is the first of several categories. New ones are added when a 
 
 | Skill | Type | What it does |
 |---|---|---|
-| ⚙️ [setup-zeevolution-skills](skills/foundations/setup-zeevolution-skills/SKILL.md) | ⌨️ user | One-time setup: name, discipline, platform, folder, language, default ladder |
-| ☁️ [cloud-workspace](skills/foundations/cloud-workspace/SKILL.md) | 🤖 model | Creates and links documents and spreadsheets in Google, Microsoft 365, as files, or as Markdown to paste |
-| 📝 [doc-templates](skills/foundations/doc-templates/SKILL.md) | 🤖 model | Placeholders, the "what / how / example" tip anatomy, self vs lead wording, languages |
-| 🎨 [disciplines](skills/foundations/disciplines/SKILL.md) | 🤖 model | Vocabulary and examples for engineering, data science, design and product |
+| ⚙️ [setup-zeevolution-skills](skills/foundations/setup-zeevolution-skills/SKILL.md) | ⌨️ you run it | One-time setup: name, discipline, platform, folder, language, default ladder |
+| ☁️ [cloud-workspace](skills/foundations/cloud-workspace/SKILL.md) | 🤖 automatic | Creates and links documents and spreadsheets in Google, Microsoft 365, as files, or as Markdown to paste |
+| 📝 [doc-templates](skills/foundations/doc-templates/SKILL.md) | 🤖 automatic | Placeholders, the "what / how / example" tip anatomy, self vs lead wording, languages |
+| 🎨 [disciplines](skills/foundations/disciplines/SKILL.md) | 🤖 automatic | Vocabulary and examples for engineering, data science, design and product |
 
 ## ✋ Without AI
 
@@ -164,7 +167,18 @@ Every category ships a **Manual Kit** per language in each release: its template
 
 ## ✅ Quality
 
-Every pull request runs lint, consistency checks, ~390 unit / contract / e2e tests that mirror the repo layout, real spreadsheet formula recalculation, a leak check and a secret scan — and, on demand, behavioral evals of the skills. New categories plug into the same pipeline. ➡️ [docs/TESTING.md](docs/TESTING.md)
+Every proposed change is checked automatically before it's accepted. This is called **CI** (*continuous integration*): a robot that runs a list of checks on every change and blocks it if anything fails.
+
+| The robot checks that… | Why it matters to you |
+|---|---|
+| 📝 The text and code follow the same style | Documents and skills stay consistent and readable |
+| 🌎 English and Portuguese versions have the same sections | No language gets left behind |
+| 🧪 About 390 automated tests pass — from single functions to building 32 complete career hubs | The toolkit keeps working after every change |
+| 📊 The spreadsheet's formulas still calculate the right results | Scores, gaps and readiness are correct |
+| 🕵️ Nothing points to a real company or person, and no passwords leaked | Safe to share |
+| 🎯 *(on request)* An AI assistant still uses the skills the right way | The skills keep behaving as described |
+
+New categories go through the same checks. ➡️ Details for contributors: [docs/TESTING.md](docs/TESTING.md)
 
 ## 📚 Documentation
 

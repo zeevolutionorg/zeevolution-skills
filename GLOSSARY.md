@@ -11,6 +11,7 @@ The shared language for skills, templates and docs. Use these words — don't in
 - [🌱 Growth vocabulary](#-growth-vocabulary)
 - [🪜 Career ladder](#-career-ladder)
 - [🔌 Delivery](#-delivery)
+- [🛠️ Technical terms](#️-technical-terms)
 
 ---
 
@@ -79,3 +80,14 @@ The shared language for skills, templates and docs. Use these words — don't in
 | **Files fallback** | Creating real `.docx` / `.xlsx` files locally when no Drive / OneDrive tool can write. |
 | **Manual fallback** | Filled-in Markdown documents + a HOW-TO-PASTE guide, when there's no connector, filesystem or Python. |
 | **Manual Kit** | Release zip with Markdown, Word and spreadsheet templates for use without AI. |
+
+## 🛠️ Technical terms
+
+| Term | Meaning |
+|---|---|
+| **AI assistant / agent** | The AI tool you talk to, such as Claude or Cursor, that can use skills. |
+| **Skill** | A packaged set of instructions (and sometimes templates and scripts) that teaches the assistant one practice. |
+| **MCP server** | The technical name for a connector in Claude Code and Cursor: a plug-in that lets the assistant work inside another app. |
+| **CI (continuous integration)** | A robot that automatically runs a list of checks on every proposed change and blocks it if anything fails. |
+| **Pull request (PR)** | A proposed change to the repository, reviewed and checked before it's accepted. |
+| **Release** | A published version of the repository, with downloadable files such as the Manual Kits. |
