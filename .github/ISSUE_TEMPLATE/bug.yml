@@ -1,0 +1,23 @@
+name: Bug
+description: Something in a skill or template doesn't work as described
+labels: [bug]
+body:
+  - type: input
+    id: skill
+    attributes: {label: Skill or template, placeholder: "career-hub-toolkit / 02-growth-plan.md"}
+    validations: {required: true}
+  - type: dropdown
+    id: agent
+    attributes:
+      label: Where
+      options: [Claude Code, Claude app / Desktop / Cowork, Cursor, Other agent, No AI (manual)]
+    validations: {required: true}
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Documents created in
+      options: [Google Workspace, Microsoft 365, Files (.docx/.xlsx), Other]
+  - type: textarea
+    id: what
+    attributes: {label: What happened and what you expected, description: "Please don't paste real people's data."}
+    validations: {required: true}

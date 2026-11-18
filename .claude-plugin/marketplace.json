@@ -1,0 +1,17 @@
+{
+  "name": "zeevolution",
+  "owner": {
+    "name": "Zeevolution",
+    "url": "https://github.com/zeevolution"
+  },
+  "description": "Zeevolution's skills for technologists, as an installable Claude Code plugin.",
+  "plugins": [
+    {
+      "name": "zeevolution-skills",
+      "source": "./",
+      "description": "Skills for Technologists: small, composable agent skills for engineers, data scientists, designers and product managers. First up: career management (/career-hub-toolkit).",
+      "category": "productivity",
+      "keywords": ["skills", "career-management", "career", "one-on-one", "technologists"]
+    }
+  ]
+}

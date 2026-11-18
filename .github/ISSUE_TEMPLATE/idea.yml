@@ -1,0 +1,13 @@
+name: Idea
+description: Suggest an improvement or a new skill
+labels: [idea]
+body:
+  - type: textarea
+    id: practice
+    attributes:
+      label: The practice
+      description: What do you do repeatedly that a skill or template could help with? How often?
+    validations: {required: true}
+  - type: textarea
+    id: today
+    attributes: {label: How you do it today}

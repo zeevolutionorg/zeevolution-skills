@@ -1,0 +1,265 @@
+# Ladder Assessment — sheet spec (structure only; words come from <lang>/05-ladder-assessment.strings.yaml)
+# Built by skills/foundations/cloud-workspace/scripts/build_sheet.py
+#
+# Tokens:
+#   [[key]]      -> translated string            [[q:key]] -> translated string as a quoted formula literal
+#   {sheet:key}  -> quoted sheet name, e.g. '✍️ Assessment'
+#   {{name}}     -> value from the context (person_name, role, ...); empty if not provided
+#   {i} {r} {r+11} -> repeat index / row (simple arithmetic allowed)
+# Portable formulas only: INDEX, MATCH, IF, IFERROR, COUNTIF, AVERAGE, ABS, OR, LEFT.
+
+workbook:
+  defined_names:
+    ScaleAll: "{sheet:lists}!$A$1:$A$5"
+    Scale4: "{sheet:lists}!$A$1:$A$4"
+    Disciplines: "{sheet:lists}!$B$1:$B$5"
+    LadderSources: "{sheet:lists}!$C$1:$C$2"
+    Levels: "{sheet:ladder}!$A$5:$A$14"
+
+styles:
+  title:     {font: {bold: true, size: 16, color: "1F2937"}}
+  subtitle:  {font: {size: 10, color: "2563EB", underline: true}}
+  banner:    {font: {bold: true, color: "7C2D12"}, align: {wrap: true, v: center}}
+  label:     {font: {bold: true, color: "374151"}, fill: "F3F4F6", border: thin, align: {v: center}}
+  input:     {fill: "FFF8DB", border: thin, align: {wrap: true, v: top}, locked: false}
+  input_date: {fill: "FFF8DB", border: thin, number_format: "yyyy-mm-dd", locked: false}
+  input_link: {fill: "FFF8DB", border: thin, font: {color: "2563EB", underline: true}, align: {wrap: true, v: top}, locked: false}
+  computed:  {fill: "EEF0F3", border: thin, font: {italic: true, color: "374151"}, align: {wrap: true, v: top}}
+  computed_c: {fill: "EEF0F3", border: thin, font: {bold: true, color: "374151"}, align: {h: center, v: center}}
+  computed_pct: {fill: "EEF0F3", border: thin, font: {bold: true}, number_format: "0%", align: {h: center}}
+  header:    {font: {bold: true, color: "FFFFFF"}, fill: "1F2937", border: thin, align: {wrap: true, v: center, h: center}}
+  section:   {font: {bold: true, size: 12, color: "1F2937"}}
+  text:      {align: {wrap: true, v: top}}
+  hint:      {font: {italic: true, size: 9, color: "6B7280"}, align: {wrap: true, v: top}}
+  ladder_cell: {fill: "FFF8DB", border: thin, align: {wrap: true, v: top}, locked: false}
+  ladder_head: {font: {bold: true, color: "FFFFFF"}, fill: "374151", border: thin, align: {wrap: true, v: center, h: center}, locked: false}
+  ladder_level: {font: {bold: true}, fill: "FFF8DB", border: thin, align: {v: center}, locked: false}
+  num:       {align: {h: center, v: center}, font: {color: "6B7280"}}
+
+scale_colors: &scale_colors
+  - {equals: "[[scale_1]]", fill: "F8D7DA", font: "842029"}
+  - {equals: "[[scale_2]]", fill: "FFF3CD", font: "664D03"}
+  - {equals: "[[scale_3]]", fill: "D1E7DD", font: "0F5132"}
+  - {equals: "[[scale_4]]", fill: "CFE2FF", font: "084298"}
+  - {equals: "[[scale_na]]", fill: "E9ECEF", font: "495057"}
+
+sheets:
+  # ---------------------------------------------------------------- How to use
+  - key: howto
+    name: "[[tab_howto]]"
+    tab_color: "6B7280"
+    protect: true
+    col_widths: {A: 110}
+    cells:
+      - {ref: A1, v: "[[how_title]]", style: title}
+      - {ref: A3, v: "[[how_what]]", style: text}
+      - {ref: A5, v: "[[how_flow_title]]", style: section}
+      - {ref: A6, v: "[[how_flow_1]]", style: text}
+      - {ref: A7, v: "[[how_flow_2]]", style: text}
+      - {ref: A8, v: "[[how_flow_3]]", style: text}
+      - {ref: A9, v: "[[how_flow_4]]", style: text}
+      - {ref: A11, v: "[[how_scale_title]]", style: section}
+      - {ref: A12, v: "[[how_scale_1]]", style: text, fill: "F8D7DA"}
+      - {ref: A13, v: "[[how_scale_2]]", style: text, fill: "FFF3CD"}
+      - {ref: A14, v: "[[how_scale_3]]", style: text, fill: "D1E7DD"}
+      - {ref: A15, v: "[[how_scale_4]]", style: text, fill: "CFE2FF"}
+      - {ref: A16, v: "[[how_scale_na]]", style: text, fill: "E9ECEF"}
+      - {ref: A18, v: "[[how_colors_title]]", style: section}
+      - {ref: A19, v: "[[how_color_input]]", style: input}
+      - {ref: A20, v: "[[how_color_computed]]", style: computed}
+      - {ref: A22, v: "[[how_ladder_title]]", style: section}
+      - {ref: A23, v: "[[how_ladder_text]]", style: text}
+      - {ref: A25, v: "[[how_hub]]", style: hint}
+      - {ref: A26, v: "[[back_to_hub]]", style: subtitle, link: "{{doc_link_hub}}"}
+
+  # ---------------------------------------------------------------- Assessment
+  - key: assessment
+    name: "[[tab_assessment]]"
+    tab_color: "F59E0B"
+    active: true
+    protect: true
+    freeze: C15
+    landscape: true
+    col_widths: {A: 4, B: 22, C: 38, D: 38, E: 22, F: 22, G: 7, H: 17, I: 22, J: 22, K: 22, L: 32, M: 32, N: 11}
+    row_heights: {3: 22, 14: 32}
+    rows_height_range: {from: 15, to: 20, height: 75}
+    cells:
+      - {ref: A1, f: "=[[q:title_prefix]]&$C$5", style: title, merge: N1}
+      - {ref: A2, v: "[[back_to_hub]]", style: subtitle, link: "{{doc_link_hub}}", merge: D2}
+      - {ref: A3, f: "=IF($C$11=[[q:src_generic]],[[q:generic_banner]],\"\")", style: banner, merge: N3}
+      - {ref: B5, v: "[[lbl_person]]", style: label}
+      - {ref: C5, v: "{{person_name}}", style: input, merge: D5}
+      - {ref: B6, v: "[[lbl_role]]", style: label}
+      - {ref: C6, v: "{{role}}", style: input, merge: D6}
+      - {ref: B7, v: "[[lbl_discipline]]", style: label}
+      - {ref: C7, v: "{{discipline}}", style: input, merge: D7, validation: {list_name: Disciplines}}
+      - {ref: B8, v: "[[lbl_current_level]]", style: label}
+      - {ref: C8, v: "{{level}}", style: input, merge: D8, validation: {list_name: Levels}}
+      - {ref: B9, v: "[[lbl_next_level]]", style: label}
+      - {ref: C9, v: "{{next_level}}", style: input, merge: D9, validation: {list_name: Levels}}
+      - {ref: B10, v: "[[lbl_cycle]]", style: label}
+      - {ref: C10, v: "{{cycle}}", style: input, merge: D10}
+      - {ref: B11, v: "[[lbl_ladder_source]]", style: label}
+      - {ref: C11, v: "{{ladder_source_label}}", style: input, merge: D11, validation: {list_name: LadderSources}}
+      - {ref: B12, v: "[[lbl_last_updated]]", style: label}
+      - {ref: C12, v: "{{created_date}}", style: input_date, merge: D12, validation: {date: true}}
+      - {ref: F5, v: "[[quick_steps_title]]", style: section, merge: N5}
+      - {ref: F6, v: "[[quick_step_1]]", style: hint, merge: N6}
+      - {ref: F7, v: "[[quick_step_2]]", style: hint, merge: N7}
+      - {ref: F8, v: "[[quick_step_3]]", style: hint, merge: N8}
+      - {ref: F9, v: "[[quick_step_4]]", style: hint, merge: N9}
+      - {ref: A14, v: "[[col_num]]", style: header}
+      - {ref: B14, v: "[[col_pillar]]", style: header, note: "[[note_pillar]]"}
+      - {ref: C14, v: "[[col_expect_current]]", style: header, note: "[[note_expect]]"}
+      - {ref: D14, v: "[[col_expect_next]]", style: header, note: "[[note_expect]]"}
+      - {ref: E14, v: "[[col_self]]", style: header, note: "[[note_self]]"}
+      - {ref: F14, v: "[[col_leader]]", style: header, note: "[[note_leader]]"}
+      - {ref: G14, v: "[[col_gap]]", style: header, note: "[[note_gap]]"}
+      - {ref: H14, v: "[[col_flag]]", style: header, note: "[[note_gap]]"}
+      - {ref: I14, v: "[[col_ev1]]", style: header, note: "[[note_evidence]]"}
+      - {ref: J14, v: "[[col_ev2]]", style: header, note: "[[note_evidence]]"}
+      - {ref: K14, v: "[[col_ev3]]", style: header, note: "[[note_evidence]]"}
+      - {ref: L14, v: "[[col_well]]", style: header, note: "[[note_well]]"}
+      - {ref: M14, v: "[[col_improve]]", style: header, note: "[[note_improve]]"}
+      - {ref: N14, v: "[[col_signal]]", style: header, note: "[[note_signal]]"}
+    repeat:
+      count: 6
+      start_row: 15
+      cells:
+        - {col: A, v: "{i}", style: num}
+        - {col: B, f: "=IF(INDEX({sheet:ladder}!$B$4:$G$4,1,{i})=\"\",\"\",INDEX({sheet:ladder}!$B$4:$G$4,1,{i}))", style: computed_c}
+        - {col: C, f: "=IF($B{r}=\"\",\"\",IFERROR(INDEX({sheet:ladder}!$B$5:$G$14,MATCH($C$8,{sheet:ladder}!$A$5:$A$14,0),{i}),\"\"))", style: computed}
+        - {col: D, f: "=IF($B{r}=\"\",\"\",IFERROR(INDEX({sheet:ladder}!$B$5:$G$14,MATCH($C$9,{sheet:ladder}!$A$5:$A$14,0),{i}),\"\"))", style: computed}
+        - {col: E, v: "", style: input, validation: {list_name: ScaleAll}}
+        - {col: F, v: "", style: input, validation: {list_name: ScaleAll}}
+        - {col: G, f: "=IF(OR(E{r}=\"\",F{r}=\"\",E{r}=[[q:scale_na]],F{r}=[[q:scale_na]]),\"\",IFERROR(MATCH(F{r},Scale4,0)-MATCH(E{r},Scale4,0),\"\"))", style: computed_c}
+        - {col: H, f: "=IF(G{r}=\"\",\"\",IF(ABS(G{r})>=2,[[q:flag_talk]],\"\"))", style: computed_c}
+        - {col: I, v: "", style: input_link, validation: {custom: "=OR(I{r}=\"\",LEFT(I{r},4)=\"http\")"}}
+        - {col: J, v: "", style: input_link, validation: {custom: "=OR(J{r}=\"\",LEFT(J{r},4)=\"http\")"}}
+        - {col: K, v: "", style: input_link, validation: {custom: "=OR(K{r}=\"\",LEFT(K{r},4)=\"http\")"}}
+        - {col: L, v: "", style: input}
+        - {col: M, v: "", style: input}
+        - {col: N, f: "=IF(F{r}=[[q:scale_4]],\"✅\",\"\")", style: computed_c}
+    cond_formats:
+      - {range: "E15:F20", rules: *scale_colors}
+      - {range: "H15:H20", rules: [{equals: "[[flag_talk]]", fill: "F8D7DA", font: "842029"}]}
+      - {range: "A3:N3", rules: [{formula: "LEN($A$3)>0", fill: "FFEDD5"}]}
+
+  # ---------------------------------------------------------------- Summary
+  - key: summary
+    name: "[[tab_summary]]"
+    tab_color: "2563EB"
+    protect: true
+    col_widths: {A: 30, B: 13, C: 13, D: 18, E: 3, F: 12, G: 12, H: 12, I: 12, J: 12, K: 12}
+    cells:
+      - {ref: A1, f: "=[[q:sum_title_prefix]]&{sheet:assessment}!$C$5", style: title, merge: K1}
+      - {ref: A3, v: "[[sum_table_pillar]]", style: header}
+      - {ref: B3, v: "[[sum_table_self]]", style: header}
+      - {ref: C3, v: "[[sum_table_leader]]", style: header}
+      - {ref: D3, v: "[[sum_table_flag]]", style: header}
+      - {ref: A10, v: "[[sum_avg]]", style: label}
+      - {ref: B10, f: "=IFERROR(AVERAGE(B4:B9),\"\")", style: computed_c, number_format: "0.0"}
+      - {ref: C10, f: "=IFERROR(AVERAGE(C4:C9),\"\")", style: computed_c, number_format: "0.0"}
+      - {ref: A12, v: "[[sum_readiness]]", style: section}
+      - {ref: A13, v: "[[sum_pillars_next]]", style: label}
+      - {ref: B13, f: "=COUNTIF({sheet:assessment}!$F$15:$F$20,[[q:scale_4]])", style: computed_c}
+      - {ref: A14, v: "[[sum_pillars_total]]", style: label}
+      - {ref: B14, f: "=COUNTIF({sheet:assessment}!$F$15:$F$20,\"?*\")-COUNTIF({sheet:assessment}!$F$15:$F$20,[[q:scale_na]])", style: computed_c}
+      - {ref: A15, v: "[[sum_share]]", style: label}
+      - {ref: B15, f: "=IF(B14=0,\"\",B13/B14)", style: computed_pct}
+      - {ref: A16, v: "[[sum_status]]", style: label}
+      - {ref: B16, f: "=IF(B14=0,\"\",IF(B15>=1,[[q:ready_ready]],IF(B15>=0.5,[[q:ready_close]],[[q:ready_building]])))", style: computed_c, merge: D16}
+      - {ref: A17, v: "[[sum_readiness_note]]", style: hint, merge: D17}
+      - {ref: A19, v: "[[sum_conclusion]]", style: section}
+      - {ref: A20, v: "[[sum_conclusion_hint]]", style: hint, merge: K20}
+      - {ref: A21, v: "", style: input, merge: K32}
+    repeat:
+      count: 6
+      start_row: 4
+      cells:
+        - {col: A, f: "={sheet:assessment}!B{r+11}", style: computed}
+        - {col: B, f: "=IFERROR(MATCH({sheet:assessment}!E{r+11},Scale4,0),\"\")", style: computed_c}
+        - {col: C, f: "=IFERROR(MATCH({sheet:assessment}!F{r+11},Scale4,0),\"\")", style: computed_c}
+        - {col: D, f: "={sheet:assessment}!H{r+11}", style: computed_c}
+    cond_formats:
+      - {range: "B16:D16", rules: [
+          {equals: "[[ready_ready]]", fill: "CFE2FF", font: "084298"},
+          {equals: "[[ready_close]]", fill: "D1E7DD", font: "0F5132"},
+          {equals: "[[ready_building]]", fill: "FFF3CD", font: "664D03"}]}
+      - {range: "D4:D9", rules: [{equals: "[[flag_talk]]", fill: "F8D7DA", font: "842029"}]}
+    charts:
+      - {type: bar, title: "[[sum_chart_title]]", data: "B3:C9", cats: "A4:A9", anchor: F3, width: 17, height: 8, y_min: 0, y_max: 4}
+
+  # ---------------------------------------------------------------- Ladder
+  - key: ladder
+    name: "[[tab_ladder]]"
+    tab_color: "10B981"
+    protect: false
+    freeze: B5
+    col_widths: {A: 20, B: 34, C: 34, D: 34, E: 34, F: 34, G: 34}
+    cells:
+      - {ref: A1, v: "[[lad_title]]", style: title}
+      - {ref: A2, v: "[[lad_hint]]", style: hint, merge: G2}
+      - {ref: A3, f: "=IF({sheet:assessment}!$C$11=[[q:src_generic]],[[q:generic_banner]],\"\")", style: banner, merge: G3}
+      - {ref: A4, v: "[[lad_level]]", style: header}
+    matrix:
+      source: ladder
+      pillars_at: B4         # pillar names, left to right (max 6)
+      levels_at: A5          # level names, top to bottom (max 10)
+      body_at: B5            # expectations
+      max_pillars: 6
+      max_levels: 10
+      head_style: ladder_head
+      level_style: ladder_level
+      body_style: ladder_cell
+      body_row_height: 60
+      meanings_title_at: A17
+      meanings_title: "[[lad_meanings]]"
+      meanings_at: A18       # pillar name in A, meaning merged B:G
+      meanings_style: text
+    cond_formats:
+      - {range: "A3:G3", rules: [{formula: "LEN($A$3)>0", fill: "FFEDD5"}]}
+
+  # ---------------------------------------------------------------- History
+  - key: history
+    name: "[[tab_history]]"
+    tab_color: "8B5CF6"
+    protect: false
+    freeze: A4
+    col_widths: {A: 12, B: 12, C: 16, D: 10, E: 10, F: 14, G: 14, H: 14, I: 14, J: 14, K: 14, L: 22, M: 40}
+    cells:
+      - {ref: A1, v: "[[his_title]]", style: title}
+      - {ref: A2, v: "[[his_hint]]", style: hint, merge: M2}
+      - {ref: A3, v: "[[his_date]]", style: header}
+      - {ref: B3, v: "[[his_cycle]]", style: header}
+      - {ref: C3, v: "[[his_level]]", style: header}
+      - {ref: D3, v: "[[his_self_avg]]", style: header}
+      - {ref: E3, v: "[[his_leader_avg]]", style: header}
+      - {ref: F3, f: "={sheet:assessment}!B15", style: header}
+      - {ref: G3, f: "={sheet:assessment}!B16", style: header}
+      - {ref: H3, f: "={sheet:assessment}!B17", style: header}
+      - {ref: I3, f: "={sheet:assessment}!B18", style: header}
+      - {ref: J3, f: "={sheet:assessment}!B19", style: header}
+      - {ref: K3, f: "={sheet:assessment}!B20", style: header}
+      - {ref: L3, v: "[[his_readiness]]", style: header}
+      - {ref: M3, v: "[[his_notes]]", style: header}
+    fill_range: {range: "A4:M33", style: input}
+
+  # ---------------------------------------------------------------- Lists (hidden)
+  - key: lists
+    name: "[[tab_lists]]"
+    hidden: true
+    protect: true
+    cells:
+      - {ref: A1, v: "[[scale_1]]"}
+      - {ref: A2, v: "[[scale_2]]"}
+      - {ref: A3, v: "[[scale_3]]"}
+      - {ref: A4, v: "[[scale_4]]"}
+      - {ref: A5, v: "[[scale_na]]"}
+      - {ref: B1, v: "[[disc_eng]]"}
+      - {ref: B2, v: "[[disc_data]]"}
+      - {ref: B3, v: "[[disc_design]]"}
+      - {ref: B4, v: "[[disc_product]]"}
+      - {ref: B5, v: "[[disc_other]]"}
+      - {ref: C1, v: "[[src_company]]"}
+      - {ref: C2, v: "[[src_generic]]"}

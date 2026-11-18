@@ -1,0 +1,44 @@
+# Generic career ladder (English). Original, discipline-neutral.
+# Used when the user has no company ladder. Shape: pillars x levels.
+# A company ladder supplied by the user is converted to this same shape by the career-ladder skill.
+source: generic
+pillars:
+  - name: "Impact"
+    meaning: "The results your work produces for users and the business."
+  - name: "Craft"
+    meaning: "The quality of how you do the work of your discipline."
+  - name: "Direction"
+    meaning: "How you decide what to do, handle ambiguity, and help others decide."
+  - name: "Collaboration & Leadership"
+    meaning: "How you work with others and help them grow."
+levels:
+  - name: "Learning"
+    expectations:
+      - "Completes well-defined tasks with guidance; results are visible within the team."
+      - "Applies the basic practices of the discipline, with review and support."
+      - "Works on clear problems and asks good questions to understand the why."
+      - "Communicates progress clearly and takes feedback well."
+  - name: "Contributing"
+    expectations:
+      - "Delivers scoped pieces of work independently that move a team goal."
+      - "Produces solid, reliable work that needs little rework; knows the team's standards."
+      - "Breaks a known problem into steps and flags risks early."
+      - "Collaborates proactively inside the team and helps teammates when asked."
+  - name: "Owning"
+    expectations:
+      - "Owns an outcome end to end (a feature, an analysis, a flow, a product area) and is accountable for its results."
+      - "Sets the quality bar in their area; their work is used as a reference by others."
+      - "Turns ambiguous problems into a clear plan with trade-offs and makes the decisions in their scope."
+      - "Mentors others, gives specific feedback, and builds trust with partners outside the discipline."
+  - name: "Leading"
+    expectations:
+      - "Drives outcomes across several workstreams or teams; results are visible beyond the team."
+      - "Raises the bar across teams through standards, reviews and reusable tools."
+      - "Sets direction for a multi-team area and aligns people on a path when there isn't one."
+      - "Grows other people into owners, resolves conflict across teams, and leads through influence."
+  - name: "Shaping"
+    expectations:
+      - "Changes what the organization achieves; impact shows at business level over several quarters."
+      - "Defines practices the wider organization adopts; recognized as a reference in the discipline."
+      - "Sets multi-year direction and anticipates where the business and the technology are going."
+      - "Builds teams and culture; sponsors people and opens opportunities across the organization."

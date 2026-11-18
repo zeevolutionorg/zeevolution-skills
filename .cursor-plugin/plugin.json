@@ -1,0 +1,15 @@
+{
+  "name": "zeevolution-skills",
+  "displayName": "Zeevolution Skills",
+  "description": "Skills for Technologists: small, composable agent skills for engineers, data scientists, designers and product managers. First up: career management (/career-hub-toolkit).",
+  "version": "0.1.0",
+  "author": {
+    "name": "Zeevolution",
+    "url": "https://github.com/zeevolution"
+  },
+  "homepage": "https://github.com/zeevolution/zeevolution-skills",
+  "repository": "https://github.com/zeevolution/zeevolution-skills",
+  "license": "MIT",
+  "keywords": ["skills", "career-management", "career", "one-on-one", "technologists"],
+  "skills": "./skills/"
+}

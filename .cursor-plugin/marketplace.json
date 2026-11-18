@@ -1,0 +1,17 @@
+{
+  "name": "zeevolution",
+  "owner": {
+    "name": "Zeevolution",
+    "url": "https://github.com/zeevolution"
+  },
+  "metadata": {
+    "description": "Zeevolution's skills for technologists."
+  },
+  "plugins": [
+    {
+      "name": "zeevolution-skills",
+      "source": "./",
+      "description": "Skills for Technologists: career management first (/career-hub-toolkit)."
+    }
+  ]
+}

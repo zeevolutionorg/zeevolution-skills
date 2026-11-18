@@ -1,0 +1,44 @@
+# Trilha de carreira genérica (pt-BR). Original, neutra em relação à disciplina.
+# Usada quando a pessoa não tem a trilha da empresa. Formato: pilares x níveis.
+# Uma trilha da empresa fornecida pela pessoa é convertida para este mesmo formato pela skill career-ladder.
+source: generic
+pillars:
+  - name: "Impacto"
+    meaning: "Os resultados que o seu trabalho gera para usuários e para o negócio."
+  - name: "Ofício"
+    meaning: "A qualidade de como você faz o trabalho da sua disciplina."
+  - name: "Direção"
+    meaning: "Como você decide o que fazer, lida com ambiguidade e ajuda outras pessoas a decidir."
+  - name: "Colaboração e Liderança"
+    meaning: "Como você trabalha com outras pessoas e as ajuda a crescer."
+levels:
+  - name: "Aprendendo"
+    expectations:
+      - "Conclui tarefas bem definidas com orientação; os resultados são visíveis dentro do time."
+      - "Aplica as práticas básicas da disciplina, com revisão e apoio."
+      - "Trabalha em problemas claros e faz boas perguntas para entender o porquê."
+      - "Comunica o progresso com clareza e recebe bem o feedback."
+  - name: "Contribuindo"
+    expectations:
+      - "Entrega, com autonomia, partes de trabalho com escopo definido que fazem uma meta do time avançar."
+      - "Produz trabalho sólido e confiável, que precisa de pouco retrabalho; conhece os padrões do time."
+      - "Quebra um problema conhecido em etapas e sinaliza riscos cedo."
+      - "Colabora de forma proativa dentro do time e ajuda colegas quando pedem."
+  - name: "Assumindo"
+    expectations:
+      - "É dono(a) de um resultado de ponta a ponta (uma funcionalidade, uma análise, um fluxo, uma área de produto) e responde pelos resultados."
+      - "Define a régua de qualidade na sua área; o seu trabalho é usado como referência por outras pessoas."
+      - "Transforma problemas ambíguos em um plano claro, com trade-offs, e toma as decisões do seu escopo."
+      - "Mentora outras pessoas, dá feedback específico e constrói confiança com parceiros fora da disciplina."
+  - name: "Liderando"
+    expectations:
+      - "Conduz resultados em várias frentes ou times; os resultados são visíveis além do time."
+      - "Eleva a régua entre times por meio de padrões, reviews e ferramentas reutilizáveis."
+      - "Define a direção de uma área com vários times e alinha as pessoas em um caminho quando não há um."
+      - "Desenvolve outras pessoas até se tornarem donas do seu escopo, resolve conflitos entre times e lidera pela influência."
+  - name: "Moldando"
+    expectations:
+      - "Muda o que a organização alcança; o impacto aparece no nível do negócio ao longo de vários trimestres."
+      - "Define práticas que a organização como um todo adota; é reconhecido(a) como referência na disciplina."
+      - "Define a direção para vários anos e antecipa para onde o negócio e a tecnologia estão indo."
+      - "Constrói times e cultura; patrocina pessoas e abre oportunidades em toda a organização."

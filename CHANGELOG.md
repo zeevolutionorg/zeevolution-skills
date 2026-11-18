@@ -1,0 +1,23 @@
+# Changelog
+
+Each release lists, per document, what changed — so people using the templates by hand can update their master copy. Hubs already in use are never changed by a release.
+
+## 0.1.0 — unreleased
+
+First release.
+
+### Added — skills
+
+- `career-management/career-hub-toolkit` — one command to build a career hub (self mode and lead mode; English and Brazilian Portuguese; Google Workspace, Microsoft 365 or files).
+- `career-management/career-ladder` — map a company career ladder or use the generic one.
+- `foundations/setup-zeevolution-skills`, `foundations/cloud-workspace`, `foundations/doc-templates`, `foundations/disciplines`.
+
+### Added — documents (career-management)
+
+- `00 Career Hub` — central page; "meet every two weeks" block; one "Development plan: Growth or Focus" row.
+- `01 1:1 Notes` — Working Agreement, bi-weekly 1:1 with SBI status lines, quarterly Career Check with follow-up, Review Conversation.
+- `02 Growth Plan` — self-analysis and three moves with rules; alternative to the Focus Plan.
+- `03 Brag Document` — goals, quarterly self-assessment, evidence pull, work log.
+- `04 Focus Plan` — two-quarter plan; alternative to the Growth Plan.
+- `05 Ladder Assessment` — automated spreadsheet (dropdowns, expectations by level, gap and readiness, chart, history) plus a text fallback.
+- `06 Performance Review`, `07 Evidence Doc`, `08 Onboarding Plan 30/60/90`.
