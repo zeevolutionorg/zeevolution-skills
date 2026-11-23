@@ -24,14 +24,13 @@
 
 | Pilar | Esperado em {{level}} | Esperado em {{next_level}} | Nota própria | Nota do líder | ⚑ | Evidências (links) | Indo bem | Precisa melhorar |
 |---|---|---|---|---|---|---|---|---|
-| Impacto | | | | | | | | |
-| Ofício | | | | | | | | |
-| Direção | | | | | | | | |
-| Colaboração e Liderança | | | | | | | | |
+| *(trocar por um pilar da empresa)* | | | | | | | | |
+| *(trocar por um pilar da empresa)* | | | | | | | | |
+| *(trocar por um pilar da empresa)* | | | | | | | | |
 
-> 💡 **Como usar:** os nomes dos pilares acima vêm da trilha genérica. Se a sua empresa tem uma trilha própria, troque os nomes dos pilares e copie as expectativas dos dois níveis para as colunas "Esperado em".
+> 💡 **Como usar:** os pilares mudam de empresa para empresa, então nenhum nome vem preenchido. Depois que os documentos forem gerados, troque cada linha por um pilar da trilha da sua empresa (adicione ou remova linhas para bater a quantidade) e copie as expectativas dos dois níveis para as colunas "Esperado em".
 >
-> ✍️ **Exemplo (Engenharia, Direção):** Esperado no nível atual: "Quebra um problema conhecido em etapas e sinaliza riscos cedo." Nota própria: No nível. Nota do líder: Forte no nível. Evidência: link para o plano de migração. Indo bem: "Os planos se sustentam; os riscos ficam visíveis." Precisa melhorar: "Deixar os trade-offs explícitos quando duas opções competem."
+> ✍️ **Exemplo (Engenharia):** Esperado no nível atual: "Quebra um problema conhecido em etapas e sinaliza riscos cedo." Nota própria: No nível. Nota do líder: Forte no nível. Evidência: link para o plano de migração. Indo bem: "Os planos se sustentam; os riscos ficam visíveis." Precisa melhorar: "Deixar os trade-offs explícitos quando duas opções competem."
 
 ## 📊 Resumo
 

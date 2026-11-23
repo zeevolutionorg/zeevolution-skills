@@ -21,7 +21,7 @@
 
 ## 🪜 What your level means here
 
-> 💡 **How to use:** paste the expectations for {{level}} from your career ladder (or the generic ladder in the Ladder Assessment). Say which pillar matters most in this role.
+> 💡 **How to use:** paste the expectations for {{level}} from your company's career ladder. Pillars differ by company, so replace this after the documents are generated. Say which pillar matters most in this role.
 
 - 
 

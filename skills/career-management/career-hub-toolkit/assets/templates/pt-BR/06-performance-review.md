@@ -46,7 +46,7 @@
 
 > 💡 **Como usar:** três ou quatro pontos fortes, cada um marcado com um pilar da trilha e um rótulo curto, cada um com evidência, cada um fechando com por que isso importa neste nível.
 >
-> ✍️ **Exemplo (Ciência de Dados):** "[Ofício — Análise confiável] Sua análise de churn foi a primeira que o time de finanças usou sem refazer os números. É exatamente isso que esperamos neste nível."
+> ✍️ **Exemplo (Ciência de Dados):** "[Pilar — Análise confiável] Sua análise de churn foi a primeira que o time de finanças usou sem refazer os números. É exatamente isso que esperamos neste nível."
 
 ## 🌱 Oportunidades de crescimento
 
@@ -55,7 +55,7 @@
 
 > 💡 **Como usar:** dois a quatro itens. Para cada um: o padrão que você observou (com um exemplo), o que a trilha espera (cite, se tiver) e uma regra para o próximo ciclo que comece com **"No próximo ciclo, …"** e tenha um número.
 >
-> ✍️ **Exemplo (Produto):** "[Direção / Encontrar um caminho quando não há um] Quando o brief estava ambíguo, você esperou mais insumos em vez de propor um caminho; perdemos duas semanas na página de preços. No próximo ciclo, quando um brief estiver confuso por mais de dois dias, traga uma proposta de uma página com duas opções."
+> ✍️ **Exemplo (Produto):** "[Pilar — Encontrar um caminho quando não há um] Quando o brief estava ambíguo, você esperou mais insumos em vez de propor um caminho; perdemos duas semanas na página de preços. No próximo ciclo, quando um brief estiver confuso por mais de dois dias, traga uma proposta de uma página com duas opções."
 
 ## 🔭 Potencial e trajetória *(opcional)*
 

@@ -15,7 +15,7 @@
 3. Upload the spreadsheet and open it as a spreadsheet.
 4. Find and replace every `{{placeholder}}`, then search `{{` to check nothing is left.
 5. Paste each document's link into the Career Hub table, and point every "← Back to Career Hub" link at the Hub.
-6. Paste your company's career ladder into the spreadsheet's Ladder tab, or keep the generic one.
+6. After the documents are generated, paste your company's career ladder into the spreadsheet's Ladder tab. Pillar names differ by company.
 7. Book a recurring 1:1 every two weeks with the Hub link in the invite.
 
 > 💡 **The Growth Plan and the Focus Plan are alternatives.** Keep both for now; choose one together in the first 1:1 or Career Check.

@@ -46,7 +46,7 @@
 
 > 💡 **How to use:** three or four strengths, each tagged with a ladder pillar and a short label, each with evidence, each closing with why it matters at this level.
 >
-> ✍️ **Example (Data Science):** "[Craft — Trustworthy analysis] Your churn readout was the first one the finance team used without re-running the numbers. That is exactly what we expect at this level."
+> ✍️ **Example (Data Science):** "[Pillar — Trustworthy analysis] Your churn readout was the first one the finance team used without re-running the numbers. That is exactly what we expect at this level."
 
 ## 🌱 Growth opportunities
 
@@ -55,7 +55,7 @@
 
 > 💡 **How to use:** two to four items. For each: the pattern you observed (with an example), what the ladder expects (quote it if you have one), and a rule for next cycle that starts with **"Next cycle, …"** and has a number in it.
 >
-> ✍️ **Example (Product):** "[Direction / Finding a path when there isn't one] When the brief was ambiguous, you waited for more input instead of proposing a path; two weeks were lost on the pricing page. Next cycle, when a brief is unclear for more than two days, bring a one-page proposal with two options."
+> ✍️ **Example (Product):** "[Pillar — Finding a path when there isn't one] When the brief was ambiguous, you waited for more input instead of proposing a path; two weeks were lost on the pricing page. Next cycle, when a brief is unclear for more than two days, bring a one-page proposal with two options."
 
 ## 🔭 Potential & trajectory *(optional)*
 

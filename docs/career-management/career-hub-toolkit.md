@@ -27,7 +27,7 @@ Builds a complete career hub for one person, in one command.
 |---|---|
 | 1️⃣ ⚙️ | Loads your saved defaults (from `/setup-zeevolution-skills`) |
 | 2️⃣ 💬 | Asks only what's missing — exact questions, EN or pt-BR |
-| 3️⃣ 🪜 | Maps your company's ladder, or uses the generic one |
+| 3️⃣ 🪜 | Maps your company's ladder. If you don't have one yet, the pillars stay blank to replace after the documents are generated |
 | 4️⃣ ✅ | Shows a summary and waits for **"Create"** |
 | 5️⃣ 🏗️ | Creates every document, then the **Career Hub last**, with all links |
 | 6️⃣ 📣 | Gives you the Hub link, what's still generic, and the first actions |
@@ -77,7 +77,7 @@ If the connector you asked for isn't there, it says so in one line and moves dow
 | ⚑ **Gap flags** | Self and leader two or more steps apart → "Talk about this" |
 | 📊 **Summary** | Chart, averages, readiness (Building · Close · Ready to discuss promotion) — a prompt, not a decision |
 | 🎨 **Clear design** | Yellow cells are inputs; grey cells are calculated and protected; hover tips on every header |
-| 🪜 **Your ladder or ours** | Your company's ladder if you share it; otherwise a generic one, clearly marked |
+| 🪜 **Your company's ladder** | Filled in when you share it. Pillar names differ by company and are replaced after the documents are generated |
 
 ## 🗓️ After it runs
 

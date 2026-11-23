@@ -2,7 +2,7 @@
 
 ## Generic career ladder (en)
 
-Original and discipline-neutral. Used when there is no company ladder. Generated from `assets/generic-ladder.en.yaml` — edit the YAML in `templates/`, not this file.
+Shape sample only. Pillar names differ by company and are filled in after the documents are generated. Generated from `assets/generic-ladder.en.yaml` — edit the YAML in `templates/`, not this file.
 
 ### Pillars
 
@@ -23,7 +23,7 @@ Original and discipline-neutral. Used when there is no company ladder. Generated
 
 ## Trilha de carreira genérica (pt-BR)
 
-Original e neutra quanto à disciplina. Usada quando não há trilha da empresa. Gerada a partir de `assets/generic-ladder.pt-BR.yaml` — edite o YAML em `templates/`, não este arquivo.
+Só um exemplo de formato. Os nomes dos pilares mudam de empresa para empresa e são preenchidos depois que os documentos forem gerados. Gerada a partir de `assets/generic-ladder.pt-BR.yaml` — edite o YAML em `templates/`, não este arquivo.
 
 ### Pilares
 

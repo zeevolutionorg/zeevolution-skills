@@ -1,5 +1,5 @@
-# Generic career ladder (English). Original, discipline-neutral.
-# Used when the user has no company ladder. Shape: pillars x levels.
+# Shape sample (English). Not a company's ladder.
+# Pillar names differ by company and are filled in after the documents are generated.
 # A company ladder supplied by the user is converted to this same shape by the career-ladder skill.
 source: generic
 pillars:

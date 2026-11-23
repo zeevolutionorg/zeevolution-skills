@@ -2,7 +2,7 @@
 # A estrutura fica em ../05-ladder-assessment.sheet.yaml; aqui ficam só as palavras.
 title_prefix: "🪜 Avaliação de Trilha — "
 back_to_hub: "← Voltar ao Hub de Carreira"
-generic_banner: "⚠️ Trilha genérica — troque pela trilha da sua empresa no próximo Check de Carreira."
+generic_banner: "⚠️ Os pilares mudam de empresa para empresa — troque esta trilha pela sua depois que os documentos forem gerados."
 tab_howto: "📖 Como usar"
 tab_assessment: "✍️ Avaliação"
 tab_summary: "📊 Resumo"
@@ -91,7 +91,7 @@ sum_conclusion_hint: "Escreva aqui o que a pessoa e o líder combinaram: a mensa
 
 # Ladder tab
 lad_title: "🪜 Trilha de carreira"
-lad_hint: "Níveis na coluna A, pilares na linha 4. Cole aqui a trilha da sua empresa (mantendo o formato) ou fique com a genérica. Até 10 níveis e 6 pilares."
+lad_hint: "Níveis na coluna A, pilares na linha 4. Os nomes dos pilares mudam de empresa para empresa. Depois que os documentos forem gerados, cole aqui a trilha da sua empresa (mantendo o formato). Até 10 níveis e 6 pilares."
 lad_level: "Nível"
 lad_meanings: "O que cada pilar significa"
 
@@ -124,5 +124,5 @@ how_colors_title: "Cores"
 how_color_input: "Células amarelas: preencha estas."
 how_color_computed: "Células cinza: calculadas ou somente leitura. Não edite."
 how_ladder_title: "Trilha de carreira"
-how_ladder_text: "A aba Trilha guarda as expectativas por nível e pilar. Se estiver escrito Trilha genérica, troque pela trilha da sua empresa quando tiver uma, mantendo o mesmo formato."
+how_ladder_text: "A aba Trilha guarda as expectativas por nível e pilar. Os nomes dos pilares mudam de empresa para empresa. Depois que os documentos forem gerados, troque isto pela trilha da sua empresa, mantendo o mesmo formato."
 how_hub: "Esta planilha faz parte do Hub de Carreira da pessoa. Revisem em um 1:1 quinzenal pelo menos uma vez por semestre."

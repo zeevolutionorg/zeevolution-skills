@@ -68,8 +68,6 @@ def build_kit(lang):
         TPL / "05-ladder-assessment.sheet.yaml",
         "--strings",
         TPL / lang / "05-ladder-assessment.strings.yaml",
-        "--ladder",
-        TPL / lang / "generic-ladder.yaml",
         "--out",
         kit / "sheets" / f"05 - {names['05']}.xlsx",
     )

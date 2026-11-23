@@ -40,7 +40,7 @@ Este plano cobre o meu trabalho nos próximos dois trimestres. Meu foco principa
 
 > 💡 **Como usar:** uma frase para cada. Conecte-as às metas do seu time e, se tiver, a um pilar da sua trilha de carreira.
 >
-> ✍️ **Exemplo (Ciência de Dados):** "Meta 1: tornar a previsão de demanda confiável o suficiente para que operações planeje com ela toda semana (pilar Impacto)."
+> ✍️ **Exemplo (Ciência de Dados):** "Meta 1: tornar a previsão de demanda confiável o suficiente para que operações planeje com ela toda semana (um pilar da trilha da sua empresa)."
 
 ## 🛠️ Atividades por meta
 

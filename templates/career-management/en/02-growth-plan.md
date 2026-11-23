@@ -17,7 +17,7 @@
 
 ### 📍 Current level — {{level}}
 
-> 💡 **How to use:** paste what your career ladder expects at this level, in its own words. No ladder? Use the generic one in the [Ladder Assessment]({{doc_link_ladder}}).
+> 💡 **How to use:** paste what your company's career ladder expects at this level, in its own words. Pillars differ by company: after the documents are generated, replace this with your company's ladder. See the [Ladder Assessment]({{doc_link_ladder}}).
 
 - 
 

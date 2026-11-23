@@ -1,5 +1,5 @@
-# Trilha de carreira genérica (pt-BR). Original, neutra em relação à disciplina.
-# Usada quando a pessoa não tem a trilha da empresa. Formato: pilares x níveis.
+# Exemplo de formato (pt-BR). Não é a trilha de uma empresa.
+# Os nomes dos pilares mudam de empresa para empresa e são preenchidos depois que os documentos forem gerados.
 # Uma trilha da empresa fornecida pela pessoa é convertida para este mesmo formato pela skill career-ladder.
 source: generic
 pillars:

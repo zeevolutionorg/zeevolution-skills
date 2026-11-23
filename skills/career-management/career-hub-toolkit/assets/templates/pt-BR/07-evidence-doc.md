@@ -30,7 +30,7 @@
 
 > 💡 **Como usar:** uma seção por pilar em que há gap. Observações são fatos com links (uma thread de review, um documento, uma reunião com data), não interpretações. Cite a trilha palavra por palavra.
 >
-> ✍️ **Exemplo (Engenharia, Ofício):** Observado: "Nos últimos 6 pull requests, 4 precisaram de mais de três rodadas de review; dois reintroduziram problemas já apontados (links)." Esperado neste nível: "Produz trabalho sólido e confiável, que precisa de pouco retrabalho." Distância: "Fazer uma autorrevisão antes de pedir review, usando o checklist do time."
+> ✍️ **Exemplo (Engenharia):** Observado: "Nos últimos 6 pull requests, 4 precisaram de mais de três rodadas de review; dois reintroduziram problemas já apontados (links)." Esperado neste nível: "Produz trabalho sólido e confiável, que precisa de pouco retrabalho." Distância: "Fazer uma autorrevisão antes de pedir review, usando o checklist do time."
 
 ## 🧱 Pilar: ________
 

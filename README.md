@@ -125,14 +125,14 @@ Every skill that creates documents ends with something you can use, in this orde
 | Skill | Type | What it does |
 |---|---|---|
 | 🚀 [career-hub-toolkit](skills/career-management/career-hub-toolkit/SKILL.md) | ⌨️ you run it | One command builds the Career Hub and every career document, in self or lead mode |
-| 🪜 [career-ladder](skills/career-management/career-ladder/SKILL.md) | 🤖 automatic | Maps a company career ladder into levels × pillars, or falls back to the generic ladder |
+| 🪜 [career-ladder](skills/career-management/career-ladder/SKILL.md) | 🤖 automatic | Maps a company career ladder into levels × pillars. Pillar names are filled in after the documents are generated |
 
 <details>
 <summary>💡 <b>Why this category exists</b></summary>
 
 - 📉 **Careers get managed in bursts.** Most career conversations happen once a year, the week before reviews. **✅ The fix:** one Career Hub page that links everything, a bi-weekly 1:1 that walks it for ten minutes, specific feedback (**SBI**), growth tied to **real upcoming work** (an "arena"), and evidence logged as it happens (the **Brag Document**).
 - 📄 **Templates nobody understands don't get used.** **✅ The fix:** every section says *what it is*, *how to use it*, and shows a practical *example*.
-- 🪜 **Every company's ladder is different.** **✅ The fix:** the career ladder is **optional** — share yours and it's mapped to levels × pillars, or use a generic one, clearly marked.
+- 🪜 **Every company's ladder is different.** **✅ The fix:** the career ladder is **optional** — share yours and it's mapped to levels × pillars. If you don't have it yet, the documents leave the pillars blank to replace after they are generated.
 
 </details>
 

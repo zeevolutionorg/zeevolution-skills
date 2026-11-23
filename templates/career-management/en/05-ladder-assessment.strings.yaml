@@ -2,7 +2,7 @@
 # Structure lives in ../05-ladder-assessment.sheet.yaml; only words live here.
 title_prefix: "🪜 Ladder Assessment — "
 back_to_hub: "← Back to Career Hub"
-generic_banner: "⚠️ Generic ladder — replace it with your company's ladder at the next Career Check."
+generic_banner: "⚠️ Pillars differ by company — replace this ladder with yours after the documents are generated."
 tab_howto: "📖 How to use"
 tab_assessment: "✍️ Assessment"
 tab_summary: "📊 Summary"
@@ -91,7 +91,7 @@ sum_conclusion_hint: "Write here what the person and the leader agreed: the main
 
 # Ladder tab
 lad_title: "🪜 Career ladder"
-lad_hint: "Levels in column A, pillars in row 4. Paste your company's ladder here (keep the shape), or keep the generic one. Up to 10 levels and 6 pillars."
+lad_hint: "Levels in column A, pillars in row 4. Pillar names differ by company. After the documents are generated, paste your company's ladder here (keep the shape). Up to 10 levels and 6 pillars."
 lad_level: "Level"
 lad_meanings: "What each pillar means"
 
@@ -124,5 +124,5 @@ how_colors_title: "Colors"
 how_color_input: "Yellow cells: fill these in."
 how_color_computed: "Grey cells: calculated or read-only. Don't edit them."
 how_ladder_title: "Career ladder"
-how_ladder_text: "The Ladder tab holds the expectations per level and pillar. If it says Generic ladder, replace it with your company's ladder when you have it, keeping the same shape."
+how_ladder_text: "The Ladder tab holds the expectations per level and pillar. Pillar names differ by company. After the documents are generated, replace this with your company's ladder, keeping the same shape."
 how_hub: "This sheet is part of the person's Career Hub. Review it in a bi-weekly at least once per half."

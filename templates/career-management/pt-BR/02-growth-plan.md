@@ -17,7 +17,7 @@
 
 ### 📍 Nível atual — {{level}}
 
-> 💡 **Como usar:** cole o que a sua trilha de carreira espera neste nível, com as palavras dela. Não tem trilha? Use a genérica da [Avaliação de Trilha]({{doc_link_ladder}}).
+> 💡 **Como usar:** cole o que a trilha da sua empresa espera neste nível, com as palavras dela. Os pilares mudam de empresa para empresa: depois que os documentos forem gerados, troque isto pela trilha da sua empresa. Veja a [Avaliação de Trilha]({{doc_link_ladder}}).
 
 - 
 

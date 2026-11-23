@@ -34,7 +34,7 @@
 |---|---|---|---|---|---|
 | [🎶 Notas de 1:1]({{doc_link_one_on_one}}) | Acordo de Trabalho, 1:1s quinzenais, Checks de Carreira trimestrais, Conversas de Avaliação | Compartilhado | A cada 1:1 quinzenal | Em andamento | {{start_date}} |
 | **Plano de desenvolvimento — escolha um:** [🌱 PDI (Plano de Desenvolvimento Individual)]({{doc_link_growth_plan}}) **ou** [🧭 Plano de Foco]({{doc_link_focus_plan}}) | No que você está trabalhando para crescer, e como vai saber que funcionou | Pessoa + líder | A cada semestre | Não iniciado | — |
-| [😎 Brag Document]({{doc_link_brag}}) | Registro contínuo do seu impacto, com evidências | Pessoa (líder ajuda trimestralmente) | Registro a cada duas semanas | Não iniciado | — |
+| [😎 Brag Document]({{doc_link_brag}}) | Registro contínuo do seu impacto, com evidências | Pessoa | Registro a cada duas semanas | Não iniciado | — |
 | [🪜 Avaliação de Trilha]({{doc_link_ladder}}) | Onde você está em relação ao seu nível e ao próximo, pilar por pilar | Líder + pessoa | A cada semestre | Não iniciado | — |
 | [📝 Avaliação de Desempenho]({{doc_link_review}}) | A avaliação escrita de cada ciclo de desempenho | Líder | A cada ciclo | Não iniciado | — |
 | [🔎 Documento de Evidências]({{doc_link_evidence}}) *(opcional)* | Só quando um nível está em risco: observado vs esperado, por pilar | Líder | Quando necessário | Não usado | — |
@@ -67,7 +67,7 @@ O **PDI** e o **Plano de Foco** são duas formas alternativas de planejar o dese
 - [ ] Escolher juntos o plano de desenvolvimento (PDI ou Plano de Foco)
 - [ ] Fazer o primeiro **Check de Carreira** (sete perguntas nas Notas de 1:1)
 - [ ] Adicionar as três primeiras entradas no Brag Document
-- [ ] Confirmar a trilha de carreira: a da sua empresa, ou manter a genérica por enquanto
+- [ ] Depois que os documentos forem gerados, troque as linhas de pilar pela trilha da sua empresa
 - [ ] Primeira autoavaliação na Avaliação de Trilha
 
 ## 🧭 Como este Hub funciona

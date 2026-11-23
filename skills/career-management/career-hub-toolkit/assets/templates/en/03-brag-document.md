@@ -2,7 +2,7 @@
 
 [← Back to Career Hub]({{doc_link_hub}})
 
-> ℹ️ **What this is:** {{person_name}}'s running journal of accomplishments and their impact. It keeps the evidence of your work in one place, so expectations stay aligned with {{leader_name}} and nobody has to rebuild a year of work at review time. **Who fills it:** {{person_name}}. Once a quarter, {{leader_name}} adds evidence they noticed (the "evidence pull") for you to edit. **When:** log at least every two weeks; self-assess once a quarter.
+> ℹ️ **What this is:** {{person_name}}'s running journal of accomplishments and their impact. It keeps the evidence of your work in one place, so expectations stay aligned with {{leader_name}} and nobody has to rebuild a year of work at review time. **Who fills it:** {{person_name}}. **When:** log at least every two weeks; self-assess once a quarter.
 >
 > **What it is not:** not your development plan (that's the Growth or Focus Plan) and not a feedback form. It's also not a replacement for the leader knowing what you do: they still need to.
 
@@ -18,7 +18,7 @@
 
 ## 📊 Quarterly self-assessment
 
-> 💡 **How to use:** once a quarter, write a short qualitative comment per period using your career ladder's pillars (or the generic ones: Impact, Craft, Direction, Collaboration & Leadership). Share it with {{leader_name}} and agree on it together.
+> 💡 **How to use:** once a quarter, write a short qualitative comment per period using your company's career ladder pillars. Those names differ by company and are filled in after the documents are generated. Share it with {{leader_name}} and agree on it together.
 
 | Period | Comment (by ladder pillar) | Agreed with leader? |
 |---|---|---|
@@ -28,12 +28,6 @@
 | Q3 | | ☐ |
 | Q4 | | ☐ |
 | H2 summary | | ☐ |
-
-## 📥 Evidence pull *(once a quarter, {{leader_name}})*
-
-> 💡 **How to use:** the leader adds links to work they noticed this quarter (reviews, launches, documents, shout-outs). {{person_name}} then turns the useful ones into log entries below. It saves the person from starting from a blank page.
-
-- 
 
 ## 🗂️ Work log by theme
 
@@ -67,14 +61,6 @@
 
 > ✍️ **Example (Data Science):** "Proposed a shared experiment template; the team's average time from idea to readout went from 5 weeks to 3."
 
-## 🧾 Full log
-
-> 💡 **How to use:** the quick, chronological list. One line each: **date — [tag] what you did — impact.** Tags: `[G1]`…`[G4]`, `[Help]`, `[Team]`, `[Firefighting]`, `[Learning]`.
-
-- {{start_date}} — [Learning] Started this Brag Document. — Baseline for the period.
-
-> ✍️ **Example:** "Apr 4 — [Firefighting] Rolled back a release that dropped crash-free sessions on Android; caught it at 5% of users."
-
 ## 📎 Extra context *(optional)*
 
 > 💡 **How to use:** anything that enriches the log but is too long for it: a learning journal, project context, links to longer write-ups.
@@ -89,4 +75,4 @@
 2. **Ongoing:** whenever you do something you're proud of, or that had impact on the team or the business, log it. **At least once every two weeks**, so you don't forget.
 3. **Always log the impact,** with data when possible. "Shipped X" is weak; "Shipped X, which cut support tickets by 30%" is strong.
 4. **Quarterly:** fill the self-assessment against your ladder's pillars, share it with {{leader_name}}, and agree on it. Use it to plan the next quarter.
-5. **Change the format if it helps** (by goal, by theme, by skill), but keep it easy to update and keep the dates.
+5. **Change the format if it helps** (by goal, by theme, by skill), but keep it easy to update.

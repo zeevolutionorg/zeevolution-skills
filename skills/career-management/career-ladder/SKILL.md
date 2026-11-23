@@ -1,6 +1,6 @@
 ---
 name: career-ladder
-description: Get a career ladder into the standard shape used by zeevolution-skills (levels x pillars with expectations). Maps a ladder the user pastes, links or uploads; or falls back to the original generic ladder, clearly marked as generic. Use whenever a career document needs current/next level expectations.
+description: Get a career ladder into the standard shape used by zeevolution-skills (levels x pillars with expectations). Maps a ladder the user pastes, links or uploads. Pillar names differ by company and are filled in after the documents are generated. Use whenever a career document needs current/next level expectations.
 ---
 
 # Career ladder
@@ -29,7 +29,7 @@ Save it next to the person's documents only if the user wants (it's the company'
 Ask in the user's language. Wording for pt-BR is in `../career-hub-toolkit/INTERVIEW.md` (section D).
 
 **L1** — "Do you have a career ladder for this role?"
-Options: Paste the text · Share a link to a doc · Upload a file · No ladder, use the generic one. Default: generic.
+Options: Paste the text · Share a link to a doc · Upload a file · No ladder yet. Default: No ladder yet.
 
 ### If the user provides a ladder
 
@@ -44,15 +44,15 @@ Options: Looks right · Fix pillars · Fix levels. On a fix, ask what to change,
 
 ### If there's no ladder
 
-**L3** — "I'll use a generic ladder with 4 pillars (Impact, Craft, Direction, Collaboration & Leadership). It's marked as generic so you can replace it at the next Career Check. OK?"
+**L3** — "Pillars differ by company, so I won't fill them in. After the documents are generated, replace the pillar rows with your company's career ladder. OK?"
 Options: OK · Let me share a ladder instead.
 
-Use `assets/generic-ladder.<lang>.yaml` (`en` or `pt-BR`). The human-readable version is [GENERIC-LADDER.md](GENERIC-LADDER.md). Then:
+Do not copy pillar names into the person's documents. `assets/generic-ladder.<lang>.yaml` and [GENERIC-LADDER.md](GENERIC-LADDER.md) only show the levels × pillars shape. Then:
 
-- Set `ladder_source` to "Generic ladder" (localized). The documents and the spreadsheet show a banner asking to replace it later.
-- Map the person's level to the closest generic stage only if the user agrees; otherwise ask: "Which of these stages is closest to the current level: Learning, Contributing, Owning, Leading, Shaping?"
+- Leave the pillar rows blank. Set `ladder_source` to "Generic ladder" (localized) so the spreadsheet banner asks to replace it after the documents are generated.
+- Do not pass that sample ladder to `build_sheet.py`.
 
 ## Feeding the documents
 
-- **Ladder Assessment sheet:** pass the YAML with `--ladder` to `build_sheet.py`; it fills the 🪜 Ladder tab and the expectations update automatically by level.
-- **Growth Plan, Performance Review, Evidence Doc, Onboarding Plan:** copy the current and next level expectations into the "Level" / "What the level expects" sections.
+- **Company ladder:** pass the YAML with `--ladder` to `build_sheet.py`; it fills the 🪜 Ladder tab and the expectations update automatically by level. Copy the current and next level expectations into the Growth Plan, Performance Review, Evidence Doc and Onboarding Plan.
+- **No company ladder yet:** leave those sections blank. The documents say to replace the pillars after they are generated.

@@ -41,7 +41,6 @@ The shared language for skills, templates and docs. Use these words — don't in
 | **Bi-weekly 1:1** | The recommended 1:1 every two weeks, where the Hub is walked and documents are updated. |
 | **Working Agreement** | Five questions at the first 1:1 about how the person likes to work, be followed up and get feedback. |
 | **Career Check** | Seven questions about direction, once a quarter (the first bi-weekly of the quarter). |
-| **Evidence pull** | Once a quarter, the leader seeds the Brag Document with links to work they noticed. |
 
 ## 📄 Documents
 
@@ -70,8 +69,8 @@ The shared language for skills, templates and docs. Use these words — don't in
 | Term | Meaning |
 |---|---|
 | **Career ladder** | Levels × pillars with expectations. Optional; company or generic. |
-| **Pillar** | One dimension of a ladder. Generic ladder: Impact, Craft, Direction, Collaboration & Leadership. |
-| **Generic ladder** | The original, discipline-neutral ladder used when there's no company ladder. |
+| **Pillar** | One dimension of a career ladder. Names differ by company and are filled in after the documents are generated. |
+| **Generic ladder** | A sample of the levels × pillars shape. It is not a company's ladder; replace it after the documents are generated. |
 
 ## 🔌 Delivery
 

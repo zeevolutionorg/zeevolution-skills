@@ -54,7 +54,7 @@ Na [Release](https://github.com/zeevolution/zeevolution-skills/releases) mais re
 | 📊 **3. Planilha** | Suba `sheets/05 - 🪜 Avaliação de Trilha.xlsx` → botão direito › **Abrir com › Planilhas Google**. Preencha **só as células amarelas**. |
 | ✏️ **4. Campos** | Em cada documento: **Editar › Localizar e substituir** (Ctrl/Cmd + Shift + H). |
 | 🔗 **5. Links** | **Compartilhar › Copiar link** em cada documento → cole na linha dele na tabela do Hub. Aponte cada **← Voltar ao Hub de Carreira** para o Hub. |
-| 🪜 **6. Trilha** | Cole a trilha da sua empresa na aba **🪜 Trilha**, ou mantenha a genérica. |
+| 🪜 **6. Trilha** | Depois que os documentos forem gerados, cole a trilha da sua empresa na aba **🪜 Trilha**. Os nomes dos pilares mudam de empresa para empresa. |
 | 🗓️ **7. Ritmo** | No Google Agenda, um 1:1 recorrente **a cada 2 semanas** com o link do Hub na descrição. |
 
 **📄 Passo 2 — dois jeitos de criar os documentos**
@@ -70,7 +70,7 @@ Na [Release](https://github.com/zeevolution/zeevolution-skills/releases) mais re
 
 No fim, procure `{{` para garantir que não sobrou nada — os `{{doc_link_…}}` são tratados no passo 5.
 
-**🪜 Passo 6 — trilha da sua empresa:** níveis na coluna A, pilares na linha 4; depois marque **Trilha de carreira** como *Trilha da empresa* na aba Avaliação. A trilha genérica mostra um aviso lembrando de revisar no próximo Check de Carreira.
+**🪜 Passo 6 — trilha da sua empresa:** níveis na coluna A, pilares na linha 4; depois marque **Trilha de carreira** como *Trilha da empresa* na aba Avaliação. Os nomes dos pilares mudam de empresa para empresa. Depois que os documentos forem gerados, troque a trilha pela sua.
 
 ---
 

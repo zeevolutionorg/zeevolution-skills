@@ -21,7 +21,7 @@
 
 ## 🪜 O que o seu nível significa aqui
 
-> 💡 **Como usar:** cole as expectativas de {{level}} da sua trilha de carreira (ou da trilha genérica na Avaliação de Trilha). Diga qual pilar importa mais nesta função.
+> 💡 **Como usar:** cole as expectativas de {{level}} da trilha da sua empresa. Os pilares mudam de empresa para empresa, então troque isto depois que os documentos forem gerados. Diga qual pilar importa mais nesta função.
 
 - 
 

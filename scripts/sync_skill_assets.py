@@ -28,7 +28,7 @@ LADDER_SKILL = ROOT / "skills" / "career-management" / "career-ladder"
 HEADER = {
     "en": (
         "## Generic career ladder",
-        "Original and discipline-neutral. Used when there is no company ladder. "
+        "Shape sample only. Pillar names differ by company and are filled in after the documents are generated. "
         "Generated from `assets/generic-ladder.en.yaml` — edit the YAML in `templates/`, not this file.",
         "Pillars",
         "Levels",
@@ -36,7 +36,7 @@ HEADER = {
     ),
     "pt-BR": (
         "## Trilha de carreira genérica",
-        "Original e neutra quanto à disciplina. Usada quando não há trilha da empresa. "
+        "Só um exemplo de formato. Os nomes dos pilares mudam de empresa para empresa e são preenchidos depois que os documentos forem gerados. "
         "Gerada a partir de `assets/generic-ladder.pt-BR.yaml` — edite o YAML em `templates/`, não este arquivo.",
         "Pilares",
         "Níveis",

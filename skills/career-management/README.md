@@ -15,7 +15,7 @@ Managing a career — your own, or the people you lead. The **first category** o
 | Skill | Type | What it does |
 |---|---|---|
 | 🚀 [career-hub-toolkit](career-hub-toolkit/SKILL.md) | ⌨️ user | One command builds the Career Hub and every career document |
-| 🪜 [career-ladder](career-ladder/SKILL.md) | 🤖 model | Maps a company ladder to levels × pillars, or uses the generic one |
+| 🪜 [career-ladder](career-ladder/SKILL.md) | 🤖 model | Maps a company ladder to levels × pillars. Pillar names are filled in after the documents are generated |
 
 ## 🚀 Entry point: the Career Hub
 

@@ -15,7 +15,7 @@
 3. Suba a planilha e abra como planilha.
 4. Localize e substitua cada `{{campo}}`; depois procure `{{` para garantir que não sobrou nada.
 5. Cole o link de cada documento na tabela do Hub de Carreira e aponte cada "← Voltar ao Hub de Carreira" para o Hub.
-6. Cole a trilha de carreira da sua empresa na aba Trilha da planilha, ou mantenha a genérica.
+6. Depois que os documentos forem gerados, cole a trilha de carreira da sua empresa na aba Trilha da planilha. Os nomes dos pilares mudam de empresa para empresa.
 7. Marque um 1:1 recorrente a cada duas semanas com o link do Hub no convite.
 
 > 💡 **O PDI e o Plano de Foco são alternativos.** Mantenha os dois por enquanto; escolham um juntos no primeiro 1:1 ou Check de Carreira.

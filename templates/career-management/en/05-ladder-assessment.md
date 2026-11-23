@@ -24,14 +24,13 @@
 
 | Pillar | Expected at {{level}} | Expected at {{next_level}} | Self score | Leader score | ⚑ | Evidence (links) | Doing well | Needs to improve |
 |---|---|---|---|---|---|---|---|---|
-| Impact | | | | | | | | |
-| Craft | | | | | | | | |
-| Direction | | | | | | | | |
-| Collaboration & Leadership | | | | | | | | |
+| *(replace with a company pillar)* | | | | | | | | |
+| *(replace with a company pillar)* | | | | | | | | |
+| *(replace with a company pillar)* | | | | | | | | |
 
-> 💡 **How to use:** the pillar names above come from the generic ladder. If your company has its own ladder, replace the pillar names and copy the expectations for the two levels into the "Expected at" columns.
+> 💡 **How to use:** pillars differ from company to company, so none are named here. After the documents are generated, replace each row with a pillar from your company's career ladder (add or remove rows so the count matches) and copy the expectations for the two levels into the "Expected at" columns.
 >
-> ✍️ **Example (Engineering, Direction):** Expected at current level: "Breaks a known problem into steps and flags risks early." Self: At level. Leader: Strong at level. Evidence: link to the migration plan. Doing well: "Plans hold up; risks are visible." Needs to improve: "Make the trade-offs explicit when two options compete."
+> ✍️ **Example (Engineering):** Expected at current level: "Breaks a known problem into steps and flags risks early." Self: At level. Leader: Strong at level. Evidence: link to the migration plan. Doing well: "Plans hold up; risks are visible." Needs to improve: "Make the trade-offs explicit when two options compete."
 
 ## 📊 Summary
 

@@ -40,7 +40,7 @@ This plan covers my work over the next two quarters. My primary focus is the suc
 
 > 💡 **How to use:** one sentence each. Tie them to your team's goals and, if you have one, to a pillar of your career ladder.
 >
-> ✍️ **Example (Data Science):** "Goal 1: make the demand forecast trustworthy enough that operations plans with it every week (Impact pillar)."
+> ✍️ **Example (Data Science):** "Goal 1: make the demand forecast trustworthy enough that operations plans with it every week (a pillar from your company's ladder)."
 
 ## 🛠️ Activities per goal
 

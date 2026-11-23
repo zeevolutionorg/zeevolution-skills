@@ -54,7 +54,7 @@ From the latest [Release](https://github.com/zeevolution/zeevolution-skills/rele
 | 📊 **3. Spreadsheet** | Upload `sheets/05 - 🪜 Ladder Assessment.xlsx` → right-click › **Open with › Google Sheets**. Fill **only the yellow cells**. |
 | ✏️ **4. Placeholders** | In each doc: **Edit › Find and replace** (Ctrl/Cmd + Shift + H). |
 | 🔗 **5. Links** | **Share › Copy link** on each doc → paste on its row in the Hub's table. Point every **← Back to Career Hub** at the Hub. |
-| 🪜 **6. Ladder** | Paste your company's ladder in the **🪜 Ladder** tab, or keep the generic one. |
+| 🪜 **6. Ladder** | After the documents are generated, paste your company's ladder in the **🪜 Ladder** tab. Pillar names differ by company. |
 | 🗓️ **7. Rhythm** | In Google Calendar, a recurring 1:1 **every 2 weeks** with the Hub link in the description. |
 
 **📄 Step 2 — two ways to create the documents**
@@ -70,7 +70,7 @@ From the latest [Release](https://github.com/zeevolution/zeevolution-skills/rele
 
 Finish by searching `{{` to make sure nothing is left — the `{{doc_link_…}}` ones are handled in step 5.
 
-**🪜 Step 6 — your company's ladder:** levels down column A, pillars across row 4; then set **Career ladder** to *Company ladder* on the Assessment tab. The generic ladder shows a banner reminding you to revisit it at the next Career Check.
+**🪜 Step 6 — your company's ladder:** levels down column A, pillars across row 4; then set **Career ladder** to *Company ladder* on the Assessment tab. Pillar names differ by company. After the documents are generated, replace the ladder with yours.
 
 ---
 

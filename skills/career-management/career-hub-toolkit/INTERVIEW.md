@@ -41,7 +41,7 @@ Use this wording. Don't improvise questions.
 | T7 | "Is this person joining the team now, or joined in the last 90 days?" | "Essa pessoa está entrando no time agora ou entrou nos últimos 90 dias?" | Yes, add the 30/60/90 Onboarding Plan · No / Sim, incluir o Plano de Onboarding 30/60/90 · Não | No | Lead mode |
 | T8 | "Do you also want the Evidence Doc? It's meant for when a level is at risk; most people don't need it now." | "Você também quer o Documento de Evidências? Ele é para quando um nível está em risco; a maioria das pessoas não precisa agora." | Yes · No / Sim · Não | No | Lead mode |
 | T9 | "When is your next 1:1? The Hub recommends meeting every two weeks to follow up on these documents." | "Quando é o próximo 1:1 de vocês? O Hub recomenda se encontrar a cada duas semanas para acompanhar estes documentos." | Date · Not scheduled yet / Data · Ainda não marcado | Two weeks from today | Always |
-| T10 | "Should I use your saved ladder for this person?" | "Posso usar a trilha salva para essa pessoa?" | Yes · Use a different ladder · Use the generic ladder / Sim · Usar outra trilha · Usar a trilha genérica | Yes | A default ladder exists |
+| T10 | "Should I use your saved ladder for this person?" | "Posso usar a trilha salva para essa pessoa?" | Yes · Use a different ladder · Leave the pillars blank / Sim · Usar outra trilha · Deixar os pilares em branco | Yes | A default ladder exists |
 
 ## D. Ladder (`career-ladder`)
 
@@ -49,9 +49,9 @@ Asked when there's no saved ladder, or T10 = "Use a different ladder".
 
 | # | English | Português (Brasil) | Options | Default |
 |---|---|---|---|---|
-| L1 | "Do you have a career ladder for this role?" | "Você tem uma trilha de carreira para esse cargo?" | Paste the text · Share a link to a doc · Upload a file · No ladder, use the generic one / Colar o texto · Compartilhar o link de um documento · Enviar um arquivo · Sem trilha, usar a genérica | Generic |
+| L1 | "Do you have a career ladder for this role?" | "Você tem uma trilha de carreira para esse cargo?" | Paste the text · Share a link to a doc · Upload a file · No ladder yet / Colar o texto · Compartilhar o link de um documento · Enviar um arquivo · Sem trilha por enquanto | No ladder yet |
 | L2 | "Here's how I mapped it: {n} levels × {m} pillars ({pillar names}). Does this look right?" | "Mapeei assim: {n} níveis × {m} pilares ({nomes dos pilares}). Está certo?" | Looks right · Fix pillars · Fix levels / Está certo · Corrigir pilares · Corrigir níveis | Looks right |
-| L3 | "I'll use a generic ladder with 4 pillars (Impact, Craft, Direction, Collaboration & Leadership). It's marked as generic so you can replace it at the next Career Check. OK?" | "Vou usar uma trilha genérica com 4 pilares (Impacto, Ofício, Direção, Colaboração e Liderança). Ela fica marcada como genérica para você trocar no próximo Check de Carreira. Pode ser?" | OK · Let me share a ladder instead / Pode · Prefiro compartilhar uma trilha | OK |
+| L3 | "Pillars differ by company, so I won't fill them in. After the documents are generated, replace the pillar rows with your company's career ladder. OK?" | "Os pilares mudam de empresa para empresa, então não vou preenchê-los. Depois que os documentos forem gerados, troque as linhas de pilar pela trilha da sua empresa. Pode ser?" | OK · Let me share a ladder instead / Pode · Prefiro compartilhar uma trilha | OK |
 
 ## E. Confirmation (nothing is created before "Create")
 

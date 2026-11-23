@@ -30,7 +30,7 @@
 
 > 💡 **How to use:** one section per pillar where there is a gap. Observations are facts with links (a review thread, a document, a dated meeting), not interpretations. Quote the ladder word for word.
 >
-> ✍️ **Example (Engineering, Craft):** Observed: "In the last 6 pull requests, 4 needed more than three review rounds; two reintroduced issues already pointed out (links)." Expected at this level: "Produces solid, reliable work that needs little rework." Gap: "Self-review before asking for review, using the team checklist."
+> ✍️ **Example (Engineering):** Observed: "In the last 6 pull requests, 4 needed more than three review rounds; two reintroduced issues already pointed out (links)." Expected at this level: "Produces solid, reliable work that needs little rework." Gap: "Self-review before asking for review, using the team checklist."
 
 ## 🧱 Pillar: ________
 

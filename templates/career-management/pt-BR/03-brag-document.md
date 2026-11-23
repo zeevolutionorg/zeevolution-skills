@@ -2,7 +2,7 @@
 
 [← Voltar ao Hub de Carreira]({{doc_link_hub}})
 
-> ℹ️ **O que é:** o diário contínuo de conquistas de {{person_name}} e do impacto delas. Ele guarda as evidências do seu trabalho em um só lugar, para que as expectativas fiquem alinhadas com {{leader_name}} e ninguém precise reconstruir um ano de trabalho na hora da avaliação. **Quem preenche:** {{person_name}}. Uma vez por trimestre, {{leader_name}} adiciona evidências que notou (a "coleta de evidências") para você editar. **Quando:** registre pelo menos a cada duas semanas; faça a autoavaliação uma vez por trimestre.
+> ℹ️ **O que é:** o diário contínuo de conquistas de {{person_name}} e do impacto delas. Ele guarda as evidências do seu trabalho em um só lugar, para que as expectativas fiquem alinhadas com {{leader_name}} e ninguém precise reconstruir um ano de trabalho na hora da avaliação. **Quem preenche:** {{person_name}}. **Quando:** registre pelo menos a cada duas semanas; faça a autoavaliação uma vez por trimestre.
 >
 > **O que não é:** não é o seu plano de desenvolvimento (esse é o PDI ou o Plano de Foco) e não é um formulário de feedback. Também não substitui o líder saber o que você faz: ele(a) continua precisando saber.
 
@@ -18,7 +18,7 @@
 
 ## 📊 Autoavaliação trimestral
 
-> 💡 **Como usar:** uma vez por trimestre, escreva um comentário qualitativo curto por período usando os pilares da sua trilha de carreira (ou os genéricos: Impacto, Ofício, Direção, Colaboração e Liderança). Compartilhe com {{leader_name}} e alinhem juntos.
+> 💡 **Como usar:** uma vez por trimestre, escreva um comentário qualitativo curto por período usando os pilares da trilha da sua empresa. Esses nomes mudam de empresa para empresa e são preenchidos depois que os documentos forem gerados. Compartilhe com {{leader_name}} e alinhem juntos.
 
 | Período | Comentário (por pilar da trilha) | Alinhado com o líder? |
 |---|---|---|
@@ -28,12 +28,6 @@
 | T3 | | ☐ |
 | T4 | | ☐ |
 | Resumo do S2 | | ☐ |
-
-## 📥 Coleta de evidências *(uma vez por trimestre, {{leader_name}})*
-
-> 💡 **Como usar:** o líder adiciona links de trabalhos que notou neste trimestre (reviews, lançamentos, documentos, reconhecimentos). {{person_name}} transforma os úteis em registros abaixo. Isso evita que a pessoa comece de uma página em branco.
-
-- 
 
 ## 🗂️ Registro de trabalho por tema
 
@@ -67,14 +61,6 @@
 
 > ✍️ **Exemplo (Ciência de Dados):** "Propus um template compartilhado de experimentos; o tempo médio do time entre a ideia e o resultado caiu de 5 para 3 semanas."
 
-## 🧾 Registro completo
-
-> 💡 **Como usar:** a lista rápida e cronológica. Uma linha por item: **data — [tag] o que você fez — impacto.** Tags: `[G1]`…`[G4]`, `[Ajuda]`, `[Time]`, `[Incêndio]`, `[Aprendizado]`.
-
-- {{start_date}} — [Aprendizado] Comecei este Brag Document. — Ponto de partida do período.
-
-> ✍️ **Exemplo:** "4/abr — [Incêndio] Fiz rollback de uma release que derrubou as sessões sem crash no Android; peguei o problema com 5% dos usuários."
-
 ## 📎 Contexto extra *(opcional)*
 
 > 💡 **Como usar:** qualquer coisa que enriqueça o registro mas seja longa demais para ele: um diário de aprendizado, contexto de projetos, links para textos mais longos.
@@ -89,4 +75,4 @@
 2. **No dia a dia:** sempre que fizer algo de que se orgulha, ou que teve impacto no time ou no negócio, registre. **Pelo menos uma vez a cada duas semanas**, para não esquecer.
 3. **Registre sempre o impacto,** com dados quando possível. "Entreguei X" é fraco; "Entreguei X, que reduziu os tickets de suporte em 30%" é forte.
 4. **Trimestralmente:** preencha a autoavaliação com base nos pilares da sua trilha, compartilhe com {{leader_name}} e alinhem juntos. Use isso para planejar o próximo trimestre.
-5. **Mude o formato se ajudar** (por meta, por tema, por habilidade), mas mantenha fácil de atualizar e mantenha as datas.
+5. **Mude o formato se ajudar** (por meta, por tema, por habilidade), mas mantenha fácil de atualizar.

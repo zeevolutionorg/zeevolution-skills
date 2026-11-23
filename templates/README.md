@@ -18,7 +18,7 @@ The source of truth for every document the skills create — also usable by hand
 | 📊 `<category>/*.sheet.yaml` | Spreadsheet structure (language-neutral) |
 | 🔤 `<category>/<lang>/*.strings.yaml` | The spreadsheet's words, per language |
 | 📦 `<category>/bundle.yaml` | Which documents exist, their order, titles and modes |
-| 🪜 `career-management/<lang>/generic-ladder.yaml` | The generic career ladder |
+| 🪜 `career-management/<lang>/generic-ladder.yaml` | Shape sample for a career ladder. Pillar names are filled in after the documents are generated |
 
 ## 📏 Rules
 

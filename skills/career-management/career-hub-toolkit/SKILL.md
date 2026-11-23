@@ -26,7 +26,7 @@ Use the exact questions in [INTERVIEW.md](INTERVIEW.md), sections B, C and D, in
 
 ## Step 3 — Resolve the ladder
 
-Run the **career-ladder** skill (or follow it from `../career-ladder/SKILL.md`). Result: a ladder YAML, either the company's (mapped) or the generic one (`assets/generic-ladder.<lang>.yaml`). Note which one, for `ladder_source`.
+Run the **career-ladder** skill (or follow it from `../career-ladder/SKILL.md`). If the user shares a company ladder, map it to YAML and note `ladder_source`. If they don't, leave the pillar rows blank: names differ by company and are filled in after the documents are generated. Do not copy the sample ladder's pillar names into the person's documents.
 
 ## Step 4 — Decide the document set
 
@@ -141,7 +141,7 @@ Same documents, same order, same interview — only the delivery changes ([cloud
 Keep it short:
 
 1. **The Hub link** — the only link you give; everything else is reachable from it. (Manual mode: where the files are, or "the documents are above", and to start with the Hub and the paste guide.)
-2. What is **generic** and needs filling later (e.g. "generic ladder in use", "role left blank").
+2. What still needs filling after generation (e.g. "career ladder pillars — replace with your company's", "role left blank").
 3. **The rhythm:** "The Hub recommends a **bi-weekly 1:1** to follow up on these documents." If the agent has calendar tools, ask question F1 (offer to create the recurring event with the Hub linked). Never book without a yes.
 4. **First actions:** run the Working Agreement in the first 1:1; schedule the Career Check; choose together between the Growth Plan and the Focus Plan.
 

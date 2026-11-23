@@ -34,7 +34,7 @@
 |---|---|---|---|---|---|
 | [🎶 1:1 Notes]({{doc_link_one_on_one}}) | Working agreement, bi-weekly 1:1s, quarterly Career Checks, review conversations | Shared | Every bi-weekly | In progress | {{start_date}} |
 | **Development plan — choose one:** [🌱 Growth Plan]({{doc_link_growth_plan}}) **or** [🧭 Focus Plan]({{doc_link_focus_plan}}) | What you're working on to grow, and how you'll know it worked | Person + leader | Every half | Not started | — |
-| [😎 Brag Document]({{doc_link_brag}}) | Running log of your impact, with evidence | Person (leader helps quarterly) | Log every two weeks | Not started | — |
+| [😎 Brag Document]({{doc_link_brag}}) | Running log of your impact, with evidence | Person | Log every two weeks | Not started | — |
 | [🪜 Ladder Assessment]({{doc_link_ladder}}) | Where you are against your level and the next one, pillar by pillar | Leader + person | Every half | Not started | — |
 | [📝 Performance Review]({{doc_link_review}}) | The written review for each performance cycle | Leader | Every cycle | Not started | — |
 | [🔎 Evidence Doc]({{doc_link_evidence}}) *(optional)* | Only when a level is at risk: observed vs expected, per pillar | Leader | When needed | Not in use | — |
@@ -67,7 +67,7 @@ The **Growth Plan** and the **Focus Plan** are two alternative ways to plan deve
 - [ ] Choose the development plan (Growth or Focus) together
 - [ ] Run the first **Career Check** (seven questions in the 1:1 Notes)
 - [ ] Add the first three entries to the Brag Document
-- [ ] Confirm the career ladder: your company's, or keep the generic one for now
+- [ ] After the documents are generated, replace the pillar rows with your company's career ladder
 - [ ] First self-assessment in the Ladder Assessment
 
 ## 🧭 How this Hub works
