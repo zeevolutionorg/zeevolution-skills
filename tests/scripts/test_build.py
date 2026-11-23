@@ -23,10 +23,12 @@ def dist(tmp_path_factory):
 @pytest.mark.parametrize("lang", ["en", "pt-BR"])
 def test_manual_kit_contents(dist, lang):
     names = zipfile.ZipFile(dist / f"career-management-kit-{lang}.zip").namelist()
-    assert sum(n.endswith(".docx") for n in names) == 8  # every document except the spreadsheet
+    # START-HERE is a PDF when LibreOffice is installed, and a .docx otherwise.
+    documents = [n for n in names if n.endswith(".docx") and not n.endswith("START-HERE.docx")]
+    assert len(documents) == 8  # every document except the spreadsheet
     assert sum(n.endswith(".xlsx") for n in names) == 1
     assert sum(n.endswith(".md") for n in names) == 9  # incl. the spreadsheet's text fallback
-    assert any(n.endswith("START-HERE.pdf") or n.endswith("START-HERE.docx") for n in names)
+    assert sum(n.endswith("START-HERE.pdf") or n.endswith("START-HERE.docx") for n in names) == 1
 
 
 def test_kit_keeps_placeholders_for_manual_use(dist):
