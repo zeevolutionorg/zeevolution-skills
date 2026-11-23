@@ -69,15 +69,15 @@ make check              # everything CI runs, in order
 Stages run in order and stop at the first failure, cheapest first:
 
 ```text
-lint ──► consistency ──► tests (Linux, macOS, Windows) ──┬─► e2e ──► security ──┐
-                                                          └─► sheets ────────────┴─► evals (label: run-evals)
+lint ──► consistency ──► tests ──┬─► e2e ──► security ──┐
+                                  └─► sheets ────────────┴─► evals (label: run-evals)
 ```
 
 | # | Stage | Steps | Why it's there |
 |---|---|---|---|
 | 1 | **lint** | `ruff check`, `ruff format --check`, `yamllint`, `markdownlint-cli2`, `actionlint` | Style and broken YAML/Markdown/workflows caught in seconds |
 | 2 | **consistency** | `sync_skill_assets.py --check`, `validate_skills.py`, `check_parity.py` | Bundled copies match sources; every skill listed and named right; EN and pt-BR stay identical in structure |
-| 3 | **tests** | `pytest -m "unit or contract"` on Python 3.10/3.12 × Linux/macOS/Windows; coverage gate on one leg | People run the scripts on their own machines |
+| 3 | **tests** | `pytest -m "unit or contract"` on Ubuntu, Python 3.12, with the coverage gate | One run of the suite. Ruff already targets Python 3.10, and the scripts have no OS-specific code |
 | 4 | **e2e** | `pytest -m e2e`, dry run report, `build.py` → `dist/` artifact | The toolkit still produces complete, linked hubs in every mode, language and fallback |
 | 5 | **sheets** | LibreOffice + `pytest -m libreoffice` | Formulas really compute — not just "the cell has a formula" |
 | 6 | **security** | `check_leaks.py` on repo **and** `dist/` (denylist from the `LEAK_DENYLIST` secret), `gitleaks` | Nothing points to an employer; no secrets committed |

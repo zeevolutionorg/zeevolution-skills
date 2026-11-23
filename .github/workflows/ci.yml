@@ -3,7 +3,7 @@
 #
 #   1. lint         ruff, ruff format, yamllint, markdownlint, actionlint           (~30 s)
 #   2. consistency  bundled copies in sync, skills/manifests valid, EN/pt-BR parity   (~10 s)
-#   3. tests        unit + contract tests, coverage gate (Linux, macOS, Windows)      (~1 min)
+#   3. tests        unit + contract tests, coverage gate (Ubuntu, Python 3.12)        (~1 min)
 #   4. e2e          dry run (32 hubs: files + manual) and release build               (~1 min)
 #   5. sheets       spreadsheet formulas recalculated by LibreOffice (EN + pt-BR)     (~2 min)
 #   6. security     leak check on repo + built files, gitleaks secret scan            (~30 s)
@@ -71,28 +71,15 @@ jobs:
 
   tests:
     needs: consistency
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - {os: ubuntu-latest, python: "3.10"}
-          - {os: ubuntu-latest, python: "3.12", coverage: true}
-          - {os: macos-latest, python: "3.12"}
-          - {os: windows-latest, python: "3.12"}
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-        with: {python-version: "${{ matrix.python }}", cache: pip, cache-dependency-path: requirements-dev.txt}
+        with: {python-version: "${{ env.PYTHON_VERSION }}", cache: pip, cache-dependency-path: requirements-dev.txt}
       - run: python -m pip install -r requirements-dev.txt
-      - name: Unit + contract tests
-        if: ${{ !matrix.coverage }}
-        run: python -m pytest -m "unit or contract"
       - name: Unit + contract tests with coverage gate
-        if: ${{ matrix.coverage }}
-        run: python -m pytest -m "unit or contract or e2e" --cov --cov-report=xml --cov-report=term
-      - if: ${{ matrix.coverage }}
-        uses: actions/upload-artifact@v4
+        run: python -m pytest -m "unit or contract" --cov --cov-report=xml --cov-report=term
+      - uses: actions/upload-artifact@v4
         with: {name: coverage, path: coverage.xml}
 
   e2e:
