@@ -30,8 +30,8 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with: {python-version: "${{ env.PYTHON_VERSION }}", cache: pip, cache-dependency-path: requirements-dev.txt}
       - run: python -m pip install -r requirements-dev.txt
       - name: ruff (lint)
@@ -41,7 +41,7 @@ jobs:
       - name: yamllint
         run: yamllint -c .yamllint.yml .
       - name: markdownlint
-        uses: DavidAnson/markdownlint-cli2-action@v16
+        uses: DavidAnson/markdownlint-cli2-action@v24
         with:
           globs: |
             *.md
@@ -56,8 +56,8 @@ jobs:
     needs: lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with: {python-version: "${{ env.PYTHON_VERSION }}", cache: pip, cache-dependency-path: requirements.txt}
       - run: python -m pip install -r requirements.txt
       - name: Bundled copies in sync with the sources
@@ -71,21 +71,21 @@ jobs:
     needs: consistency
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with: {python-version: "${{ env.PYTHON_VERSION }}", cache: pip, cache-dependency-path: requirements-dev.txt}
       - run: python -m pip install -r requirements-dev.txt
       - name: Unit + contract tests with coverage gate
         run: python -m pytest -m "unit or contract" --cov --cov-report=xml --cov-report=term
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with: {name: coverage, path: coverage.xml}
 
   e2e:
     needs: tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with: {python-version: "${{ env.PYTHON_VERSION }}", cache: pip, cache-dependency-path: requirements-dev.txt}
       - run: python -m pip install -r requirements-dev.txt
       - name: End-to-end tests (dry run + build)
@@ -94,15 +94,15 @@ jobs:
         run: python scripts/dry_run.py --out "${{ runner.temp }}/dry-run"
       - name: Build release assets
         run: python scripts/build.py --out dist
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with: {name: dist, path: dist/, retention-days: 7}
 
   sheets:
     needs: tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with: {python-version: "${{ env.PYTHON_VERSION }}", cache: pip, cache-dependency-path: requirements-dev.txt}
       - run: python -m pip install -r requirements-dev.txt
       - name: LibreOffice
@@ -114,12 +114,12 @@ jobs:
     needs: e2e
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with: {fetch-depth: 0}
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with: {python-version: "${{ env.PYTHON_VERSION }}", cache: pip, cache-dependency-path: requirements.txt}
       - run: python -m pip install -r requirements.txt pillow
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with: {name: dist, path: dist}
       - name: Leak check (repo + built files)
         run: python scripts/check_leaks.py . dist
