@@ -34,7 +34,7 @@ Install **zeevolution-skills** in your agent, then run `/setup-zeevolution-skill
 ## 🟠 Claude Code
 
 ```text
-/plugin marketplace add zeevolution/zeevolution-skills
+/plugin marketplace add zeevolutionorg/zeevolution-skills
 /plugin install zeevolution-skills@zeevolution
 ```
 
@@ -43,7 +43,7 @@ Install **zeevolution-skills** in your agent, then run `/setup-zeevolution-skill
 
 ## 🟠 Claude app, Desktop and Cowork
 
-1. ⬇️ Download the `.skill` files from the latest [Release](https://github.com/zeevolution/zeevolution-skills/releases) — or `zeevolution-skills-all-skills.zip`, which contains all of them.
+1. ⬇️ Download the `.skill` files from the latest [Release](https://github.com/zeevolutionorg/zeevolution-skills/releases) — or `zeevolution-skills-all-skills.zip`, which contains all of them.
 2. ⬆️ In the app's settings, open **Skills** (under Capabilities) and upload each `.skill` file.
 3. 🔌 Enable the **Google Drive** connector to create documents in Google. For Microsoft 365, enable a connector that can **write** to OneDrive or SharePoint.
 
@@ -56,8 +56,8 @@ Cursor reads the same `SKILL.md` files. Choose one option:
 
 | Option | How | Best for |
 |---|---|---|
-| **A · GitHub import** | **Customize** → **From GitHub Repository** → `zeevolution/zeevolution-skills` → **Install** (user or project scope) | Most people — updates automatically |
-| **B · Command line** | `npx skills@latest add zeevolution/zeevolution-skills -a cursor` | Editable copies in your project |
+| **A · GitHub import** | **Customize** → **From GitHub Repository** → `zeevolutionorg/zeevolution-skills` → **Install** (user or project scope) | Most people — updates automatically |
+| **B · Command line** | `npx skills@latest add zeevolutionorg/zeevolution-skills -a cursor` | Editable copies in your project |
 | **C · Manual** | Copy `skills/` into `~/.cursor/skills/` (all projects) or `.cursor/skills/` (one project) | Offline or locked-down machines |
 | **D · Team** | An admin imports the repo as a team marketplace (**Dashboard → Plugins & MCPs**) and sets it to *Default Off* or *Default On* | Teams and Enterprise plans |
 
@@ -67,7 +67,7 @@ Cursor reads the same `SKILL.md` files. Choose one option:
 ## 🧩 Other agents
 
 ```bash
-npx skills@latest add zeevolution/zeevolution-skills -a <agent>
+npx skills@latest add zeevolutionorg/zeevolution-skills -a <agent>
 ```
 
 ## 🔌 Creating documents: connectors and fallbacks

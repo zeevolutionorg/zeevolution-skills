@@ -17,7 +17,7 @@ def test_plugin_fields(folder):
     p = load(f"{folder}/plugin.json")
     assert p["name"] == "zeevolution-skills"
     assert p["license"] == "MIT"
-    assert p["repository"] == "https://github.com/zeevolution/zeevolution-skills"
+    assert p["repository"] == "https://github.com/zeevolutionorg/zeevolution-skills"
     assert p["author"]["name"] == "Zeevolution"
 
 

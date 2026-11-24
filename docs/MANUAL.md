@@ -24,7 +24,7 @@ Build a complete Career Hub by hand in Google Workspace or Microsoft 365 — **n
 
 ## 📥 Download the Manual Kit
 
-From the latest [Release](https://github.com/zeevolution/zeevolution-skills/releases), download `career-management-kit-en.zip` (or `-pt-BR`) and unzip it.
+From the latest [Release](https://github.com/zeevolutionorg/zeevolution-skills/releases), download `career-management-kit-en.zip` (or `-pt-BR`) and unzip it.
 
 | Folder | What's inside | Use it for |
 |---|---|---|

@@ -20,11 +20,11 @@ Everything below needs a human with **personal** accounts. Tick the boxes in ord
 - [x] Personal SSH key + `~/.ssh/config` host alias `github-zeevolution`.
 - [x] In this folder: `git config user.name "Zeevolution"` and `git config user.email "<id>+zeevolution@users.noreply.github.com"` (GitHub › Settings › Emails shows the exact address).
 - [x] If the first local commit was made with a different email: `git commit --amend --reset-author --no-edit`.
-- [x] `gh repo create zeevolution/zeevolution-skills --private --source . --remote origin --description "Skills for Technologists — agent skills for Claude and Cursor, usable without AI too"`
-- [x] `git remote set-url origin git@github-zeevolution:zeevolution/zeevolution-skills.git` and `git push -u origin main`.
+- [x] `gh repo create zeevolutionorg/zeevolution-skills --private --source . --remote origin --description "Skills for Technologists — agent skills for Claude and Cursor, usable without AI too"`
+- [x] `git remote set-url origin git@github-zeevolution:zeevolutionorg/zeevolution-skills.git` and `git push -u origin main`.
 - [x] GitHub settings: topics (`agent-skills`, `claude`, `claude-code`, `cursor`, `career-management`, `technologists`); protect `main` (PR required, `ci` must pass, no force-push).
 - [x] Branch protection on `main`: require the CI checks `lint`, `consistency`, `tests`, `e2e`, `sheets`, `security`.
-- [ ] `make install` locally (pre-commit hooks).
+- [x] `make install` locally (pre-commit hooks). `python3 -m pre_commit` is used so the `pre-commit` program does not need to be on `PATH`.
 
 ## 🔌 Step 2 — Verify on real platforms
 
@@ -50,7 +50,7 @@ Use a **personal** Google account and a **personal** Microsoft account. Never a 
 - [ ] Read every template once, end to end, in both languages.
 - [ ] `scripts/build.sh` green; CI green on `main`.
 - [ ] CHANGELOG: set the date of 0.1.0.
-- [ ] `gh repo edit zeevolution/zeevolution-skills --visibility public --accept-visibility-change-consequences`
+- [ ] `gh repo edit zeevolutionorg/zeevolution-skills --visibility public --accept-visibility-change-consequences`
 - [ ] `git tag v0.1.0 && git push --tags` → the release workflow publishes the Manual Kits and `.skill` files.
 - [ ] Create one real hub in your own workspace.
 - [ ] Uncomment the **CI badge** at the top of `README.md` (it only works once the repo is public and CI has run).

@@ -15,7 +15,7 @@
 [![Cursor skills](assets/badges/cursor.svg)](docs/INSTALL.md#-cursor)
 [![Docs: EN and pt-BR](assets/badges/docs-languages.svg)](docs/README.md)
 <!-- Add once the repo is public:
-[![CI](https://github.com/zeevolution/zeevolution-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/zeevolution/zeevolution-skills/actions/workflows/ci.yml)
+[![CI](https://github.com/zeevolutionorg/zeevolution-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/zeevolutionorg/zeevolution-skills/actions/workflows/ci.yml)
 -->
 
 </div>
@@ -87,11 +87,11 @@ Every category groups skills for one area of work, all built on the same foundat
 
 | You use | Install | 📄 Google docs need | 📄 Microsoft 365 docs need |
 |---|---|---|---|
-| 🟠 **Claude Code** | `/plugin marketplace add zeevolution/zeevolution-skills` then `/plugin install zeevolution-skills@zeevolution` | A Google Drive MCP server | A Microsoft 365 MCP server that can write |
-| 🟠 **Claude app / Desktop / Cowork** | Download the `.skill` files from [Releases](https://github.com/zeevolution/zeevolution-skills/releases) and add them in the app's Skills settings | Google Drive connector | Microsoft 365 connector with write access |
-| ⚫ **Cursor** | Customize → **From GitHub Repository** → `zeevolution/zeevolution-skills`, or `npx skills@latest add zeevolution/zeevolution-skills -a cursor` | A Google Drive MCP server | A Microsoft 365 MCP server |
-| 🧩 **Other agents** | `npx skills@latest add zeevolution/zeevolution-skills -a <agent>` | Agent-specific | Agent-specific |
-| ✋ **No AI** | Download a category's Manual Kit from [Releases](https://github.com/zeevolution/zeevolution-skills/releases) | — | — |
+| 🟠 **Claude Code** | `/plugin marketplace add zeevolutionorg/zeevolution-skills` then `/plugin install zeevolution-skills@zeevolution` | A Google Drive MCP server | A Microsoft 365 MCP server that can write |
+| 🟠 **Claude app / Desktop / Cowork** | Download the `.skill` files from [Releases](https://github.com/zeevolutionorg/zeevolution-skills/releases) and add them in the app's Skills settings | Google Drive connector | Microsoft 365 connector with write access |
+| ⚫ **Cursor** | Customize → **From GitHub Repository** → `zeevolutionorg/zeevolution-skills`, or `npx skills@latest add zeevolutionorg/zeevolution-skills -a cursor` | A Google Drive MCP server | A Microsoft 365 MCP server |
+| 🧩 **Other agents** | `npx skills@latest add zeevolutionorg/zeevolution-skills -a <agent>` | Agent-specific | Agent-specific |
+| ✋ **No AI** | Download a category's Manual Kit from [Releases](https://github.com/zeevolutionorg/zeevolution-skills/releases) | — | — |
 
 > [!IMPORTANT]
 > **Pick one install per machine.** Cursor also reads `~/.claude/skills/`, so installing the same skills twice shows every skill twice. One install brings **every category** — new ones arrive with updates.

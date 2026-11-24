@@ -24,7 +24,7 @@ Monte um Hub de Carreira completo à mão, no Google Workspace ou no Microsoft 3
 
 ## 📥 Baixe o Kit Manual
 
-Na [Release](https://github.com/zeevolution/zeevolution-skills/releases) mais recente, baixe `career-management-kit-pt-BR.zip` e descompacte.
+Na [Release](https://github.com/zeevolutionorg/zeevolution-skills/releases) mais recente, baixe `career-management-kit-pt-BR.zip` e descompacte.
 
 | Pasta | O que tem | Para quê |
 |---|---|---|
