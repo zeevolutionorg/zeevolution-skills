@@ -8,10 +8,10 @@ Use it also when the user asks for it ("just give me the files", "I'll paste the
 
 1. **Tell the user why**, in one line: e.g. "There's no Google Drive tool in this session, so I'll prepare the documents for you to paste."
 2. **Fill the placeholders** in each template (`{{person_name}}`, `{{leader_name}}`, `{{role}}`, …) with the values from the interview. Plain text replacement is enough; with Python available you can use `scripts/render_doc.py --in T.md --out OUT.md --context context.json`.
-   - **Links** (`{{doc_link_…}}`): the documents don't exist yet, so leave each link as the **document's file name** (e.g. `01 - 🎶 1:1 Notes.md`). The paste guide tells the user to swap them for real links.
+   - **Links** (`{{doc_link_…}}`): the documents don't exist yet, so leave each link as the **document's file name** (e.g. `01 - 🎶 1-1 Notes.md`). The paste guide tells the user to swap them for real links. A colon in "1:1" is a hyphen in the file name.
    - Leave nothing else as `{{…}}`. Unknown values become empty.
 3. **Deliver the documents** — pick the first that works:
-   - **Agent can write files:** one folder `Career Hub — <name>/` with one `.md` per document, numbered (`00 - 🚀 Career Hub.md`, `01 - 🎶 1:1 Notes.md`, …), plus `HOW-TO-PASTE.md` rendered from `assets/paste-guide.<lang>.md`. Zip it if the agent can.
+   - **Agent can write files:** one folder `Career Hub — <name>/` with one `.md` per document, numbered (`00 - 🚀 Career Hub.md`, `01 - 🎶 1-1 Notes.md`, …), plus `HOW-TO-PASTE.md` rendered from `assets/paste-guide.<lang>.md`. Zip it if the agent can.
    - **Chat only:** send each document as its **own fenced Markdown block** (` ```markdown `), one message per document, titled with its file name. Send the paste guide first.
 4. **The spreadsheet (Ladder Assessment):**
    - If Python is available, also build the `.xlsx` with `scripts/build_sheet.py` (Files adapter) — it's the best version.

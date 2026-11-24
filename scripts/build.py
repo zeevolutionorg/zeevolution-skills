@@ -24,6 +24,9 @@ ROOT = Path(__file__).resolve().parent.parent
 DIST = ROOT / "dist"
 TPL = ROOT / "templates" / "career-management"
 SCRIPTS = ROOT / "skills" / "foundations" / "cloud-workspace" / "scripts"
+sys.path.insert(0, str(SCRIPTS))
+import make_bundle  # noqa: E402
+
 LANGS = ["en", "pt-BR"]
 FALLBACK = {"en": "text fallback", "pt-BR": "versão em texto"}
 
@@ -55,7 +58,7 @@ def build_kit(lang):
     names = FILE_NAMES[lang]
     for md in sorted((TPL / lang).glob("0*.md")):
         num = md.name[:2]
-        stem = f"{num} - {names[num]}"
+        stem = f"{num} - {make_bundle.safe_filename(names[num])}"
         if num == "05":
             # the real Ladder Assessment is the spreadsheet; keep the text fallback in markdown/ only
             shutil.copyfile(md, kit / "markdown" / f"{stem} ({FALLBACK[lang]}).md")

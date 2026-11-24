@@ -23,6 +23,7 @@ def dist(tmp_path_factory):
 @pytest.mark.parametrize("lang", ["en", "pt-BR"])
 def test_manual_kit_contents(dist, lang):
     names = zipfile.ZipFile(dist / f"career-management-kit-{lang}.zip").namelist()
+    assert not any(c in n for n in names for c in '":<>|*?\r\n')
     # START-HERE is a PDF when LibreOffice is installed, and a .docx otherwise.
     documents = [n for n in names if n.endswith(".docx") and not n.endswith("START-HERE.docx")]
     assert len(documents) == 8  # every document except the spreadsheet
