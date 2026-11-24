@@ -4,10 +4,10 @@ PY ?= python3
 .PHONY: install lint consistency test e2e sheets security check build
 
 install:
-	$(PY) -m pip install -r requirements-dev.txt && pre-commit install
+	$(PY) -m pip install -r requirements-dev.txt && $(PY) -m pre_commit install
 
 lint:
-	ruff check . && ruff format --check . && yamllint -c .yamllint.yml .
+	$(PY) -m ruff check . && $(PY) -m ruff format --check . && $(PY) -m yamllint -c .yamllint.yml .
 
 consistency:
 	$(PY) scripts/sync_skill_assets.py --check && $(PY) scripts/validate_skills.py && $(PY) scripts/check_parity.py

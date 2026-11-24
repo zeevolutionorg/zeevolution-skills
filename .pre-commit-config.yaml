@@ -1,4 +1,4 @@
-# Runs on `git commit` after `make install` (which runs `pre-commit install`).
+# Runs on `git commit` after `make install` (which runs `python3 -m pre_commit install`).
 # These are the fast checks from CI: lint, consistency, leak check, unit and contract tests.
 # e2e, spreadsheet recalculation, and the built-file leak check stay in CI.
 #

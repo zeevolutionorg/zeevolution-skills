@@ -17,7 +17,8 @@ import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SKIP_DIRS = {".git", "node_modules", "__pycache__", ".out"}
+# Tool caches are local and gitignored. A pytest run writes docs.pytest.org into .pytest_cache.
+SKIP_DIRS = {".git", "node_modules", "__pycache__", ".out", ".pytest_cache", ".ruff_cache", ".mypy_cache", "htmlcov"}
 TEXT_EXT = {".svg", ".md", ".yaml", ".yml", ".json", ".py", ".sh", ".txt", ".html", ".csv", ".toml", ".cfg", ""}
 OFFICE_EXT = {".docx", ".xlsx", ".pptx"}
 ALLOWED_DOMAINS = {
