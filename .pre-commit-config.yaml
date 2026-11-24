@@ -1,47 +1,69 @@
-# Same checks as CI's first stages, before every commit:  pre-commit install
+# Runs on `git commit` after `make install` (which runs `python3 -m pre_commit install`).
+# These are the fast checks from CI: lint, consistency, leak check, unit and contract tests.
+# e2e, spreadsheet recalculation, and the built-file leak check stay in CI.
+#
+# Third-party hooks below run only on staged files, except where `files:` widens the match.
+# Every hook under `repo: local` sets `pass_filenames: false`, so it ignores the staged
+# list and scans the whole tree. `language: system` means "use the python3 already on PATH".
 repos:
+  # Python lint. --fix rewrites the staged file when the fix is safe.
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.6.9
     hooks:
       - id: ruff
         args: [--fix]
+      # Python format. Fails the commit when a staged file is not in ruff's layout.
       - id: ruff-format
+  # YAML style for sheet specs, strings, ladders, and workflows. Rules live in .yamllint.yml.
   - repo: https://github.com/adrienverge/yamllint
     rev: v1.35.1
     hooks:
       - id: yamllint
         args: [-c, .yamllint.yml]
+  # Markdown structure for files agents read. Generated template copies under assets/ are skipped.
+  # Root matches README and AGENTS only; glossary, credits, changelog, and contributing live in docs/.
   - repo: https://github.com/DavidAnson/markdownlint-cli2
     rev: v0.14.0
     hooks:
       - id: markdownlint-cli2
-        files: ^(README|CONTRIBUTING|GLOSSARY|CREDITS|CHANGELOG|AGENTS)\.md$|^docs/|^skills/(?!.*/assets/)
+        files: ^(README|AGENTS)\.md$|^docs/|^skills/(?!.*/assets/)
+  # Secret scan of the commit: API keys, tokens, private keys. Open-source CLI, same v8.21.2 as CI.
+  # This does not look at URLs, email addresses, or file metadata. The leak check below does that.
   - repo: https://github.com/gitleaks/gitleaks
     rev: v8.21.2
     hooks:
       - id: gitleaks
   - repo: local
     hooks:
+      # Fail if skills/career-management copies drifted from templates/ and the foundations scripts.
+      # Edit the source, then run `python3 scripts/sync_skill_assets.py` and stage the copies.
       - id: sync-skill-assets
         name: bundled copies in sync
         entry: python3 scripts/sync_skill_assets.py --check
         language: system
         pass_filenames: false
+      # Every SKILL.md has name and description, names are unique, and both plugin manifests agree.
       - id: validate-skills
         name: skills and manifests valid
         entry: python3 scripts/validate_skills.py
         language: system
         pass_filenames: false
+      # English and pt-BR templates keep the same headings, tables, callouts, placeholders, and YAML keys.
       - id: parity
         name: EN / pt-BR parity
         entry: python3 scripts/check_parity.py
         language: system
         pass_filenames: false
+      # Whole-repo scan for private traces that are not secrets:
+      # a URL whose domain is not on the public allowlist, an email other than GitHub noreply
+      # or example.com, author or company metadata in Office and PDF files, and EXIF on images.
+      # CI runs the same script again on the repo and on dist/ after the release build.
       - id: leak-check
-        name: leak check (uses ~/.config/zeevolution/denylist.txt)
+        name: leak check
         entry: python3 scripts/check_leaks.py
         language: system
         pass_filenames: false
+      # Fast tests only. e2e hub builds and LibreOffice formula checks run in CI (`make e2e`, `make sheets`).
       - id: fast-tests
         name: unit + contract tests
         entry: python3 -m pytest -q -m "unit or contract"

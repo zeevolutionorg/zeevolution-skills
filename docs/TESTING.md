@@ -69,26 +69,22 @@ make check              # everything CI runs, in order
 Stages run in order and stop at the first failure, cheapest first:
 
 ```text
-lint ──► consistency ──► tests (Linux, macOS, Windows) ──┬─► e2e ──► security ──┐
-                                                          └─► sheets ────────────┴─► evals (label: run-evals)
+lint ──► consistency ──► tests ──┬─► e2e ──► security
+                                  └─► sheets
 ```
 
 | # | Stage | Steps | Why it's there |
 |---|---|---|---|
 | 1 | **lint** | `ruff check`, `ruff format --check`, `yamllint`, `markdownlint-cli2`, `actionlint` | Style and broken YAML/Markdown/workflows caught in seconds |
 | 2 | **consistency** | `sync_skill_assets.py --check`, `validate_skills.py`, `check_parity.py` | Bundled copies match sources; every skill listed and named right; EN and pt-BR stay identical in structure |
-| 3 | **tests** | `pytest -m "unit or contract"` on Python 3.10/3.12 × Linux/macOS/Windows; coverage gate on one leg | People run the scripts on their own machines |
+| 3 | **tests** | `pytest -m "unit or contract"` on Ubuntu, Python 3.12, with the coverage gate | One run of the suite. Ruff already targets Python 3.10, and the scripts have no OS-specific code |
 | 4 | **e2e** | `pytest -m e2e`, dry run report, `build.py` → `dist/` artifact | The toolkit still produces complete, linked hubs in every mode, language and fallback |
 | 5 | **sheets** | LibreOffice + `pytest -m libreoffice` | Formulas really compute — not just "the cell has a formula" |
-| 6 | **security** | `check_leaks.py` on repo **and** `dist/` (denylist from the `LEAK_DENYLIST` secret), `gitleaks` | Nothing points to an employer; no secrets committed |
-| 7 | **evals** *(opt-in)* | `claude plugin eval . --tag smoke` | The skills still *behave*: fire, ask before creating, fall back without connectors, report the bi-weekly rhythm |
-
-Add the **`run-evals`** label to a PR that changes how a skill behaves (`skills/**/SKILL.md`, `INTERVIEW.md`, adapters). Evals call a real model, so they cost money and need the `ANTHROPIC_API_KEY` secret.
+| 6 | **security** | `check_leaks.py` on repo **and** `dist/`, `gitleaks detect` (CLI v8.21.2) | Personal emails, non-public URLs, document metadata, and committed secrets |
 
 ### 🌙 Nightly (`.github/workflows/nightly.yml`)
 
 - **lychee** — external links in README, docs and skills still work.
-- **Full eval suite** — every case, 3 runs each, threshold 0.8.
 
 ### 🏷️ On a release tag `v*` (`.github/workflows/release.yml`)
 
@@ -115,9 +111,8 @@ Grouped updates for Python packages and GitHub Actions.
 | **markdownlint-cli2** | stage 1 | Skills and docs Markdown | Agents read these files; broken structure = misread instructions |
 | **actionlint** | stage 1 | GitHub workflow files | Typos in workflows otherwise only fail after merge |
 | **LibreOffice (headless)** | stage 5 | Real formula results in the `.xlsx` | The only free engine that recalculates Excel formulas in CI |
-| **check_leaks.py** | stage 6, pre-commit | Employer terms, non-public URLs, emails, document/PDF/image metadata | The repo's core promise; denylist kept outside the repo |
-| **gitleaks** | stage 6, pre-commit | Secrets in commits | Cheap insurance for a public repo |
-| **`claude plugin eval`** | stage 7, nightly | Agent behavior with the skills (`evals/`) | Unit tests can't see whether the agent follows the skill |
+| **check_leaks.py** | stage 6, pre-commit | Non-public URLs, personal emails, document/PDF/image metadata | Keeps private addresses and file metadata out of the public repo |
+| **gitleaks** CLI v8.21.2 | stage 6, pre-commit | Secrets in commits | Same open-source release locally and in CI |
 | **lychee** | nightly | External links | Docs point to Claude, Cursor and Google help pages that move |
 | **pre-commit** | local | Same checks before pushing | Fewer red PRs |
 | **Dependabot** | weekly | Dependency and action updates | Keeps CI green over time |
@@ -125,7 +120,6 @@ Grouped updates for Python packages and GitHub Actions.
 **Worth adding later**
 
 - **Codecov** (or the GitHub coverage summary) to comment coverage changes on PRs.
-- **Promptfoo** as a second, model-agnostic eval runner if you want the same evals against Cursor-style prompts or other models.
 - **typos** spell checker, configured with a Portuguese word list, once the docs settle.
 - **Renovate** instead of Dependabot if you want auto-merge for safe updates.
 
@@ -133,5 +127,5 @@ Grouped updates for Python packages and GitHub Actions.
 
 1. Put it at the mirrored path (see [🪞 Where tests live](#-where-tests-live-a-mirror-of-the-repo)). `tests/test_repo_layout.py` tells you if you got it wrong.
 2. Mark the module: `pytestmark = pytest.mark.unit` (or `contract`, `e2e`).
-3. Use fictional people only — the leak check scans `tests/` too.
+3. Use fictional people only. The leak check scans `tests/` for personal emails, non-public URLs, and file metadata.
 4. For failure cases, copy what you need of the repo to `tmp_path` and point the script's `ROOT` at it with `monkeypatch` (see `tests/scripts/test_check_parity.py`).

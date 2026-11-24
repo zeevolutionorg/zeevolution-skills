@@ -104,7 +104,7 @@ class TestManualFormat:
 
     def test_links_are_valid_markdown_with_spaces(self, tmp_path):
         hub = make(tmp_path, fmt="manual")[1].read_text(encoding="utf-8")
-        assert "](<01 - 🎶 1:1 Notes.md>)" in hub
+        assert "](<01 - 🎶 1-1 Notes.md>)" in hub
         assert not re.search(r"\]\([^<)][^)]* [^)]*\)", hub), "bare spaces inside a link"
 
     def test_no_placeholder_left(self, tmp_path):

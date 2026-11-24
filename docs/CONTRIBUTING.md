@@ -21,9 +21,9 @@ Thanks for helping! These skills stay **small, composable and usable without AI*
 
 | # | Rule | Enforced by |
 |---|---|---|
-| 1 | 🕵️ **No employer traces.** Fictional people, companies and products only. No internal tool names, performance-system names, level/band schemes, org units or company values. | `scripts/check_leaks.py` on every PR |
+| 1 | 🕵️ **No employer traces.** Fictional people, companies and products only. No internal tool names, performance-system names, level/band schemes, org units or company values. | Review. `scripts/check_leaks.py` rejects personal emails, non-public URLs and document metadata |
 | 2 | ✋ **Every template works by hand.** If a step needs an agent, it isn't a template. | Review + Manual Kit build |
-| 3 | 💡 **Every section has a tip:** ℹ️ what it is, 💡 how to use, ✍️ a practical example ([doc-templates](skills/foundations/doc-templates/SKILL.md)). | `tests/templates/…/test_documents.py` |
+| 3 | 💡 **Every section has a tip:** ℹ️ what it is, 💡 how to use, ✍️ a practical example ([doc-templates](../skills/foundations/doc-templates/SKILL.md)). | `tests/templates/…/test_documents.py` |
 | 4 | 🌎 **English and Brazilian Portuguese stay in sync:** same headings, tables, callouts and placeholders. | `scripts/check_parity.py` |
 | 5 | 🧱 **Foundations are built once.** Platform code, tip rules, discipline vocabulary and user defaults live in `skills/foundations/`. A category never re-implements them. | Review |
 
@@ -34,7 +34,7 @@ Thanks for helping! These skills stay **small, composable and usable without AI*
 3. 🔄 Run `python3 scripts/sync_skill_assets.py` to refresh the bundled copies.
 4. 🧪 Add or update the test at the **mirrored path** under `tests/`.
 5. ✅ Run `make check`.
-6. 📬 Open the PR. Changing how a skill *behaves*? Add the **`run-evals`** label.
+6. 📬 Open the PR.
 
 ## 🧪 Local checks
 
@@ -44,10 +44,7 @@ make check     # the same stages CI runs: lint, consistency, tests, e2e, sheets,
 ```
 
 > [!TIP]
-> Tests mirror the repository layout (`scripts/x.py` → `tests/scripts/test_x.py`). See [docs/TESTING.md](docs/TESTING.md) for test levels, the CI/CD sequence and the tools.
-
-> [!NOTE]
-> For the leak check to cover employer terms locally, keep a denylist at `~/.config/zeevolution/denylist.txt` (one term per line). It never goes into the repo.
+> Tests mirror the repository layout (`scripts/x.py` → `tests/scripts/test_x.py`). See [TESTING.md](TESTING.md) for test levels, the CI/CD sequence and the tools.
 
 ## 🧱 Skill format
 
@@ -80,12 +77,11 @@ A category groups skills for one aspect of a technologist's work. Add one only w
 
 ## ✅ Pull request checklist
 
-The [PR template](.github/pull_request_template.md) asks for:
+The [PR template](../.github/pull_request_template.md) asks for:
 
 - [ ] `make check` passes locally
 - [ ] English and Portuguese templates changed together
 - [ ] New script → new test at the mirrored path
 - [ ] New skill → contract test + entry in `.claude-plugin/plugin.json`
 - [ ] Document changed → CHANGELOG entry per document
-- [ ] Behavior changed → `evals/` updated + `run-evals` label
 - [ ] Only fictional people, companies and products

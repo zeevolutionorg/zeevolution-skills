@@ -15,7 +15,7 @@
 [![Cursor skills](assets/badges/cursor.svg)](docs/INSTALL.md#-cursor)
 [![Docs: EN and pt-BR](assets/badges/docs-languages.svg)](docs/README.md)
 <!-- Add once the repo is public:
-[![CI](https://github.com/zeevolution/zeevolution-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/zeevolution/zeevolution-skills/actions/workflows/ci.yml)
+[![CI](https://github.com/zeevolutionorg/zeevolution-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/zeevolutionorg/zeevolution-skills/actions/workflows/ci.yml)
 -->
 
 </div>
@@ -87,11 +87,11 @@ Every category groups skills for one area of work, all built on the same foundat
 
 | You use | Install | 📄 Google docs need | 📄 Microsoft 365 docs need |
 |---|---|---|---|
-| 🟠 **Claude Code** | `/plugin marketplace add zeevolution/zeevolution-skills` then `/plugin install zeevolution-skills@zeevolution` | A Google Drive MCP server | A Microsoft 365 MCP server that can write |
-| 🟠 **Claude app / Desktop / Cowork** | Download the `.skill` files from [Releases](https://github.com/zeevolution/zeevolution-skills/releases) and add them in the app's Skills settings | Google Drive connector | Microsoft 365 connector with write access |
-| ⚫ **Cursor** | Customize → **From GitHub Repository** → `zeevolution/zeevolution-skills`, or `npx skills@latest add zeevolution/zeevolution-skills -a cursor` | A Google Drive MCP server | A Microsoft 365 MCP server |
-| 🧩 **Other agents** | `npx skills@latest add zeevolution/zeevolution-skills -a <agent>` | Agent-specific | Agent-specific |
-| ✋ **No AI** | Download a category's Manual Kit from [Releases](https://github.com/zeevolution/zeevolution-skills/releases) | — | — |
+| 🟠 **Claude Code** | `/plugin marketplace add zeevolutionorg/zeevolution-skills` then `/plugin install zeevolution-skills@zeevolution` | A Google Drive MCP server | A Microsoft 365 MCP server that can write |
+| 🟠 **Claude app / Desktop / Cowork** | Download the `.skill` files from [Releases](https://github.com/zeevolutionorg/zeevolution-skills/releases) and add them in the app's Skills settings | Google Drive connector | Microsoft 365 connector with write access |
+| ⚫ **Cursor** | Customize → **From GitHub Repository** → `zeevolutionorg/zeevolution-skills`, or `npx skills@latest add zeevolutionorg/zeevolution-skills -a cursor` | A Google Drive MCP server | A Microsoft 365 MCP server |
+| 🧩 **Other agents** | `npx skills@latest add zeevolutionorg/zeevolution-skills -a <agent>` | Agent-specific | Agent-specific |
+| ✋ **No AI** | Download a category's Manual Kit from [Releases](https://github.com/zeevolutionorg/zeevolution-skills/releases) | — | — |
 
 > [!IMPORTANT]
 > **Pick one install per machine.** Cursor also reads `~/.claude/skills/`, so installing the same skills twice shows every skill twice. One install brings **every category** — new ones arrive with updates.
@@ -157,9 +157,9 @@ Career management and software engineering are the first of several categories. 
 
 | | |
 |---|---|
-| 👀 **Follow along** | Watch the repository's releases and the [CHANGELOG](CHANGELOG.md) |
+| 👀 **Follow along** | Watch the repository's releases and the [CHANGELOG](docs/CHANGELOG.md) |
 | 💬 **Suggest one** | Open an issue with the **Idea** template: tell us the practice you repeat and how you do it today |
-| 🔧 **Build one** | [CONTRIBUTING → Adding a category](CONTRIBUTING.md#️-adding-a-category) |
+| 🔧 **Build one** | [CONTRIBUTING → Adding a category](docs/CONTRIBUTING.md#️-adding-a-category) |
 
 ### 🧱 Foundations
 
@@ -192,8 +192,7 @@ Every proposed change is checked automatically before it's accepted. This is cal
 | 🌎 English and Portuguese versions have the same sections | No language gets left behind |
 | 🧪 About 420 automated tests pass — from single functions to building 32 complete career hubs | The toolkit keeps working after every change |
 | 📊 The spreadsheet's formulas still calculate the right results | Scores, gaps and readiness are correct |
-| 🕵️ Nothing points to a real company or person, and no passwords leaked | Safe to share |
-| 🎯 *(on request)* An AI assistant still uses the skills the right way | The skills keep behaving as described |
+| 🕵️ Personal emails, private links, document metadata, and committed secrets stay out | Safe to share |
 
 New categories go through the same checks. ➡️ Details for contributors: [docs/TESTING.md](docs/TESTING.md)
 
@@ -203,12 +202,12 @@ New categories go through the same checks. ➡️ Details for contributors: [doc
 
 | Group | Docs |
 |---|---|
-| 🚦 **Getting started** | 📦 [Install](docs/INSTALL.md) · 📖 [Glossary](GLOSSARY.md) |
+| 🚦 **Getting started** | 📦 [Install](docs/INSTALL.md) · 📖 [Glossary](docs/GLOSSARY.md) |
 | 🌱 **Career management** | 🚀 [career-hub-toolkit](docs/career-management/career-hub-toolkit.md) · ✋ [Manual](docs/MANUAL.md) · [pt-BR](docs/MANUAL.pt-BR.md) |
 | 🛠️ **Software engineering** | 🏛️ [create-adr & 🤝 service-handoff guide](docs/software-engineering/README.md) |
 | 🔭 **Next categories** | ⏳ Coming soon |
 | 🧱 **Foundations** | 🧩 [Foundations docs](docs/foundations/README.md) |
-| 🔧 **Contributing & internals** | 🤝 [Contributing](CONTRIBUTING.md) · 🧪 [Testing](docs/TESTING.md) · 🏛️ [Decisions](docs/adr/README.md) · 🎯 [Evals](evals/README.md) · 📝 [Changelog](CHANGELOG.md) · 🙏 [Credits](CREDITS.md) |
+| 🔧 **Contributing & internals** | 🤝 [Contributing](docs/CONTRIBUTING.md) · 🧪 [Testing](docs/TESTING.md) · 🏛️ [Decisions](docs/adr/README.md) · 📝 [Changelog](docs/CHANGELOG.md) · 🙏 [Credits](docs/CREDITS.md) |
 
 ## ⚖️ License
 

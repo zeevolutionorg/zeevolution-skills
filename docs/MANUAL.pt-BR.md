@@ -24,7 +24,7 @@ Monte um Hub de Carreira completo à mão, no Google Workspace ou no Microsoft 3
 
 ## 📥 Baixe o Kit Manual
 
-Na [Release](https://github.com/zeevolution/zeevolution-skills/releases) mais recente, baixe `career-management-kit-pt-BR.zip` e descompacte.
+Na [Release](https://github.com/zeevolutionorg/zeevolution-skills/releases) mais recente, baixe `career-management-kit-pt-BR.zip` e descompacte.
 
 | Pasta | O que tem | Para quê |
 |---|---|---|
@@ -105,7 +105,7 @@ No fim, procure `{{` para garantir que não sobrou nada — os `{{doc_link_…}}
 
 ## 🔄 Mantendo suas cópias atualizadas
 
-Os templates melhoram com o tempo. O [CHANGELOG.md](../CHANGELOG.md) lista, por release, quais documentos mudaram e como, para você atualizar sua cópia-mestre à mão. Hubs já em uso nunca são afetados.
+Os templates melhoram com o tempo. O [CHANGELOG.md](CHANGELOG.md) lista, por release, quais documentos mudaram e como, para você atualizar sua cópia-mestre à mão. Hubs já em uso nunca são afetados.
 
 ## 🗓️ Depois que o hub existe
 

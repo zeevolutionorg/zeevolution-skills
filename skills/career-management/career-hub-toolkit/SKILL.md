@@ -130,7 +130,7 @@ File names inside the folder (keep the number prefix so they sort):
 
 Same documents, same order, same interview — only the delivery changes ([cloud-workspace › MANUAL.md](../../foundations/cloud-workspace/MANUAL.md)):
 
-1. Fill every placeholder in `assets/templates/<lang>/NN-*.md` (plain text replacement is enough). Use each document's **file name** as its link, e.g. `doc_link_one_on_one` → `01 - 🎶 1:1 Notes.md`.
+1. Fill every placeholder in `assets/templates/<lang>/NN-*.md` (plain text replacement is enough). Use each document's **file name** as its link, e.g. `doc_link_one_on_one` → `01 - 🎶 1-1 Notes.md`. A colon in "1:1" is written as a hyphen in the file name so the file can be saved on Windows.
 2. Fill `assets/paste-guide.<lang>.md` with `{{folder_name}}` = `Career Hub — {person_name}` and `{{doc_list}}` = a numbered list of the documents, the Hub first.
 3. **Can write files:** create the folder with `HOW-TO-PASTE.md` plus one `.md` per document (`00 - 🚀 Career Hub.md`, …). **Chat only:** send the paste guide first, then **one fenced ```markdown block per document**, each titled with its file name.
 4. Spreadsheet: if Python is available build the `.xlsx` anyway; otherwise include the filled text fallback (`05-…md`) and point to the Manual Kit spreadsheet in the repository Releases.

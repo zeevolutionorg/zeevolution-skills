@@ -25,6 +25,14 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import render_doc  # noqa: E402
 
+# upload-artifact and NTFS reject these in a file name.
+_UNSAFE_NAME = str.maketrans({c: "-" for c in '":<>|*?'} | {"\r": None, "\n": None})
+
+
+def safe_filename(name):
+    """Keep the visible title, but drop characters a file name cannot contain."""
+    return name.translate(_UNSAFE_NAME)
+
 
 def selected(bundle, mode, include):
     out = []
@@ -38,7 +46,7 @@ def selected(bundle, mode, include):
 
 
 def file_name(doc, lang, fmt):
-    title = doc["title"][lang]
+    title = safe_filename(doc["title"][lang])
     if doc["kind"] == "sheet":
         return f"{doc['id']} - {title}.xlsx" if fmt == "files" else f"{doc['id']} - {title}.md"
     return f"{doc['id']} - {title}.{'docx' if fmt == 'files' else 'md'}"
@@ -70,11 +78,11 @@ def make(bundle_path, templates, lang, mode, fmt, context, out, include=(), ladd
     for d in docs:
         names[d["key"]] = file_name(d, lang, fmt)
         if d["kind"] == "sheet" and fmt == "manual" and with_sheet:
-            names[d["key"]] = f"{d['id']} - {d['title'][lang]}.xlsx"
+            names[d["key"]] = f"{d['id']} - {safe_filename(d['title'][lang])}.xlsx"
     ctx = dict(context)
     for d in bundle["documents"]:
         name = names.get(d["key"], "")
-        # Markdown links can't contain bare spaces: <...> keeps "01 - 🎶 1:1 Notes.md" a valid link
+        # Markdown links can't contain bare spaces: <...> keeps "01 - 🎶 1-1 Notes.md" a valid link
         ctx[f"doc_link_{d['key']}"] = f"<{name}>" if (name and fmt == "manual") else name
     created = []
     hub = None

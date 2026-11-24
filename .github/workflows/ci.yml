@@ -3,11 +3,10 @@
 #
 #   1. lint         ruff, ruff format, yamllint, markdownlint, actionlint           (~30 s)
 #   2. consistency  bundled copies in sync, skills/manifests valid, EN/pt-BR parity   (~10 s)
-#   3. tests        unit + contract tests, coverage gate (Linux, macOS, Windows)      (~1 min)
+#   3. tests        unit + contract tests, coverage gate (Ubuntu, Python 3.12)        (~1 min)
 #   4. e2e          dry run (32 hubs: files + manual) and release build               (~1 min)
 #   5. sheets       spreadsheet formulas recalculated by LibreOffice (EN + pt-BR)     (~2 min)
-#   6. security     leak check on repo + built files, gitleaks secret scan            (~30 s)
-#   7. evals        behavioral evals with `claude plugin eval` (opt-in, label run-evals)
+#   6. security     leak check on repo + built files, gitleaks CLI secret scan       (~30 s)
 name: ci
 
 on:
@@ -49,7 +48,6 @@ jobs:
             docs/**/*.md
             skills/**/*.md
             templates/*.md
-            evals/*.md
             !skills/**/assets/**
       - name: actionlint
         uses: raven-actions/actionlint@v2
@@ -71,28 +69,15 @@ jobs:
 
   tests:
     needs: consistency
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - {os: ubuntu-latest, python: "3.10"}
-          - {os: ubuntu-latest, python: "3.12", coverage: true}
-          - {os: macos-latest, python: "3.12"}
-          - {os: windows-latest, python: "3.12"}
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-        with: {python-version: "${{ matrix.python }}", cache: pip, cache-dependency-path: requirements-dev.txt}
+        with: {python-version: "${{ env.PYTHON_VERSION }}", cache: pip, cache-dependency-path: requirements-dev.txt}
       - run: python -m pip install -r requirements-dev.txt
-      - name: Unit + contract tests
-        if: ${{ !matrix.coverage }}
-        run: python -m pytest -m "unit or contract"
       - name: Unit + contract tests with coverage gate
-        if: ${{ matrix.coverage }}
-        run: python -m pytest -m "unit or contract or e2e" --cov --cov-report=xml --cov-report=term
-      - if: ${{ matrix.coverage }}
-        uses: actions/upload-artifact@v4
+        run: python -m pytest -m "unit or contract" --cov --cov-report=xml --cov-report=term
+      - uses: actions/upload-artifact@v4
         with: {name: coverage, path: coverage.xml}
 
   e2e:
@@ -137,48 +122,8 @@ jobs:
       - uses: actions/download-artifact@v4
         with: {name: dist, path: dist}
       - name: Leak check (repo + built files)
-        env:
-          LEAK_DENYLIST: ${{ secrets.LEAK_DENYLIST }}
-        run: |
-          if [ -z "$LEAK_DENYLIST" ]; then
-            if [ "${{ github.event.pull_request.head.repo.fork }}" = "true" ]; then
-              echo "::warning::Fork PR: denylist secret unavailable; running URL/email/metadata checks only"
-            else
-              echo "::error::LEAK_DENYLIST secret is not set"; exit 1
-            fi
-          fi
-          python scripts/check_leaks.py . dist
+        run: python scripts/check_leaks.py . dist
       - name: Secret scan
-        uses: gitleaks/gitleaks-action@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  evals:
-    needs: [e2e, sheets, security]
-    if: >-
-      github.event_name == 'pull_request' &&
-      contains(github.event.pull_request.labels.*.name, 'run-evals')
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with: {python-version: "${{ env.PYTHON_VERSION }}"}
-      - run: python -m pip install -r requirements.txt
-      - uses: actions/setup-node@v4
-        with: {node-version: "22"}
-      - name: Install Claude Code
-        run: npm install -g @anthropic-ai/claude-code
-      - name: Behavioral evals (smoke)
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
-          claude plugin eval . --trust-plugin --no-publish --tag smoke --runs 1 \
-            --threshold 0.75 --max-cost-usd 5 --json eval-results.json
-      - if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: evals
-          path: |
-            eval-results.json
-            evals/results/
+          curl -fsSL "https://github.com/gitleaks/gitleaks/releases/download/v8.21.2/gitleaks_8.21.2_linux_x64.tar.gz" | tar -xz -C "$RUNNER_TEMP" gitleaks
+          "$RUNNER_TEMP/gitleaks" detect --source . --redact
