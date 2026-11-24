@@ -14,9 +14,7 @@
 [![Claude skills](assets/badges/claude.svg)](docs/INSTALL.md#-claude-code)
 [![Cursor skills](assets/badges/cursor.svg)](docs/INSTALL.md#-cursor)
 [![Docs: EN and pt-BR](assets/badges/docs-languages.svg)](docs/README.md)
-<!-- Add once the repo is public:
 [![CI](https://github.com/zeevolutionorg/zeevolution-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/zeevolutionorg/zeevolution-skills/actions/workflows/ci.yml)
--->
 
 </div>
 
@@ -157,7 +155,7 @@ Career management and software engineering are the first of several categories. 
 
 | | |
 |---|---|
-| 👀 **Follow along** | Watch the repository's releases and the [CHANGELOG](docs/CHANGELOG.md) |
+| 👀 **Follow along** | Watch the [releases](https://github.com/zeevolutionorg/zeevolution-skills/releases) and the [CHANGELOG](docs/CHANGELOG.md) |
 | 💬 **Suggest one** | Open an issue with the **Idea** template: tell us the practice you repeat and how you do it today |
 | 🔧 **Build one** | [CONTRIBUTING → Adding a category](docs/CONTRIBUTING.md#️-adding-a-category) |
 
