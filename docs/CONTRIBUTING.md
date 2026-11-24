@@ -23,7 +23,7 @@ Thanks for helping! These skills stay **small, composable and usable without AI*
 |---|---|---|
 | 1 | 🕵️ **No employer traces.** Fictional people, companies and products only. No internal tool names, performance-system names, level/band schemes, org units or company values. | Review. `scripts/check_leaks.py` rejects personal emails, non-public URLs and document metadata |
 | 2 | ✋ **Every template works by hand.** If a step needs an agent, it isn't a template. | Review + Manual Kit build |
-| 3 | 💡 **Every section has a tip:** ℹ️ what it is, 💡 how to use, ✍️ a practical example ([doc-templates](skills/foundations/doc-templates/SKILL.md)). | `tests/templates/…/test_documents.py` |
+| 3 | 💡 **Every section has a tip:** ℹ️ what it is, 💡 how to use, ✍️ a practical example ([doc-templates](../skills/foundations/doc-templates/SKILL.md)). | `tests/templates/…/test_documents.py` |
 | 4 | 🌎 **English and Brazilian Portuguese stay in sync:** same headings, tables, callouts and placeholders. | `scripts/check_parity.py` |
 | 5 | 🧱 **Foundations are built once.** Platform code, tip rules, discipline vocabulary and user defaults live in `skills/foundations/`. A category never re-implements them. | Review |
 
@@ -44,7 +44,7 @@ make check     # the same stages CI runs: lint, consistency, tests, e2e, sheets,
 ```
 
 > [!TIP]
-> Tests mirror the repository layout (`scripts/x.py` → `tests/scripts/test_x.py`). See [docs/TESTING.md](docs/TESTING.md) for test levels, the CI/CD sequence and the tools.
+> Tests mirror the repository layout (`scripts/x.py` → `tests/scripts/test_x.py`). See [TESTING.md](TESTING.md) for test levels, the CI/CD sequence and the tools.
 
 ## 🧱 Skill format
 
@@ -77,7 +77,7 @@ A category groups skills for one aspect of a technologist's work. Add one only w
 
 ## ✅ Pull request checklist
 
-The [PR template](.github/pull_request_template.md) asks for:
+The [PR template](../.github/pull_request_template.md) asks for:
 
 - [ ] `make check` passes locally
 - [ ] English and Portuguese templates changed together

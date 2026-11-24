@@ -105,7 +105,7 @@ No fim, procure `{{` para garantir que não sobrou nada — os `{{doc_link_…}}
 
 ## 🔄 Mantendo suas cópias atualizadas
 
-Os templates melhoram com o tempo. O [CHANGELOG.md](../CHANGELOG.md) lista, por release, quais documentos mudaram e como, para você atualizar sua cópia-mestre à mão. Hubs já em uso nunca são afetados.
+Os templates melhoram com o tempo. O [CHANGELOG.md](CHANGELOG.md) lista, por release, quais documentos mudaram e como, para você atualizar sua cópia-mestre à mão. Hubs já em uso nunca são afetados.
 
 ## 🗓️ Depois que o hub existe
 

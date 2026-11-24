@@ -157,9 +157,9 @@ Career management and software engineering are the first of several categories. 
 
 | | |
 |---|---|
-| 👀 **Follow along** | Watch the repository's releases and the [CHANGELOG](CHANGELOG.md) |
+| 👀 **Follow along** | Watch the repository's releases and the [CHANGELOG](docs/CHANGELOG.md) |
 | 💬 **Suggest one** | Open an issue with the **Idea** template: tell us the practice you repeat and how you do it today |
-| 🔧 **Build one** | [CONTRIBUTING → Adding a category](CONTRIBUTING.md#️-adding-a-category) |
+| 🔧 **Build one** | [CONTRIBUTING → Adding a category](docs/CONTRIBUTING.md#️-adding-a-category) |
 
 ### 🧱 Foundations
 
@@ -202,12 +202,12 @@ New categories go through the same checks. ➡️ Details for contributors: [doc
 
 | Group | Docs |
 |---|---|
-| 🚦 **Getting started** | 📦 [Install](docs/INSTALL.md) · 📖 [Glossary](GLOSSARY.md) |
+| 🚦 **Getting started** | 📦 [Install](docs/INSTALL.md) · 📖 [Glossary](docs/GLOSSARY.md) |
 | 🌱 **Career management** | 🚀 [career-hub-toolkit](docs/career-management/career-hub-toolkit.md) · ✋ [Manual](docs/MANUAL.md) · [pt-BR](docs/MANUAL.pt-BR.md) |
 | 🛠️ **Software engineering** | 🏛️ [create-adr & 🤝 service-handoff guide](docs/software-engineering/README.md) |
 | 🔭 **Next categories** | ⏳ Coming soon |
 | 🧱 **Foundations** | 🧩 [Foundations docs](docs/foundations/README.md) |
-| 🔧 **Contributing & internals** | 🤝 [Contributing](CONTRIBUTING.md) · 🧪 [Testing](docs/TESTING.md) · 🏛️ [Decisions](docs/adr/README.md) · 📝 [Changelog](CHANGELOG.md) · 🙏 [Credits](CREDITS.md) |
+| 🔧 **Contributing & internals** | 🤝 [Contributing](docs/CONTRIBUTING.md) · 🧪 [Testing](docs/TESTING.md) · 🏛️ [Decisions](docs/adr/README.md) · 📝 [Changelog](docs/CHANGELOG.md) · 🙏 [Credits](docs/CREDITS.md) |
 
 ## ⚖️ License
 

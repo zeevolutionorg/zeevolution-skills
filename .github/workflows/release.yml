@@ -38,6 +38,6 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create "$GITHUB_REF_NAME" --title "$GITHUB_REF_NAME" --notes-file CHANGELOG.md \
+          gh release create "$GITHUB_REF_NAME" --title "$GITHUB_REF_NAME" --notes-file docs/CHANGELOG.md \
             dist/career-management-kit-en.zip dist/career-management-kit-pt-BR.zip \
             dist/zeevolution-skills-all-skills.zip dist/skills/*.skill

@@ -20,7 +20,7 @@ Everything about **zeevolution-skills**, organized by category. Start with **Get
 |---|---|
 | 🏠 [README](../README.md) | What the library is and how it's organized |
 | 📦 [Install](INSTALL.md) | Installing in Claude, Cursor or other agents |
-| 📖 [Glossary](../GLOSSARY.md) | The shared vocabulary |
+| 📖 [Glossary](GLOSSARY.md) | The shared vocabulary |
 
 ## 🗂️ By category
 
@@ -51,7 +51,7 @@ Each category has its own skills, its own templates, and a way to use them witho
 
 > ⏳ **More categories are on the way.** Each new one gets a section here with the same shape: guide, skills, templates.
 
-Want to propose or build one? See [CONTRIBUTING → Adding a category](../CONTRIBUTING.md#️-adding-a-category).
+Want to propose or build one? See [CONTRIBUTING → Adding a category](CONTRIBUTING.md#️-adding-a-category).
 
 ## 🧱 Foundations
 
@@ -67,9 +67,9 @@ Shared by every category — new categories get them for free.
 
 | Doc | For |
 |---|---|
-| 🤝 [Contributing](../CONTRIBUTING.md) | Changing skills or adding a category |
+| 🤝 [Contributing](CONTRIBUTING.md) | Changing skills or adding a category |
 | 🧪 [Testing and CI/CD](TESTING.md) | Test layout, CI stages, tools |
 | 🏛️ [Decisions](adr/README.md) | Why the repo is shaped this way |
 | 🚀 [Release checklist](RELEASE-CHECKLIST.md) | Publishing a version |
-| 📝 [Changelog](../CHANGELOG.md) | What changed, per document |
-| 🙏 [Credits](../CREDITS.md) | Ideas this builds on |
+| 📝 [Changelog](CHANGELOG.md) | What changed, per document |
+| 🙏 [Credits](CREDITS.md) | Ideas this builds on |

@@ -105,7 +105,7 @@ Finish by searching `{{` to make sure nothing is left — the `{{doc_link_…}}`
 
 ## 🔄 Keeping your copies up to date
 
-Templates improve over time. [CHANGELOG.md](../CHANGELOG.md) lists, for each release, which documents changed and how, so you can update your master copy by hand. Hubs already in use are never affected.
+Templates improve over time. [CHANGELOG.md](CHANGELOG.md) lists, for each release, which documents changed and how, so you can update your master copy by hand. Hubs already in use are never affected.
 
 ## 🗓️ After the hub exists
 

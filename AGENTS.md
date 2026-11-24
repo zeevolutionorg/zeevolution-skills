@@ -6,4 +6,4 @@
 - Tests mirror the source tree: `scripts/x.py` → `tests/scripts/test_x.py`; a skill → `tests/skills/<category>/<skill>/test_skill.py`. Every test has a level marker (unit/contract/e2e/libreoffice). See `docs/TESTING.md`.
 - English and pt-BR templates must keep the same structure and placeholders.
 - Never add real people, employers, internal tool names, level/band schemes or company values to anything in this repo. Examples are fictional.
-- Vocabulary: see `GLOSSARY.md`.
+- Vocabulary: see `docs/GLOSSARY.md`.
