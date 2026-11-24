@@ -38,7 +38,7 @@ repos:
         language: system
         pass_filenames: false
       - id: leak-check
-        name: leak check (uses ~/.config/zeevolution/denylist.txt)
+        name: leak check
         entry: python3 scripts/check_leaks.py
         language: system
         pass_filenames: false

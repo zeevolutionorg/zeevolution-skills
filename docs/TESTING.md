@@ -80,7 +80,7 @@ lint ──► consistency ──► tests ──┬─► e2e ──► securit
 | 3 | **tests** | `pytest -m "unit or contract"` on Ubuntu, Python 3.12, with the coverage gate | One run of the suite. Ruff already targets Python 3.10, and the scripts have no OS-specific code |
 | 4 | **e2e** | `pytest -m e2e`, dry run report, `build.py` → `dist/` artifact | The toolkit still produces complete, linked hubs in every mode, language and fallback |
 | 5 | **sheets** | LibreOffice + `pytest -m libreoffice` | Formulas really compute — not just "the cell has a formula" |
-| 6 | **security** | `check_leaks.py` on repo **and** `dist/` (denylist from the `LEAK_DENYLIST` secret), `gitleaks` | Nothing points to an employer; no secrets committed |
+| 6 | **security** | `check_leaks.py` on repo **and** `dist/`, `gitleaks` | Personal emails, non-public URLs, document metadata, and committed secrets |
 
 ### 🌙 Nightly (`.github/workflows/nightly.yml`)
 
@@ -111,7 +111,7 @@ Grouped updates for Python packages and GitHub Actions.
 | **markdownlint-cli2** | stage 1 | Skills and docs Markdown | Agents read these files; broken structure = misread instructions |
 | **actionlint** | stage 1 | GitHub workflow files | Typos in workflows otherwise only fail after merge |
 | **LibreOffice (headless)** | stage 5 | Real formula results in the `.xlsx` | The only free engine that recalculates Excel formulas in CI |
-| **check_leaks.py** | stage 6, pre-commit | Employer terms, non-public URLs, emails, document/PDF/image metadata | The repo's core promise; denylist kept outside the repo |
+| **check_leaks.py** | stage 6, pre-commit | Non-public URLs, personal emails, document/PDF/image metadata | Keeps private addresses and file metadata out of the public repo |
 | **gitleaks** | stage 6, pre-commit | Secrets in commits | Cheap insurance for a public repo |
 | **lychee** | nightly | External links | Docs point to Claude, Cursor and Google help pages that move |
 | **pre-commit** | local | Same checks before pushing | Fewer red PRs |

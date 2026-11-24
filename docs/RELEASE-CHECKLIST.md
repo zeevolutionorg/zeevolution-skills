@@ -22,8 +22,7 @@ Everything below needs a human with **personal** accounts. Tick the boxes in ord
 - [x] If the first local commit was made with a different email: `git commit --amend --reset-author --no-edit`.
 - [x] `gh repo create zeevolution/zeevolution-skills --private --source . --remote origin --description "Skills for Technologists — agent skills for Claude and Cursor, usable without AI too"`
 - [x] `git remote set-url origin git@github-zeevolution:zeevolution/zeevolution-skills.git` and `git push -u origin main`.
-- [x] GitHub settings: topics (`agent-skills`, `claude`, `claude-code`, `cursor`, `career-management`, `technologists`); protect `main` (PR required, `ci` must pass, no force-push); Actions secret `LEAK_DENYLIST` with the denylist contents; account email privacy on ("Keep my email private" + "Block command line pushes that expose my email").
-- [x] Local denylist at `~/.config/zeevolution/denylist.txt` (same contents as the secret).
+- [x] GitHub settings: topics (`agent-skills`, `claude`, `claude-code`, `cursor`, `career-management`, `technologists`); protect `main` (PR required, `ci` must pass, no force-push).
 - [x] Branch protection on `main`: require the CI checks `lint`, `consistency`, `tests`, `e2e`, `sheets`, `security`.
 - [ ] `make install` locally (pre-commit hooks).
 

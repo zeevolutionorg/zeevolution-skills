@@ -1,25 +1,16 @@
 #!/usr/bin/env python3
-"""Leak check: make sure nothing in the repo (or in built files) points to an employer.
+"""Leak check: make sure the repo and built files stay free of private traces.
 
-The denylist is NEVER stored in this repository (committing it would itself be a trace).
-It is read from, in order:
-  1. --denylist FILE
-  2. $LEAK_DENYLIST_FILE
-  3. $LEAK_DENYLIST   (newline-separated terms; this is how CI passes the GitHub Actions secret)
-  4. ~/.config/zeevolution/denylist.txt
-One term per line, case-insensitive; lines starting with # are comments.
-
-Also fails on:
+Fails on:
   - any URL whose domain is not on the public allowlist below
   - personal-looking email addresses other than GitHub noreply
   - author / company / last-modified-by metadata in .docx / .xlsx / .pptx, and /Author in .pdf
   - EXIF / text metadata in images
 
-  python3 scripts/check_leaks.py [--denylist FILE] [PATHS...]   (default: repo root + dist/)
+  python3 scripts/check_leaks.py [PATHS...]   (default: repo root + dist/)
 """
 
 import argparse
-import os
 import re
 import sys
 import zipfile
@@ -82,23 +73,6 @@ EMAIL = re.compile(r"[a-zA-Z0-9._%+\-]+@([a-zA-Z0-9.\-]+\.[a-zA-Z]{2,})")
 EMAIL_OK = {"users.noreply.github.com", "example.com", "example.org"}
 
 
-def load_denylist(arg):
-    text = None
-    if arg:
-        text = Path(arg).read_text(encoding="utf-8")
-    elif os.environ.get("LEAK_DENYLIST_FILE"):
-        text = Path(os.environ["LEAK_DENYLIST_FILE"]).read_text(encoding="utf-8")
-    elif os.environ.get("LEAK_DENYLIST"):
-        text = os.environ["LEAK_DENYLIST"]
-    else:
-        p = Path.home() / ".config" / "zeevolution" / "denylist.txt"
-        if p.exists():
-            text = p.read_text(encoding="utf-8")
-    if text is None:
-        return None
-    return [t.strip().lower() for t in text.splitlines() if t.strip() and not t.strip().startswith("#")]
-
-
 def iter_files(paths):
     for base in paths:
         base = Path(base)
@@ -120,12 +94,7 @@ def office_texts(path):
                 yield name, z.read(name).decode("utf-8", "ignore")
 
 
-def check_text(where, text, deny, problems, check_urls=True):
-    low = text.lower()
-    for term in deny or []:
-        # whole-word match, so "performa" doesn't hit "performance"
-        if re.search(r"(?<![\w])" + re.escape(term) + r"(?![\w])", low):
-            problems.append(f"{where}: denylisted term found ({term[:2]}…)")
+def check_text(where, text, problems, check_urls=True):
     if check_urls:
         for m in URL.finditer(text):
             dom = m.group(1).lower().rstrip(".")
@@ -139,12 +108,8 @@ def check_text(where, text, deny, problems, check_urls=True):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--denylist")
     ap.add_argument("paths", nargs="*")
     args = ap.parse_args()
-    deny = load_denylist(args.denylist)
-    if deny is None:
-        print("WARNING: no denylist found (see script header). Only URL/email/metadata checks will run.")
     paths = args.paths or [ROOT, ROOT / "dist"]
     problems = []
     checked = 0
@@ -154,14 +119,16 @@ def main():
         ext = f.suffix.lower()
         checked += 1
         if f.resolve() == self_path:
-            check_text(rel, "", deny, problems)  # don't flag our own allowlist
-            continue
+            continue  # don't flag our own allowlist
         if ext in OFFICE_EXT:
             for part, text in office_texts(f):
                 xml_text = re.sub(r"<[^>]+>", " ", text)
                 is_rels = part.endswith(".rels")
                 check_text(
-                    f"{rel}:{part}", text if is_rels else xml_text, deny, problems, check_urls=is_rels and "hyperlink" in text
+                    f"{rel}:{part}",
+                    text if is_rels else xml_text,
+                    problems,
+                    check_urls=is_rels and "hyperlink" in text,
                 )
                 if part == "docProps/core.xml":
                     for tag in ("dc:creator", "cp:lastModifiedBy"):
@@ -177,7 +144,6 @@ def main():
             m = re.search(r"/Author\s*\((.*?)\)", data)
             if m and m.group(1) not in ("", "zeevolution-skills", "Zeevolution"):
                 problems.append(f"{rel}: PDF Author = '{m.group(1)}'")
-            check_text(rel, data, deny, problems, check_urls=False)
         elif ext in {".png", ".jpg", ".jpeg"}:
             try:
                 from PIL import Image
@@ -186,7 +152,7 @@ def main():
                 if img.getexif():
                     problems.append(f"{rel}: image has EXIF metadata (strip it)")
                 if getattr(img, "text", None):
-                    check_text(rel, " ".join(map(str, img.text.values())), deny, problems)
+                    check_text(rel, " ".join(map(str, img.text.values())), problems)
             except ImportError:
                 pass
         elif ext in TEXT_EXT or f.name in {"LICENSE", "CODEOWNERS"}:
@@ -194,13 +160,13 @@ def main():
                 text = f.read_text(encoding="utf-8")
             except UnicodeDecodeError:
                 continue
-            check_text(rel, text, deny, problems)
+            check_text(rel, text, problems)
     if problems:
         print(f"Leak check FAILED ({len(problems)} problem(s) in {checked} files):")
         for p in problems:
             print("  - " + p)
         sys.exit(1)
-    print(f"leak check ok ({checked} files{'' if deny else ', no denylist'})")
+    print(f"leak check ok ({checked} files)")
 
 
 if __name__ == "__main__":

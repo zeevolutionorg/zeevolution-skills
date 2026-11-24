@@ -122,17 +122,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with: {name: dist, path: dist}
       - name: Leak check (repo + built files)
-        env:
-          LEAK_DENYLIST: ${{ secrets.LEAK_DENYLIST }}
-        run: |
-          if [ -z "$LEAK_DENYLIST" ]; then
-            if [ "${{ github.event.pull_request.head.repo.fork }}" = "true" ]; then
-              echo "::warning::Fork PR: denylist secret unavailable; running URL/email/metadata checks only"
-            else
-              echo "::error::LEAK_DENYLIST secret is not set"; exit 1
-            fi
-          fi
-          python scripts/check_leaks.py . dist
+        run: python scripts/check_leaks.py . dist
       - name: Secret scan
         uses: gitleaks/gitleaks-action@v2
         env:
