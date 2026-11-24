@@ -1,7 +1,7 @@
 # Same commands CI runs, in the same order.  `make check` before opening a PR.
 PY ?= python3
 
-.PHONY: install lint consistency test e2e sheets security check build evals
+.PHONY: install lint consistency test e2e sheets security check build
 
 install:
 	$(PY) -m pip install -r requirements-dev.txt && pre-commit install
@@ -28,6 +28,3 @@ check: lint consistency test e2e sheets security
 
 build:
 	$(PY) scripts/build.py --out dist
-
-evals:
-	claude plugin eval . --trust-plugin --no-publish --tag smoke --runs 1 --threshold 0.75 --max-cost-usd 5

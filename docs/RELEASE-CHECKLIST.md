@@ -16,19 +16,16 @@ Everything below needs a human with **personal** accounts. Tick the boxes in ord
 
 ## 🔐 Step 1 — Personal identity and repo (once)
 
-- [ ] `gh auth login` with the **zeevolution** account; `gh auth status` shows it as active.
-- [ ] Personal SSH key + `~/.ssh/config` host alias `github-zeevolution`.
-- [ ] In this folder: `git config user.name "Zeevolution"` and `git config user.email "<id>+zeevolution@users.noreply.github.com"` (GitHub › Settings › Emails shows the exact address).
-- [ ] If the first local commit was made with a different email: `git commit --amend --reset-author --no-edit`.
-- [ ] `gh repo create zeevolution/zeevolution-skills --private --source . --remote origin --description "Skills for Technologists — agent skills for Claude and Cursor, usable without AI too"`
-- [ ] `git remote set-url origin git@github-zeevolution:zeevolution/zeevolution-skills.git` and `git push -u origin main`.
-- [ ] GitHub settings: topics (`agent-skills`, `claude`, `claude-code`, `cursor`, `career-management`, `technologists`); protect `main` (PR required, `ci` must pass, no force-push); Actions secret **`LEAK_DENYLIST`** with the denylist contents; account email privacy on ("Keep my email private" + "Block command line pushes that expose my email").
-- [ ] Local denylist at `~/.config/zeevolution/denylist.txt` (same contents as the secret).
-- [ ] Branch protection on `main`: require the CI checks `lint`, `consistency`, `tests`, `e2e`, `sheets`, `security`.
-- [ ] Create the PR label **`run-evals`** (opt-in behavioral evals).
-- [ ] Secret **`ANTHROPIC_API_KEY`** for evals — a key from your personal Anthropic account, with a spend limit. Optional: without it, skip the `evals` stage.
+- [x] `gh auth login` with the **zeevolution** account; `gh auth status` shows it as active.
+- [x] Personal SSH key + `~/.ssh/config` host alias `github-zeevolution`.
+- [x] In this folder: `git config user.name "Zeevolution"` and `git config user.email "<id>+zeevolution@users.noreply.github.com"` (GitHub › Settings › Emails shows the exact address).
+- [x] If the first local commit was made with a different email: `git commit --amend --reset-author --no-edit`.
+- [x] `gh repo create zeevolution/zeevolution-skills --private --source . --remote origin --description "Skills for Technologists — agent skills for Claude and Cursor, usable without AI too"`
+- [x] `git remote set-url origin git@github-zeevolution:zeevolution/zeevolution-skills.git` and `git push -u origin main`.
+- [x] GitHub settings: topics (`agent-skills`, `claude`, `claude-code`, `cursor`, `career-management`, `technologists`); protect `main` (PR required, `ci` must pass, no force-push); Actions secret `LEAK_DENYLIST` with the denylist contents; account email privacy on ("Keep my email private" + "Block command line pushes that expose my email").
+- [x] Local denylist at `~/.config/zeevolution/denylist.txt` (same contents as the secret).
+- [x] Branch protection on `main`: require the CI checks `lint`, `consistency`, `tests`, `e2e`, `sheets`, `security`.
 - [ ] `make install` locally (pre-commit hooks).
-- [ ] Before the first PR: run `claude plugin eval . --tag smoke --runs 1` once locally and check the grader format against the official "Test plugins with evals" page for your Claude Code version.
 
 ## 🔌 Step 2 — Verify on real platforms
 

@@ -70,7 +70,6 @@ Shared by every category — new categories get them for free.
 | 🤝 [Contributing](../CONTRIBUTING.md) | Changing skills or adding a category |
 | 🧪 [Testing and CI/CD](TESTING.md) | Test layout, CI stages, tools |
 | 🏛️ [Decisions](adr/README.md) | Why the repo is shaped this way |
-| 🎯 [Evals](../evals/README.md) | Behavioral tests of the skills |
 | 🚀 [Release checklist](RELEASE-CHECKLIST.md) | Publishing a version |
 | 📝 [Changelog](../CHANGELOG.md) | What changed, per document |
 | 🙏 [Credits](../CREDITS.md) | Ideas this builds on |

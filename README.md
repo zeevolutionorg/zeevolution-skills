@@ -193,7 +193,6 @@ Every proposed change is checked automatically before it's accepted. This is cal
 | 🧪 About 420 automated tests pass — from single functions to building 32 complete career hubs | The toolkit keeps working after every change |
 | 📊 The spreadsheet's formulas still calculate the right results | Scores, gaps and readiness are correct |
 | 🕵️ Nothing points to a real company or person, and no passwords leaked | Safe to share |
-| 🎯 *(on request)* An AI assistant still uses the skills the right way | The skills keep behaving as described |
 
 New categories go through the same checks. ➡️ Details for contributors: [docs/TESTING.md](docs/TESTING.md)
 
@@ -208,7 +207,7 @@ New categories go through the same checks. ➡️ Details for contributors: [doc
 | 🛠️ **Software engineering** | 🏛️ [create-adr & 🤝 service-handoff guide](docs/software-engineering/README.md) |
 | 🔭 **Next categories** | ⏳ Coming soon |
 | 🧱 **Foundations** | 🧩 [Foundations docs](docs/foundations/README.md) |
-| 🔧 **Contributing & internals** | 🤝 [Contributing](CONTRIBUTING.md) · 🧪 [Testing](docs/TESTING.md) · 🏛️ [Decisions](docs/adr/README.md) · 🎯 [Evals](evals/README.md) · 📝 [Changelog](CHANGELOG.md) · 🙏 [Credits](CREDITS.md) |
+| 🔧 **Contributing & internals** | 🤝 [Contributing](CONTRIBUTING.md) · 🧪 [Testing](docs/TESTING.md) · 🏛️ [Decisions](docs/adr/README.md) · 📝 [Changelog](CHANGELOG.md) · 🙏 [Credits](CREDITS.md) |
 
 ## ⚖️ License
 

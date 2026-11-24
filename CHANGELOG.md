@@ -29,7 +29,7 @@ First release.
 
 - **Manual fallback**: with no connector, no filesystem or no Python, `/career-hub-toolkit` delivers filled-in Markdown documents plus a HOW-TO-PASTE guide (Google Docs, Word, Notion, Confluence) — as files or in the chat.
 - `cloud-workspace/scripts/make_bundle.py` renders a whole hub (Files or Manual) in one command; `templates/career-management/bundle.yaml` lists the documents.
-- Test suite mirroring the repository (unit, contract, e2e, LibreOffice formula tests), behavioral evals (`evals/`), staged CI, nightly and release workflows, pre-commit.
+- Test suite mirroring the repository (unit, contract, e2e, LibreOffice formula tests), staged CI, nightly and release workflows, pre-commit.
 
 ### 📄 Added — documents (career-management)
 

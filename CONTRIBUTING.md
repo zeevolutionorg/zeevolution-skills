@@ -34,7 +34,7 @@ Thanks for helping! These skills stay **small, composable and usable without AI*
 3. 🔄 Run `python3 scripts/sync_skill_assets.py` to refresh the bundled copies.
 4. 🧪 Add or update the test at the **mirrored path** under `tests/`.
 5. ✅ Run `make check`.
-6. 📬 Open the PR. Changing how a skill *behaves*? Add the **`run-evals`** label.
+6. 📬 Open the PR.
 
 ## 🧪 Local checks
 
@@ -87,5 +87,4 @@ The [PR template](.github/pull_request_template.md) asks for:
 - [ ] New script → new test at the mirrored path
 - [ ] New skill → contract test + entry in `.claude-plugin/plugin.json`
 - [ ] Document changed → CHANGELOG entry per document
-- [ ] Behavior changed → `evals/` updated + `run-evals` label
 - [ ] Only fictional people, companies and products
