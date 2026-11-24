@@ -192,7 +192,7 @@ Every proposed change is checked automatically before it's accepted. This is cal
 | 🌎 English and Portuguese versions have the same sections | No language gets left behind |
 | 🧪 About 420 automated tests pass — from single functions to building 32 complete career hubs | The toolkit keeps working after every change |
 | 📊 The spreadsheet's formulas still calculate the right results | Scores, gaps and readiness are correct |
-| 🕵️ Nothing points to a real company or person, and no passwords leaked | Safe to share |
+| 🕵️ Personal emails, private links, document metadata, and committed secrets stay out | Safe to share |
 
 New categories go through the same checks. ➡️ Details for contributors: [docs/TESTING.md](docs/TESTING.md)
 

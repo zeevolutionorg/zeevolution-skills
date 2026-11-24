@@ -127,5 +127,5 @@ Grouped updates for Python packages and GitHub Actions.
 
 1. Put it at the mirrored path (see [🪞 Where tests live](#-where-tests-live-a-mirror-of-the-repo)). `tests/test_repo_layout.py` tells you if you got it wrong.
 2. Mark the module: `pytestmark = pytest.mark.unit` (or `contract`, `e2e`).
-3. Use fictional people only — the leak check scans `tests/` too.
+3. Use fictional people only. The leak check scans `tests/` for personal emails, non-public URLs, and file metadata.
 4. For failure cases, copy what you need of the repo to `tmp_path` and point the script's `ROOT` at it with `monkeypatch` (see `tests/scripts/test_check_parity.py`).
