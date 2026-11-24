@@ -20,6 +20,7 @@ Everything about **zeevolution-skills**, organized by category. Start with **Get
 |---|---|
 | 🏠 [README](../README.md) | What the library is and how it's organized |
 | 📦 [Install](INSTALL.md) | Installing in Claude, Cursor or other agents |
+| 📦 [Releases](https://github.com/zeevolutionorg/zeevolution-skills/releases) | Download Manual Kits and `.skill` files |
 | 📖 [Glossary](GLOSSARY.md) | The shared vocabulary |
 
 ## 🗂️ By category
