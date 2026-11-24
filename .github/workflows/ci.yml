@@ -6,7 +6,7 @@
 #   3. tests        unit + contract tests, coverage gate (Ubuntu, Python 3.12)        (~1 min)
 #   4. e2e          dry run (32 hubs: files + manual) and release build               (~1 min)
 #   5. sheets       spreadsheet formulas recalculated by LibreOffice (EN + pt-BR)     (~2 min)
-#   6. security     leak check on repo + built files, gitleaks secret scan            (~30 s)
+#   6. security     leak check on repo + built files, gitleaks CLI secret scan       (~30 s)
 name: ci
 
 on:
@@ -124,6 +124,6 @@ jobs:
       - name: Leak check (repo + built files)
         run: python scripts/check_leaks.py . dist
       - name: Secret scan
-        uses: gitleaks/gitleaks-action@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl -fsSL "https://github.com/gitleaks/gitleaks/releases/download/v8.21.2/gitleaks_8.21.2_linux_x64.tar.gz" | tar -xz -C "$RUNNER_TEMP" gitleaks
+          "$RUNNER_TEMP/gitleaks" detect --source . --redact
