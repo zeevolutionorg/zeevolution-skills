@@ -1,0 +1,20 @@
+# Link checker config, used by .github/workflows/nightly.yml.
+# Run locally with the same settings:
+#   docker run --rm -v "$PWD":/input -w /input lycheeverse/lychee "./**/*.md"
+
+no_progress = true
+
+# Generated copies of templates/ (see AGENTS.md); the source is checked instead.
+exclude_path = ["skills/career-management/career-hub-toolkit/assets"]
+
+# Placeholders that look like links but are filled in by a skill or a human.
+# Relative links are checked after `file://` resolution, so braces and angle
+# brackets also appear percent-encoded. Note: a placeholder that is not a
+# parseable URL at all (e.g. `https://…`) fails before `exclude` is applied,
+# so keep such examples in inline code, which lychee skips.
+exclude = [
+  '\{\{[^}]*\}\}',          # {{doc_link_hub}} and other mustache placeholders
+  '%7B%7B[^%]*%7D%7D',      # same, percent-encoded
+  '<[A-Z]+>',               # <NNN> in the ADR template
+  '%3C[A-Z]+%3E',           # same, percent-encoded
+]
