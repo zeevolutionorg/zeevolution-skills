@@ -17,5 +17,6 @@ jobs:
       - name: External links still work (README, docs, skills)
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --no-progress --exclude-path skills/career-management/career-hub-toolkit/assets "./**/*.md"
+          # Excludes and placeholder patterns live in lychee.toml.
+          args: --config lychee.toml "./**/*.md"
           fail: true

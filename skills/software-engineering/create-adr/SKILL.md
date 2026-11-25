@@ -7,7 +7,7 @@ description: Author or compress Architecture Decision Records (ADRs) using the N
 
 Produce a single, durable **Architecture Decision Record** in the chosen folder, following:
 
-- **Base structure:** [Nygard ADR — Markdown rendering](https://github.com/joelparkerhenderson/architecture-decision-record/blob/main/locales/en/templates/decision-record-template-by-michael-nygard/index.md) (Title, Status, Context, Decision, Consequences).
+- **Base structure:** [Nygard ADR — Markdown rendering](https://github.com/architecture-decision-record/architecture-decision-record/blob/main/architecture-decision-record.github.io/src/content/locales/en-us/templates/decision-record-template-by-michael-nygard.md) (Title, Status, Context, Decision, Consequences).
 - **Alternatives considered:** [MADR 4.0.0 — full template](https://github.com/adr/madr/blob/4.0.0/template/adr-template.md?plain=1).
 - **Catalogue:** [adr.github.io/adr-templates](https://adr.github.io/adr-templates/) (browse if a future ADR needs a different shape, e.g. Y-Statement).
 
@@ -218,7 +218,7 @@ When working in an unfamiliar repo:
 
 - [`adr.github.io/adr-templates`](https://adr.github.io/adr-templates/) — canonical catalogue (Nygard, MADR, Y-Statement, others).
 - [`adr/madr`](https://github.com/adr/madr) — MADR templates and rationale.
-- [`joelparkerhenderson/architecture-decision-record`](https://github.com/joelparkerhenderson/architecture-decision-record) — Nygard Markdown rendering used as the base.
+- [`architecture-decision-record/architecture-decision-record`](https://github.com/architecture-decision-record/architecture-decision-record) — Nygard Markdown rendering used as the base.
 
 ## Anti-patterns to avoid
 

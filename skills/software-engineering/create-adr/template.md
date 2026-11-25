@@ -4,7 +4,7 @@ This is the canonical body the `create-adr` skill renders into the destination f
 
 The structure follows:
 
-- **Base:** [Nygard ADR — Markdown rendering](https://github.com/joelparkerhenderson/architecture-decision-record/blob/main/locales/en/templates/decision-record-template-by-michael-nygard/index.md)
+- **Base:** [Nygard ADR — Markdown rendering](https://github.com/architecture-decision-record/architecture-decision-record/blob/main/architecture-decision-record.github.io/src/content/locales/en-us/templates/decision-record-template-by-michael-nygard.md)
 - **`Alternatives considered`:** [MADR 4.0.0 — full template](https://github.com/adr/madr/blob/4.0.0/template/adr-template.md?plain=1)
 
 ---
@@ -109,13 +109,13 @@ Follow the **anchor-classes pattern**: name the **1–2 classes** that anchor th
 
 ## Related artifacts
 
-> Sort in **infrastructure-first** rollout order: deployments → infrastructure (IRSA / KMS / S3) → application code → docs. Use full URLs so the table is meaningful when read outside the repo.
+> Sort in **infrastructure-first** rollout order: deployments → infrastructure (IRSA / KMS / S3) → application code → docs. Link each PR with its full URL (`[#NNNN](https://…/pull/NNNN)`) so the table is meaningful when read outside the repo.
 
 | Order | Repository | PR | Title | Merged |
 |------:|------------|----|-------|--------|
-| 1 | <org/repo> | [#NNNN](https://…) | <title> | <YYYY-MM-DD> |
-| 2 | <org/repo> | [#NNNN](https://…) | <title> | <YYYY-MM-DD> |
-| 3 | <org/repo> | [#NNNN](https://…) | <title> | <YYYY-MM-DD> |
+| 1 | <org/repo> | <PR link> | <title> | <YYYY-MM-DD> |
+| 2 | <org/repo> | <PR link> | <title> | <YYYY-MM-DD> |
+| 3 | <org/repo> | <PR link> | <title> | <YYYY-MM-DD> |
 
 Additional artifacts (optional):
 
@@ -127,7 +127,7 @@ Additional artifacts (optional):
 
 ## References
 
-- **ADR template used:** Nygard ([source](https://github.com/joelparkerhenderson/architecture-decision-record/blob/main/locales/en/templates/decision-record-template-by-michael-nygard/index.md)) extended with the `Alternatives considered` section from MADR 4.0.0 ([source](https://github.com/adr/madr/blob/4.0.0/template/adr-template.md?plain=1)). See [adr.github.io/adr-templates](https://adr.github.io/adr-templates/) for the broader catalogue.
+- **ADR template used:** Nygard ([source](https://github.com/architecture-decision-record/architecture-decision-record/blob/main/architecture-decision-record.github.io/src/content/locales/en-us/templates/decision-record-template-by-michael-nygard.md)) extended with the `Alternatives considered` section from MADR 4.0.0 ([source](https://github.com/adr/madr/blob/4.0.0/template/adr-template.md?plain=1)). See [adr.github.io/adr-templates](https://adr.github.io/adr-templates/) for the broader catalogue.
 - <Any standards, RFCs, papers, blog posts that informed the decision.>
 
 ---
