@@ -56,7 +56,7 @@ zeevolution-skills
 | Category | What it covers | Status |
 |---|---|---|
 | 🌱 **[Career management](#-career-management)** | Managing a career — your own, or the people you lead | ✅ **Available** (v0.1) |
-| 🛠️ **[Software engineering](#️-software-engineering)** | Everyday engineering practices: recording decisions, handing services over | ✅ **Available** (v0.1) |
+| 🛠️ **[Software engineering](#️-software-engineering)** | Everyday engineering practices: recording decisions, handing services over, developing and reviewing code | ✅ **Available** (v0.1) |
 | 🔭 **[More categories](#-coming-soon)** | Other aspects of a technologist's work | ⏳ **Coming soon** |
 | 🧱 **[Foundations](#-foundations)** | Shared building blocks every category uses | ✅ Available |
 
@@ -79,7 +79,7 @@ Every category groups skills for one area of work, all built on the same foundat
 2. ⚙️ **Set up once** — run **`/setup-zeevolution-skills`**: your name, discipline, where documents go and language. Every category reuses these answers.
 3. 🗂️ **Pick a category and run a skill:**
    - 🌱 **Career management** — `/career-hub-toolkit me` for your own career, or `/career-hub-toolkit Ana Souza, Data Scientist L3` for someone you lead.
-   - 🛠️ **Software engineering** — `/create-adr` to record a technical decision, or `/service-handoff` to hand a service over to another team.
+   - 🛠️ **Software engineering** — `/create-adr` to record a technical decision, `/service-handoff` to hand a service over to another team, or just ask for a code review or a task to be implemented: `strong-programmer` steps in.
 
 ## 📦 Install
 
@@ -144,6 +144,7 @@ Every skill that creates documents ends with something you can use, in this orde
 |---|---|---|
 | 🏛️ [create-adr](skills/software-engineering/create-adr/SKILL.md) | 🤖 automatic — or type `/create-adr` | Writes an **Architecture Decision Record** — the *why* behind a technical decision — from a shipped spec + plan, merged PRs, an interview, or by superseding an older one |
 | 🤝 [service-handoff](skills/software-engineering/service-handoff/SKILL.md) | ⌨️ you run it | Builds a **service-ownership handoff**: stakeholders, recent changes, open PRs, observability baseline, and checklists for the incoming team |
+| 💪 [strong-programmer](skills/software-engineering/strong-programmer/SKILL.md) | 🤖 automatic — or type `/strong-programmer` | **Develops a task, reviews code or reviews a pull request** — after orienting on the paradigm, the language version, the layers and the project's checks; pull-request habits and self-validation built in |
 
 📘 **Docs:** [software engineering guide](docs/software-engineering/README.md)
 
@@ -177,7 +178,7 @@ Every category ships a **Manual Kit** per language in each release: its template
 | Category | Kit | First time | Guides |
 |---|---|---|---|
 | 🌱 Career management | `career-management-kit-en.zip` · `career-management-kit-pt-BR.zip` | ⏱️ 20–30 min (≈10 min per next person) | [English](docs/MANUAL.md) · [Português](docs/MANUAL.pt-BR.md) |
-| 🛠️ Software engineering | The ADR and handoff templates are plain Markdown in the repo | ⏱️ minutes | [Guide](docs/software-engineering/README.md) |
+| 🛠️ Software engineering | The ADR and handoff templates are plain Markdown in the repo; strong-programmer's practices (pull requests, validating your work) read fine on their own | ⏱️ minutes | [Guide](docs/software-engineering/README.md) |
 | 🔭 Next categories | ⏳ coming soon | — | — |
 
 ## ✅ Quality
@@ -188,7 +189,7 @@ Every proposed change is checked automatically before it's accepted. This is cal
 |---|---|
 | 📝 The text and code follow the same style | Documents and skills stay consistent and readable |
 | 🌎 English and Portuguese versions have the same sections | No language gets left behind |
-| 🧪 About 420 automated tests pass — from single functions to building 32 complete career hubs | The toolkit keeps working after every change |
+| 🧪 About 520 automated tests pass — from single functions to building 32 complete career hubs | The toolkit keeps working after every change |
 | 📊 The spreadsheet's formulas still calculate the right results | Scores, gaps and readiness are correct |
 | 🕵️ Personal emails, private links, document metadata, and committed secrets stay out | Safe to share |
 
@@ -202,7 +203,7 @@ New categories go through the same checks. ➡️ Details for contributors: [doc
 |---|---|
 | 🚦 **Getting started** | 📦 [Install](docs/INSTALL.md) · 📖 [Glossary](docs/GLOSSARY.md) |
 | 🌱 **Career management** | 🚀 [career-hub-toolkit](docs/career-management/career-hub-toolkit.md) · ✋ [Manual](docs/MANUAL.md) · [pt-BR](docs/MANUAL.pt-BR.md) |
-| 🛠️ **Software engineering** | 🏛️ [create-adr & 🤝 service-handoff guide](docs/software-engineering/README.md) |
+| 🛠️ **Software engineering** | 🏛️ [create-adr, 🤝 service-handoff & 💪 strong-programmer guide](docs/software-engineering/README.md) |
 | 🔭 **Next categories** | ⏳ Coming soon |
 | 🧱 **Foundations** | 🧩 [Foundations docs](docs/foundations/README.md) |
 | 🔧 **Contributing & internals** | 🤝 [Contributing](docs/CONTRIBUTING.md) · 🧪 [Testing](docs/TESTING.md) · 🏛️ [Decisions](docs/adr/README.md) · 📝 [Changelog](docs/CHANGELOG.md) · 🙏 [Credits](docs/CREDITS.md) |

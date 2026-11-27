@@ -68,6 +68,10 @@ ALLOWED_DOMAINS = {
     "schemas.microsoft.com",
     "purl.org",
     "www.w3.org",
+    "www.geeksforgeeks.org",
+    "kotlinlang.org",
+    "docs.oracle.com",
+    "openjdk.org",
 }
 URL = re.compile(r"https?://([a-zA-Z0-9.\-]+)")
 EMAIL = re.compile(r"[a-zA-Z0-9._%+\-]+@([a-zA-Z0-9.\-]+\.[a-zA-Z]{2,})")

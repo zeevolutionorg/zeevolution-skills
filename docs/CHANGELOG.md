@@ -17,6 +17,7 @@ Each release lists, **per document**, what changed — so people using the templ
 
 ## 🔜 Unreleased
 
+- **Added — skill:** `software-engineering/strong-programmer` develops a task, reviews existing code or reviews a pull request, after orienting on the language version, the paradigm and approach, the layers and the project's checks. This first version ships the router, the knowledge map, overviews of the imperative and declarative paradigms, Kotlin and Java (the approaches each supports, and version detection), and two practices: pull-request habits and validating your own work. Three new evals.
 - **Changed — tooling:** `make check` now runs every CI stage. Newly added: markdownlint (Node ≥ 22), the dry-run report, the release build, the leak check on `dist/` and the secret scan. actionlint, the LibreOffice tests and the secret scan (needs Go) are skipped when their tool is missing. `tests/test_makefile.py` keeps it in step with CI. The pull request template asks what changed, why, how it was tested and where to start reading.
 
 ## 🏷️ 0.1.0 — 2026-11-23
