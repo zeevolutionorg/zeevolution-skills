@@ -339,3 +339,133 @@ def test_fit_check_is_numbered():
 @pytest.mark.parametrize("block", ["Entity", "Value object", "Aggregate", "Repository"])
 def test_ddd_building_blocks(block):
     assert f"| {block} |" in section(read(f"{OO}/domain-driven-design.md"), "Building blocks")
+
+
+GOF = {
+    "Abstract Factory": 87,
+    "Builder": 97,
+    "Factory Method": 107,
+    "Prototype": 117,
+    "Singleton": 127,
+    "Adapter": 139,
+    "Bridge": 151,
+    "Composite": 163,
+    "Decorator": 175,
+    "Facade": 185,
+    "Flyweight": 195,
+    "Proxy": 207,
+    "Chain of Responsibility": 223,
+    "Command": 233,
+    "Interpreter": 243,
+    "Iterator": 257,
+    "Mediator": 273,
+    "Memento": 283,
+    "Observer": 293,
+    "State": 305,
+    "Strategy": 315,
+    "Template Method": 325,
+    "Visitor": 331,
+}
+
+
+def slug(name):
+    return name.lower().replace(" ", "-")
+
+
+def version_table(path):
+    rows = [[c.strip() for c in row.strip("|").split("|")] for row in table_rows(read(path))]
+    assert rows[0] == ["Feature", "Since", "Replaces or enables", "Review note"]
+    return rows[1:]
+
+
+def since_column(path):
+    return [row[1] for row in version_table(path)]
+
+
+def intro(path):
+    """The text before the versions table."""
+    return read(path).split("\n| Feature |", 1)[0]
+
+
+def version_tuple(text):
+    return tuple(int(part) for part in text.split("."))
+
+
+def test_java_versions_are_8_to_25():
+    since = since_column("languages/java/versions.md")
+    assert len(since) >= 30
+    for cell in since:
+        m = re.fullmatch(r"Java (\d+)", cell)
+        assert m and 8 <= int(m.group(1)) <= 25, cell
+
+
+def test_java_versions_are_in_order():
+    numbers = [int(cell.split()[1]) for cell in since_column("languages/java/versions.md")]
+    assert numbers == sorted(numbers)
+
+
+@pytest.mark.parametrize("feature", ["StructuredTaskScope", "StableValue", "stable value", "string template"])
+def test_java_table_leaves_out_features_that_are_not_standard(feature):
+    features = [row[0].lower() for row in version_table("languages/java/versions.md")]
+    assert not any(feature.lower() in cell for cell in features), feature
+
+
+def test_kotlin_versions_are_tagged():
+    since = since_column("languages/kotlin/versions.md")
+    assert len(since) >= 25
+    for cell in since:
+        assert re.fullmatch(r"Kotlin \d+\.\d+(\.\d+)?|kotlinx\.coroutines \d+\.\d+", cell), cell
+
+
+def test_kotlin_versions_are_in_order_up_to_the_intro():
+    path = "languages/kotlin/versions.md"
+    latest = re.search(r"up to Kotlin (\d+\.\d+\.\d+)", intro(path))
+    assert latest, "the intro names the last Kotlin release it covers"
+    versions = [version_tuple(cell.split()[1]) for cell in since_column(path) if cell.startswith("Kotlin ")]
+    assert versions == sorted(versions)
+    assert max(versions) <= version_tuple(latest.group(1))
+
+
+@pytest.mark.parametrize("lang", ["kotlin", "java"])
+def test_versions_intro_says_an_upgrade_is_not_a_fix(lang):
+    assert "team's decision, never a review fix" in intro(f"languages/{lang}/versions.md")
+
+
+@pytest.mark.parametrize(
+    "lang, expected",
+    [
+        ("kotlin", ["Idioms that matter in review", "Pitfalls", "Patterns the language absorbs", "Java interop"]),
+        ("java", ["Idioms that matter in review", "Pitfalls", "Patterns the language absorbs"]),
+    ],
+)
+def test_language_oo_headings(lang, expected):
+    assert headings(read(f"languages/{lang}/object-oriented.md")) == expected
+
+
+@pytest.mark.parametrize("lang", ["kotlin", "java"])
+@pytest.mark.parametrize("pattern", GOF)
+def test_language_covers_every_pattern(lang, pattern):
+    absorbed = section(read(f"languages/{lang}/object-oriented.md"), "Patterns the language absorbs")
+    assert re.search(rf"^\| \[?{re.escape(pattern)}\b", absorbed, re.M), pattern
+
+
+def test_kotlin_idioms_cite_the_book():
+    idioms = section(read("languages/kotlin/object-oriented.md"), "Idioms that matter in review")
+    assert len(re.findall(r"KiA §\d+(\.\d+)*", idioms)) >= 15
+
+
+def test_java_idioms_tag_versions():
+    assert len(re.findall(r"Java \d+", section(read("languages/java/object-oriented.md"), "Idioms that matter in review"))) >= 8
+
+
+@pytest.mark.parametrize("lang", ["kotlin", "java"])
+def test_language_readme_links_its_files(lang):
+    text = read(f"languages/{lang}/README.md")
+    assert "(versions.md)" in text and "(object-oriented.md)" in text
+
+
+@pytest.mark.parametrize("lang", ["Kotlin", "Java"])
+def test_matrix_marks_object_oriented_detailed(lang):
+    row = next((line for line in MAP.splitlines() if line.startswith((f"| 🌱 [{lang}]", f"| ✅ [{lang}]"))), None)
+    assert row, f"map.md has no {lang} row in the matrix"
+    assert [c.strip() for c in row.strip("|").split("|")][2] == "✅"

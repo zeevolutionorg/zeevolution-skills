@@ -24,11 +24,15 @@ What `strong-programmer` knows and how deep. Open a node only when the task need
 ## Languages
 
 - 🌱 [Language registry and version detection](languages/README.md)
+  - ✅ [Kotlin features by version](languages/kotlin/versions.md)
+  - ✅ [Kotlin for object-oriented code](languages/kotlin/object-oriented.md)
+  - ✅ [Java features by version](languages/java/versions.md)
+  - ✅ [Java for object-oriented code](languages/java/object-oriented.md)
 
 | Language | Procedural | Object-oriented | Parallel | Logic | Functional | Database |
 |---|---|---|---|---|---|---|
-| 🌱 [Kotlin](languages/kotlin/README.md) | 🌱 | 🌱 | 🌱 | — | 🌱 | — |
-| 🌱 [Java](languages/java/README.md) | 🌱 | 🌱 | 🌱 | — | 🌱 | — |
+| 🌱 [Kotlin](languages/kotlin/README.md) | 🌱 | ✅ | 🌱 | — | 🌱 | — |
+| 🌱 [Java](languages/java/README.md) | 🌱 | ✅ | 🌱 | — | 🌱 | — |
 
 ## Practices (any paradigm)
 

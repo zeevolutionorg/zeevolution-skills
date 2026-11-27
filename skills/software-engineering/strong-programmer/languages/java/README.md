@@ -11,6 +11,8 @@ Covered from Java 8 onward, standard language and JDK features only.
 | Functional | Lambdas, method references, `java.util.function`, streams, `Optional` (all since Java 8) |
 | Parallel | Threads, `java.util.concurrent`, `CompletableFuture` (Java 8), parallel streams, virtual threads (Java 21) |
 
+Details for object-oriented code: [idioms, pitfalls and patterns](object-oriented.md). What each version added: [Java features by version](versions.md).
+
 ## Detecting the version
 
 | Where | What to read |
