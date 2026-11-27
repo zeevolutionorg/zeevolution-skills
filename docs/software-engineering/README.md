@@ -68,8 +68,8 @@ It steps in on its own when you ask for a review or an implementation. You can a
 
 | Area | Status |
 |---|---|
-| Paradigms and the six approaches | 🌱 imperative and declarative overview, and how to recognize each approach; 🔜 each approach's fundamentals |
-| Object-oriented: principles, smells, pattern misuse, DDD building blocks | 🔜 |
+| Paradigms and the six approaches | 🌱 fundamentals of each approach; object-oriented ✅ |
+| Object-oriented: principles, smells, pattern misuse, DDD building blocks | ✅ |
 | Design patterns (the 23 GoF patterns) | 🔜 |
 | Kotlin and Java | 🌱 the approaches each supports, and version detection |
 | Pull requests, validating your work | ✅ |

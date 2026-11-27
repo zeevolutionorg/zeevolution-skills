@@ -15,12 +15,12 @@ Name the approach before judging the code: a loop is fine in procedural code and
 
 | If you see | It's mostly |
 |---|---|
-| Top-level functions over shared data structures, step-by-step mutation, `static` utility classes | Procedural |
-| Classes that bundle data with behavior, interfaces, polymorphic calls, injected collaborators | Object-oriented |
-| Threads, executors, coroutines, `async`/`await`, locks, atomics, parallel streams, channels | Parallel |
-| Facts and rules, unification, a rules engine or policy language (Prolog, Datalog, Drools, Rego) | Logic |
-| Pure functions, immutable values, `map`/`filter`/`fold`, functions passed as values, sealed results instead of exceptions | Functional |
-| SQL, query builders, ORM criteria, set operations instead of loops over rows | Database |
+| Top-level functions over shared data structures, step-by-step mutation, `static` utility classes | [Procedural](imperative/procedural.md) |
+| Classes that bundle data with behavior, interfaces, polymorphic calls, injected collaborators | [Object-oriented](imperative/object-oriented/README.md) |
+| Threads, executors, coroutines, `async`/`await`, locks, atomics, parallel streams, channels | [Parallel](imperative/parallel.md) |
+| Facts and rules, unification, a rules engine or policy language (Prolog, Datalog, Drools, Rego) | [Logic](declarative/logic.md) |
+| Pure functions, immutable values, `map`/`filter`/`fold`, functions passed as values, sealed results instead of exceptions | [Functional](declarative/functional.md) |
+| SQL, query builders, ORM criteria, set operations instead of loops over rows | [Database](declarative/database.md) |
 
 Real code mixes approaches — a Kotlin service can be object-oriented at the top, functional in its pipelines and database-driven in its repositories. Name the dominant approach per area, and judge each area by its own standards.
 

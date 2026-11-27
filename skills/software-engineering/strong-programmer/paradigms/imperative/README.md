@@ -20,8 +20,8 @@ The program is a list of commands. Variables hold state; each statement reads or
 
 | Approach | What it adds | Status |
 |---|---|---|
-| Procedural | Programs as procedures over shared data; top-down decomposition | 🔜 |
-| Object-oriented | Objects bundle state with behavior; encapsulation, polymorphism, composition | 🔜 |
-| Parallel | Several steps run at the same time, split across threads, cores or machines | 🔜 |
+| [Procedural](procedural.md) | Programs as procedures over shared data; top-down decomposition | 🌱 |
+| [Object-oriented](object-oriented/README.md) | Objects bundle state with behavior; encapsulation, polymorphism, composition | ✅ |
+| [Parallel](parallel.md) | Several steps run at the same time, split across threads, cores or machines | 🌱 |
 
 Back to [the paradigms](../README.md).
