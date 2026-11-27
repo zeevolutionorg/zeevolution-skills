@@ -8,20 +8,21 @@
 repos:
   # Python lint. --fix rewrites the staged file when the fix is safe.
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.6.9
+    rev: v0.17.6
     hooks:
-      - id: ruff
+      - id: ruff-check
         args: [--fix]
       # Python format. Fails the commit when a staged file is not in ruff's layout.
       - id: ruff-format
   # YAML style for sheet specs, strings, ladders, and workflows. Rules live in .yamllint.yml.
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.35.1
+    rev: v1.38.0
     hooks:
       - id: yamllint
         args: [-c, .yamllint.yml]
   # Markdown structure for files agents read. Generated template copies under assets/ are skipped.
   # Root matches README and AGENTS only; glossary, credits, changelog, and contributing live in docs/.
+  # Older than CI's markdownlint-cli2 0.23.2, which needs Node >= 22; `make markdown` runs CI's version.
   - repo: https://github.com/DavidAnson/markdownlint-cli2
     rev: v0.14.0
     hooks:

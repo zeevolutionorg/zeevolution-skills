@@ -34,13 +34,13 @@ Thanks for helping! These skills stay **small, composable and usable without AI*
 3. 🔄 Run `python3 scripts/sync_skill_assets.py` to refresh the bundled copies.
 4. 🧪 Add or update the test at the **mirrored path** under `tests/`.
 5. ✅ Run `make check`.
-6. 📬 Open the PR.
+6. 📬 Open the PR as a draft and fill the template: what changed, why, how you tested it, where to start reading. Mark it ready when CI is green.
 
 ## 🧪 Local checks
 
 ```bash
 make install   # dev dependencies + pre-commit hooks
-make check     # the same stages CI runs: lint, consistency, tests, e2e, sheets, leak check
+make check     # the same stages CI runs: lint (incl. markdownlint, Node ≥ 22), consistency, tests, e2e + dry run + build, sheets (with LibreOffice), leak check, secret scan (with Go)
 ```
 
 > [!TIP]
@@ -77,9 +77,10 @@ A category groups skills for one aspect of a technologist's work. Add one only w
 
 ## ✅ Pull request checklist
 
-The [PR template](../.github/pull_request_template.md) asks for:
+The [PR template](../.github/pull_request_template.md)'s checklist:
 
 - [ ] `make check` passes locally
+- [ ] Size: under 200 changed lines for a fix, 200–800 for a feature slice; anything over 1,500 is split
 - [ ] English and Portuguese templates changed together
 - [ ] New script → new test at the mirrored path
 - [ ] New skill → contract test + entry in `.claude-plugin/plugin.json`
