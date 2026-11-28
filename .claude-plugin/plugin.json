@@ -1,7 +1,7 @@
 {
   "name": "zeevolution-skills",
   "version": "0.1.0",
-  "description": "Skills for Technologists: small, composable agent skills for engineers, data scientists, designers and product managers. Categories: career management (/career-hub-toolkit) and software engineering (/create-adr, /service-handoff).",
+  "description": "Skills for Technologists: small, composable agent skills for engineers, data scientists, designers and product managers. Categories: career management (/career-hub-toolkit) and software engineering (/create-adr, /service-handoff, /strong-programmer).",
   "author": {
     "name": "Zeevolution",
     "url": "https://github.com/zeevolution"
@@ -13,7 +13,11 @@
     "adr",
     "career",
     "career-management",
+    "code-review",
+    "design-patterns",
     "handoff",
+    "java",
+    "kotlin",
     "one-on-one",
     "skills",
     "software-engineering",
@@ -27,6 +31,7 @@
     "./skills/career-management/career-hub-toolkit",
     "./skills/career-management/career-ladder",
     "./skills/software-engineering/create-adr",
-    "./skills/software-engineering/service-handoff"
+    "./skills/software-engineering/service-handoff",
+    "./skills/software-engineering/strong-programmer"
   ]
 }

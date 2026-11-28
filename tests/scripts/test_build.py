@@ -50,6 +50,7 @@ def test_one_skill_file_per_skill(dist):
             "doc-templates",
             "service-handoff",
             "setup-zeevolution-skills",
+            "strong-programmer",
         ]
     )
 
@@ -67,7 +68,7 @@ def test_skill_files_are_self_contained(dist):
 
 
 def test_all_skills_zip(dist):
-    assert len(zipfile.ZipFile(dist / "zeevolution-skills-all-skills.zip").namelist()) == 8
+    assert len(zipfile.ZipFile(dist / "zeevolution-skills-all-skills.zip").namelist()) == 9
 
 
 def test_file_names_come_from_bundle():

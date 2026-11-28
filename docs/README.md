@@ -40,12 +40,13 @@ Each category has its own skills, its own templates, and a way to use them witho
 
 ### 🛠️ Software engineering
 
-> ✅ **Available now** — recording technical decisions and handing services over.
+> ✅ **Available now** — recording technical decisions, handing services over, developing and reviewing code.
 
 | Doc | For |
 |---|---|
-| 📘 [Software engineering guide](software-engineering/README.md) | What `/create-adr` and `/service-handoff` do and ask |
+| 📘 [Software engineering guide](software-engineering/README.md) | What `/create-adr`, `/service-handoff` and `strong-programmer` do and ask |
 | 🧩 [Skills in this category](../skills/software-engineering/README.md) | The skills and their files |
+| 🗺️ [strong-programmer knowledge map](../skills/software-engineering/strong-programmer/map.md) | What the skill knows today, and how deep |
 | 🏛️ [ADR template](../skills/software-engineering/create-adr/template.md) · 🤝 [Handoff template](../skills/software-engineering/service-handoff/template.md) | Use them by hand |
 
 ### 🔭 Coming soon

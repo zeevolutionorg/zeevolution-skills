@@ -89,6 +89,12 @@ The shared language for skills, templates and docs. Use these words — don't in
 | **Supersede** | Replace an older ADR with a new one; the old one stays, marked "Superseded by". |
 | **Service handoff** | Transferring ownership of a service to another team (or a fresh agent session), with the context and checklists they need. |
 | **Incoming / outgoing owner** | The team receiving a service / the team handing it over. |
+| **Programming paradigm** | A way of structuring computation: imperative (say *how*, step by step) or declarative (say *what* you want). |
+| **Approach** | A style within a paradigm: procedural, object-oriented or parallel (imperative); logic, functional or database (declarative). |
+| **Knowledge map** | The tree `strong-programmer` reads: paradigms → approaches → topics, with languages across them and practices that apply anywhere. |
+| **Map status** | How deep a map node goes: ✅ detailed, 🌱 fundamentals only, 🔜 planned; — in the language matrix means not applicable. |
+| **Stacked PRs** | Pull requests built on top of each other and reviewed bottom-up. Keep the stack at most 3 or 4 deep, the upper ones in draft. |
+| **Draft PR** | A pull request opened while work continues, so CI runs early; reviewers aren't asked yet. |
 
 ## 🔧 Technical terms
 
