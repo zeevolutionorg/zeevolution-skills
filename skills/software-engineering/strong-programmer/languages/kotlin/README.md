@@ -9,6 +9,8 @@
 | Procedural | Top-level functions and properties, no class required |
 | Parallel | Coroutines, structured concurrency and `Flow` from the `kotlinx.coroutines` library, plus the JVM's threads and executors |
 
+Details for object-oriented code: [idioms, pitfalls and patterns](object-oriented.md). What each version added: [Kotlin features by version](versions.md).
+
 ## Detecting the version
 
 | Where | What to read |

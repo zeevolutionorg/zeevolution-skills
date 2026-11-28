@@ -71,7 +71,7 @@ It steps in on its own when you ask for a review or an implementation. You can a
 | Paradigms and the six approaches | 🌱 fundamentals of each approach; object-oriented ✅ |
 | Object-oriented: principles, smells, pattern misuse, DDD building blocks | ✅ |
 | Design patterns (the 23 GoF patterns) | 🔜 |
-| Kotlin and Java | 🌱 the approaches each supports, and version detection |
+| Kotlin and Java | ✅ features by version (Java 8–25, Kotlin up to 2.4), to target suggestions at the project's version; object-oriented idioms and pitfalls; how each language absorbs or simplifies the GoF patterns, and which stay class-level designs; 🌱 version detection and the procedural, functional and parallel approaches |
 | Pull requests, validating your work | ✅ |
 | Tidy First | 🔜 short rule in the router |
 | Layers and hexagonal architecture | 🔜 short rule in the router |
