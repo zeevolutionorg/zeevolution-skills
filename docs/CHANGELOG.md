@@ -7,12 +7,17 @@ Each release lists, **per document**, what changed — so people using the templ
 
 ## 📑 Contents
 
+- [🔜 Unreleased](#-unreleased)
 - [🏷️ 0.1.0 — 2026-11-23](#️-010--2026-11-23)
   - [✨ Added — skills](#-added--skills)
   - [🔌 Added — delivery and quality](#-added--delivery-and-quality)
   - [📄 Added — documents (career-management)](#-added--documents-career-management)
 
 ---
+
+## 🔜 Unreleased
+
+- **Changed — tooling:** `make check` now runs every CI stage. Newly added: markdownlint (Node ≥ 22), the dry-run report, the release build, the leak check on `dist/` and the secret scan. actionlint, the LibreOffice tests and the secret scan (needs Go) are skipped when their tool is missing. `tests/test_makefile.py` keeps it in step with CI. The pull request template asks what changed, why, how it was tested and where to start reading.
 
 ## 🏷️ 0.1.0 — 2026-11-23
 

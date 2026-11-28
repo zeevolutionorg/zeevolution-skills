@@ -29,6 +29,7 @@ Like `src/main` ↔ `src/test` in a Java service, `tests/` mirrors the files it 
 | `scripts/dry_run.py` | `tests/scripts/test_dry_run.py` |
 | `scripts/sync_skill_assets.py` | `tests/scripts/test_sync_skill_assets.py` |
 | `scripts/validate_skills.py` | `tests/scripts/test_validate_skills.py` |
+| `Makefile` | `tests/test_makefile.py` (keeps `make check` in step with `.github/workflows/ci.yml`) |
 | `skills/foundations/cloud-workspace/scripts/render_doc.py` | `tests/skills/foundations/cloud-workspace/scripts/test_render_doc.py` |
 | `skills/foundations/cloud-workspace/scripts/build_sheet.py` | `tests/skills/foundations/cloud-workspace/scripts/test_build_sheet.py` |
 | `skills/foundations/cloud-workspace/scripts/make_bundle.py` | `tests/skills/foundations/cloud-workspace/scripts/test_make_bundle.py` |
@@ -59,7 +60,7 @@ make install            # dev dependencies + pre-commit hooks
 make test               # unit + contract, with coverage (gate: 80%)
 make e2e                # end-to-end
 make sheets             # spreadsheet formulas (needs LibreOffice)
-make check              # everything CI runs, in order
+make check              # everything CI runs, in order (markdownlint needs Node ≥ 22; actionlint, the LibreOffice tests and the Go secret scan are skipped when their tool is missing)
 ```
 
 ## 🚦 The CI/CD sequence
