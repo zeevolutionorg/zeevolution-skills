@@ -19,6 +19,12 @@ These skills share my own experience leading and growing technologists. They als
 | *The Manager's Path* | Camille Fournier (O'Reilly) | 1:1s and the leader's role in growth |
 | *An Elegant Puzzle: Systems of Engineering Management* | Will Larson (lethain.com) | Systems thinking for teams and careers |
 | *Kotlin in Action*, 1st edition | Dmitry Jemerov, Svetlana Isakova (Manning) | Kotlin idioms in strong-programmer |
+| *Design Patterns: Elements of Reusable Object-Oriented Software* | Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides (Addison-Wesley) | strong-programmer's OO principles and causes of redesign |
+| *Agile Software Development: Principles, Patterns, and Practices* | Robert C. Martin (Prentice Hall) | SOLID in strong-programmer |
+| *Refactoring* (2nd edition) | Martin Fowler (Addison-Wesley) | Code smells in strong-programmer |
+| *Domain-Driven Design* | Eric Evans (Addison-Wesley) | DDD building blocks in strong-programmer |
+| *Implementing Domain-Driven Design* | Vaughn Vernon (Addison-Wesley) | Aggregate rules in strong-programmer |
+| *Java Concurrency in Practice* | Brian Goetz et al. (Addison-Wesley) | Parallel-approach fundamentals in strong-programmer |
 
 ## 🧠 Ideas and frameworks
 

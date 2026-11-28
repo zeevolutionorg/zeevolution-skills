@@ -20,8 +20,8 @@ The program describes the result — an expression, a relation, a query, a set o
 
 | Approach | What it adds | Status |
 |---|---|---|
-| Logic | Facts and rules; the engine searches for answers | 🔜 |
-| Functional | Pure functions and immutable values; functions as values | 🔜 |
-| Database | Set-based queries over data; the planner chooses how to run them | 🔜 |
+| [Logic](logic.md) | Facts and rules; the engine searches for answers | 🌱 |
+| [Functional](functional.md) | Pure functions and immutable values; functions as values | 🌱 |
+| [Database](database.md) | Set-based queries over data; the planner chooses how to run them | 🌱 |
 
 Back to [the paradigms](../README.md).

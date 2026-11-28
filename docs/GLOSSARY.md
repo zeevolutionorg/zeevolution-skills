@@ -95,6 +95,10 @@ The shared language for skills, templates and docs. Use these words — don't in
 | **Map status** | How deep a map node goes: ✅ detailed, 🌱 fundamentals only, 🔜 planned; — in the language matrix means not applicable. |
 | **Stacked PRs** | Pull requests built on top of each other and reviewed bottom-up. Keep the stack at most 3 or 4 deep, the upper ones in draft. |
 | **Draft PR** | A pull request opened while work continues, so CI runs early; reviewers aren't asked yet. |
+| **Design pattern** | A named, proven solution to a recurring design problem, with its trade-offs — e.g. the 23 patterns of the "Gang of Four" book. |
+| **Pattern misuse** | Applying a design pattern to a problem it doesn't solve, where the language already covers it, or where nothing varies yet. |
+| **Code smell** | A surface sign that code may be hard to change — a hint to investigate, not a verdict. |
+| **SOLID** | Five object-oriented design principles: single responsibility, open/closed, Liskov substitution, interface segregation, dependency inversion. |
 
 ## 🔧 Technical terms
 

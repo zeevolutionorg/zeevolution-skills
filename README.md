@@ -189,7 +189,7 @@ Every proposed change is checked automatically before it's accepted. This is cal
 |---|---|
 | 📝 The text and code follow the same style | Documents and skills stay consistent and readable |
 | 🌎 English and Portuguese versions have the same sections | No language gets left behind |
-| 🧪 About 520 automated tests pass — from single functions to building 32 complete career hubs | The toolkit keeps working after every change |
+| 🧪 About 620 automated tests pass — from single functions to building 32 complete career hubs | The toolkit keeps working after every change |
 | 📊 The spreadsheet's formulas still calculate the right results | Scores, gaps and readiness are correct |
 | 🕵️ Personal emails, private links, document metadata, and committed secrets stay out | Safe to share |
 

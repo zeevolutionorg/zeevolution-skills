@@ -8,18 +8,18 @@ What `strong-programmer` knows and how deep. Open a node only when the task need
 
 - 🌱 [Programming paradigms](paradigms/README.md) — imperative vs declarative, and how to tell which approach code is written in
   - 🌱 [Imperative](paradigms/imperative/README.md) — say *how*, step by step, changing state
-    - 🔜 Procedural
-    - 🔜 Object-oriented
-      - 🔜 Principles: GoF principles, SOLID
-      - 🔜 Code smells
-      - 🔜 Pattern misuse
-      - 🔜 Domain-driven design building blocks
+    - 🌱 [Procedural](paradigms/imperative/procedural.md) — procedures over shared data
+    - ✅ [Object-oriented](paradigms/imperative/object-oriented/README.md) — objects bundle state with behavior
+      - ✅ [Principles: GoF principles, SOLID](paradigms/imperative/object-oriented/principles.md)
+      - ✅ [Code smells and anti-patterns](paradigms/imperative/object-oriented/code-smells.md)
+      - ✅ [Pattern misuse](paradigms/imperative/object-oriented/pattern-misuse.md) — the right pattern for the wrong problem
+      - ✅ [Domain-driven design building blocks](paradigms/imperative/object-oriented/domain-driven-design.md)
       - 🔜 Design patterns: creational, structural, behavioral
-    - 🔜 Parallel
+    - 🌱 [Parallel](paradigms/imperative/parallel.md) — several steps at the same time
   - 🌱 [Declarative](paradigms/declarative/README.md) — say *what* you want; the runtime decides how
-    - 🔜 Logic
-    - 🔜 Functional
-    - 🔜 Database
+    - 🌱 [Logic](paradigms/declarative/logic.md) — facts and rules
+    - 🌱 [Functional](paradigms/declarative/functional.md) — pure functions over immutable values
+    - 🌱 [Database](paradigms/declarative/database.md) — set-based queries
 
 ## Languages
 
